@@ -1,0 +1,24 @@
+# List of source files containing translatable strings.
+# Copyright (C) 2003-2004 Michael Terry
+
+[encoding: UTF-8]
+data/xpad.appdata.xml.in
+
+# Package source files
+src/fio.c
+src/help.c
+src/prefix.c
+src/xpad-app.c
+src/xpad-grip-tool-item.c
+src/xpad-pad.c
+src/xpad-pad-group.c
+src/xpad-pad-properties.c
+src/xpad-preferences.c
+src/xpad-session-manager.c
+src/xpad-settings.c
+src/xpad-text-buffer.c
+src/xpad-text-view.c
+src/xpad-toolbar.c
+src/xpad-tray.c
+src/xpad-undo.c
+xpad.desktop.in

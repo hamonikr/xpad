@@ -1,0 +1,3 @@
+version=3
+opts="uversionmangle=s/(\d)[\-_]?(rc\d+|pre-rc\d+|pre\d+a?)$/$1~$2/;s/[\-\.](source|src|orig|unix)$//;s/-(bin|osx)$/~$1/;s/^v(\d)/$1/;,pgpsigurlmangle=s/$/.asc/" \
+https://launchpad.net/xpad/+download .*xpad-(v?[\d\.]+(?:rc|rc\d+|pre-rc\d+|-unix|-source|-src|\.src|\.orig|[a-z]|b\d+|beta\d+-src|beta\d+)?)\.t.*

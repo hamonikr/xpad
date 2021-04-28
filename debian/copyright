@@ -1,0 +1,182 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: Xpad
+Upstream-Contact: xpad-team@lists.launchpad.net
+Source: https://launchpad.net/xpad
+
+Files: *
+Copyright:
+ 2001-2007 Michael Terry
+ 2013-2018 Arthur Borsboom
+License: GPL-3+
+
+Files: src/xpad-pad.c
+Copyright:
+ 2001-2007 Michael Terry
+ 2009 Paul Ivanov
+ 2011 Sergei Riaguzov
+ 2011 Dennis Hilmar
+ 2011 OBATA Akio
+ 2013-2015 Arthur Borsboom
+License: GPL-3+
+
+Files:
+ src/xpad-text-buffer.c
+ src/xpad-text-buffer.h
+Copyright:
+ 2001-2007 Michael Terry
+ 2011 Sergei Riaguzov
+ 2013-2014 Arthur Borsboom
+License: GPL-3+
+
+Files:
+ src/xpad-undo.c
+ src/xpad-undo.h
+Copyright:
+ 2001-2007 Michael Terry
+ 2010 Sergei Riaguzov
+ 2013-2014 Arthur Borsboom
+License: GPL-3+
+
+Files:
+ src/xpad-app.c
+ src/xpad-pad-group.c
+Copyright:
+ 2001-2007 Michael Terry
+ 2009 Paul Ivanov
+ 2013-2014 Arthur Borsboom
+License: GPL-3+
+
+Files:
+ src/xpad-tray.h
+ src/xpad-tray.c
+Copyright:
+ 2002 Jamis Buck
+ 2003-2007 Michael Terry
+ 2013-2014 Arthur Borsboom
+License: GPL-3+
+
+Files: src/fio.c
+Copyright:
+ 2001-2007 Michael Terry
+ 2011 David Hull
+ 2013-2014 Arthur Borsboom
+License: GPL-3+
+
+Files: src/xpad-pad.h
+Copyright:
+ 2001-2007 Michael Terry
+ 2009 Paul Ivanov
+ 2011 Sergei Riaguzov
+ 2013-2014 Arthur Borsboom
+License: GPL-3+
+
+Files: debian/*
+Copyright:
+ 2002-2006, Søren Boll Overgaard <boll@debian.org>
+ 2007-2009, Bart Martens <bartm@knars.be>
+ 2016-2018, JCF Ploemen (jcfp) <linux@jcf.pm>
+License: GPL-3+
+
+Files:
+ po/es.po
+ po/ro.po
+ po/ga.po
+Copyright: 2003 Free Software Foundation, Inc.
+License: GPL-3+
+
+Files:
+ po/fr.po
+ po/af.po
+Copyright: 2004 Free Software Foundation, Inc.
+License: GPL-3+
+
+Files:
+ po/sl.po
+ po/hu.po
+ po/da.po
+ po/zh_TW.po
+ po/sv.po
+ po/zh_CN.po
+ po/rw.po
+Copyright: 2005 Free Software Foundation, Inc.
+License: GPL-3+
+
+Files: po/bg.po
+Copyright: 2005, 2006 Free Software Foundation, Inc.
+License: GPL-3+
+
+Files: po/vi.po
+Copyright: 2006 Free Software Foundation, Inc.
+License: GPL-3+
+
+Files: po/nl.po
+Copyright: 2004, 2007 Free Software Foundation, Inc.
+License: GPL-3+
+
+Files: po/fi.po
+Copyright: 2007 Free Software Foundation, Inc.
+License: GPL-3+
+
+Files:
+ po/ja.po
+ po/lv.po
+Copyright: 2008 Rosetta Contributors and Canonical Ltd
+License: GPL-3+
+
+Files:
+ po/de.po
+ po/th.po
+ po/tr.po
+Copyright: 2009 Rosetta Contributors and Canonical Ltd
+License: GPL-3+
+
+Files:
+ po/lt.po
+ po/he.po
+ po/id.po
+ po/pt_BR.po
+ po/en_AU.po
+ po/si.po
+ po/hr.po
+ po/pt.po
+ po/cs.po
+ po/et.po
+ po/gl.po
+ po/ar.po
+ po/pl.po
+ po/eu.po
+ po/uk.po
+Copyright: 2013 Rosetta Contributors and Canonical Ltd
+License: GPL-3+
+
+Files: po/sr.po
+Copyright: 2015 Rosetta Contributors and Canonical Ltd
+License: GPL-3+
+
+Files:
+ po/ca.po
+ po/be.po
+Copyright: 2016 Rosetta Contributors and Canonical Ltd
+License: GPL-3+
+
+Files: po/ms.po
+Copyright: 2005 Sharuzzaman Ahmat Raslan
+License: GPL-3+
+
+License: GPL-3+
+ This package is free software; you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation; either version 3 of the License, or
+ (at your option) any later version.
+ .
+ This package is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+ .
+ You should have received a copy of the GNU General Public License
+ along with this package; if not, write to the Free Software
+ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301 USA
+ .
+ On Debian systems the full text of the GNU General Public
+ License can be found in the `/usr/share/common-licenses/GPL-3' file.

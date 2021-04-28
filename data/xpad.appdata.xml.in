@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>net.launchpad.xpad</id>
+  <launchable type="desktop-id">xpad.desktop</launchable>
+  <name>Xpad</name>
+  <_summary>Sticky notes</_summary>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-3.0</project_license>
+  <description>
+    <_p>Xpad is a sticky note application that strives to be simple, fault-tolerant, and customizable. Xpad consists of independent pad windows; each is basically a text box in which notes can be written.</_p>
+  </description>
+  <screenshots>
+    <screenshot type="default">
+      <caption>Xpad logo</caption>
+      <image>https://wiki.gnome.org/Apps/Xpad?action=AttachFile&amp;do=get&amp;target=xpad.png</image>
+    </screenshot>
+    <screenshot>
+      <caption>Xpad - a sticky note</caption>
+      <image>https://wiki.gnome.org/Apps/Xpad?action=AttachFile&amp;do=get&amp;target=xpad-window.png</image>
+    </screenshot>
+  </screenshots>
+  <url type="bugtracker">https://bugs.launchpad.net/xpad</url>
+  <url type="homepage">https://launchpad.net/xpad</url>
+  <update_contact>xpad-hackers@lists.launchpad.net</update_contact>
+  <translation type="gettext">xpad</translation>
+</component>

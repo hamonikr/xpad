@@ -1,0 +1,546 @@
+xpad (5.4.0-1-hamonikr1) jin; urgency=medium
+
+  * Release for HamoniKR user
+   - Add Korean Help to doc/xpad-user-help.txt
+   - Update data/xpad.desktop.in
+   - Add images/hicolor/256x256/apps/xpad.png
+   - Update po/ko.po
+
+ -- HamoniKR <pkg@hamonikr.org>  Wed, 28 Apr 2021 17:05:35 +0900
+
+xpad (5.4.0-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Rules: add empty override for dh_auto_test. There are no tests, but
+    dh_auto_test will run make check anyway which fails because of a
+    renamed file.
+  * Control: use debhelper-compat instead of debian/compat.
+  * Bump compat level to 12 (from 11; no further changes).
+  * Bump Standards-Version to 4.4.0 (from 4.3.0; no further changes).
+
+ -- JCF Ploemen (jcfp) <linux@jcf.pm>  Tue, 06 Aug 2019 13:59:26 +0000
+
+xpad (5.3.0-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Bump Standards-Version to 4.3.0 (from 4.2.1; no further changes).
+
+ -- JCF Ploemen (jcfp) <linux@jcf.pm>  Sat, 29 Dec 2018 10:40:25 +0000
+
+xpad (5.2.0-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Watch: re-add upstream signing key A6F2322B to the collection.
+  * Rules: remove override of dh_autoreconf, missing makefile is back.
+  * d/clean: remove, no longer needed.
+
+ -- JCF Ploemen (jcfp) <linux@jcf.pm>  Mon, 10 Dec 2018 17:37:42 +0000
+
+xpad (5.1.0-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Bump Standards-Version to 4.2.1 (from 4.1.0; no further changes).
+  * Compat: bump to 11 (from 10) and set debhelper version accordingly.
+  * Copyright:
+    + bump years for upstream and packaging.
+    + use https for copyright format URI.
+  * Rules: remove '--with autoreconf' from dh sequencer, obsolete.
+  * Remove trailing whitespaces from d/{changelog,control}.
+  * Control:
+    + add build-dep on libgl1-mesa-dev (for pkgconfig/gl.pc).
+    + add explicit build-dep on libglib2.0-dev (to enforce a required
+      minimum version, see upstream rev. 961).
+    + bump version for gtk-related build-deps to 3.22 (from 3.10).
+  * Watch: add extra gpg key (0C4280A0) to d/upstream/signing-key.asc,
+    used by upstream alongside existing key (951FC552).
+
+ -- JCF Ploemen (jcfp) <linux@jcf.pm>  Tue, 23 Oct 2018 15:46:47 +0000
+
+xpad (5.0.0-1) unstable; urgency=medium
+
+  * New upstream release. (Closes: #872686)
+    + fixes invisible selection with custom colors. (Closes: #849792)
+    + fixes replacement of brackets in pad text. (Closes: #849828)
+  * Bump Standards-Version to 4.1.0.0 (from 3.9.8; no further changes).
+  * Compat: bump to 10 (from 9) and set debhelper version accordingly.
+  * Control: remove build-dep on dh-autoreconf, redundant with dh 10.
+  * Watch: update upstream gpg key (old: A6F2322B; new: 951FC552).
+  * Patches: remove all, merged upstream.
+  * Rules: add workaround for missing po/Makefile.in.in.
+  * Add d/clean to cleanup po/Makefile.in.in created by intltoolize in
+    d/rules.
+
+ -- JCF Ploemen (jcfp) <linux@jcf.pm>  Tue, 22 Aug 2017 14:58:44 +0000
+
+xpad (4.8.0-1) unstable; urgency=medium
+
+  * New upstream release: (Closes: #805723) (LP: #1525656)
+    + fixes markup issue in russian translation. (Closes: #797630)
+    + fixes moving xpad window rendering the application unresponsive.
+      (Closes: #614337)
+    + includes a configurable wait for the systray. (Closes: #555934)
+  * New maintainer. (Closes: #826924)
+  * Patches:
+    + remove missing.diff, no longer needed.
+    + add 01_fix_typos, 02_add_keywords_to_desktop_file, and
+      03_preserve_po-Makefile-in-in.diff.
+  * Remove Debian menu support as per the tech-ctte decision on #741573.
+  * Control:
+    + add build-depends on libgtk-3-dev, libgtksourceview-3.0-dev,
+      dh-autoreconf.
+    + remove build-depends on libgtk2.0-dev, libmagickcore-extra,
+      autotools-dev, imagemagick.
+    + add VCS links.
+    + change upstream homepage to their launchpad site.
+    + sorted/reordered build depedencies.
+  * Bump compat and debhelper build dependency version to 9.
+  * Docs:
+    + don't install AUTHORS, THANKS, TODO (not relevant for end users)
+      or NEWS (superseded by ChangeLog).
+    + add a link to xpad-user-help.txt from /usr/share/doc/xpad/ in
+      favor of installing the file itself in that dir (in accordance
+      with policy, section 12.3). Doing so also prevents the file from
+      being gzipped, which would make it unusable for loading from
+      within the application, and avoids patching the upstream buildsys.
+  * Rules:
+    + simplify to just dh sequencer with autoreconf.
+    + enable all hardening.
+  * Copyright:
+    + convert to machine-readable format.
+    + update all upstream info.
+    + add myself as a copyright holder for the packaging.
+  * Bump Standards-Version to 3.9.8 (from 3.9.3; no further changes).
+  * Watch: enable cryptographic verification of upstream releases.
+
+ -- JCF Ploemen (jcfp) <linux@jcf.pm>  Fri, 10 Jun 2016 15:52:43 +0000
+
+xpad (4.1-1) unstable; urgency=low
+
+  * New upstream release.
+  * debian/patches/576770.diff: Removed.
+
+ -- Bart Martens <bartm@debian.org>  Sun, 29 Apr 2012 17:19:10 +0000
+
+xpad (4.0-5) unstable; urgency=low
+
+  * Corrected debian/changelog for version 4.0-4.  Closes: #576770.
+
+ -- Bart Martens <bartm@debian.org>  Sun, 18 Apr 2010 14:34:21 +0200
+
+xpad (4.0-4) unstable; urgency=low
+
+  * Source format 3.0 (quilt).
+  * debhelper 7.
+  * no longer using cdbs.
+  * debian/patches/missing.diff: Added.
+  * debian/patches/576770.diff: Added.  Closes: #576770.
+
+ -- Bart Martens <bartm@debian.org>  Sun, 11 Apr 2010 17:18:15 +0200
+
+xpad (4.0-3) unstable; urgency=low
+
+  * Build-Depends: libmagickcore-extra.  Fixes FTBFS.  Closes: #573975.
+
+ -- Bart Martens <bartm@debian.org>  Thu, 18 Mar 2010 18:01:31 +0100
+
+xpad (4.0-2) unstable; urgency=low
+
+  * Build-Depends: libmagickcore2-extra.  Fixes FTBFS.  Closes: #560668.
+
+ -- Bart Martens <bartm@debian.org>  Sat, 12 Dec 2009 14:04:17 +0100
+
+xpad (4.0-1) unstable; urgency=low
+
+  * New upstream release.
+  * debian/copyright: Updated for new upstream release.
+
+ -- Bart Martens <bartm@debian.org>  Fri, 22 May 2009 11:11:01 +0200
+
+xpad (3.1-1) unstable; urgency=low
+
+  * New upstream release.
+  * debian/copyright: Updated for new upstream release.
+  * debian/control: Fixed debhelper-but-no-misc-depends.
+  * debian/control: Build-Depends: intltool >= 0.31
+
+ -- Bart Martens <bartm@debian.org>  Mon, 09 Feb 2009 14:48:46 +0100
+
+xpad (3.0-1) unstable; urgency=low
+
+  * New upstream release.
+  * debian/control, debian/watch: New upstream homepage.
+  * debian/control: Updated.
+
+ -- Bart Martens <bartm@debian.org>  Sun, 21 Sep 2008 09:13:59 +0200
+
+xpad (2.14-1) unstable; urgency=low
+
+  * New upstream release, fixes 100% CPU bug.  Closes: #455839.
+  * debian/control: Homepage and Standards-Version.
+  * debian/copyright: Set fileencoding=utf-8.
+
+ -- Bart Martens <bartm@debian.org>  Fri, 14 Dec 2007 13:43:58 +0100
+
+xpad (2.13-1) unstable; urgency=low
+
+  * New upstream release.
+  * debian/patches/01_workspaces.diff: Removed.
+  * debian/menu: Updated.
+
+ -- Bart Martens <bartm@debian.org>  Mon, 10 Dec 2007 22:52:37 +0100
+
+xpad (2.12-3) unstable; urgency=low
+
+  * debian/patches/01_workspaces.diff: Added.  This patch fixes the initial
+    value of the checkbox named "Show on All Workspaces".
+
+ -- Bart Martens <bartm@knars.be>  Sat, 14 Jul 2007 17:05:53 +0200
+
+xpad (2.12-2) unstable; urgency=low
+
+  * New maintainer.  Closes: #417830.
+  * debian/*: Switch to cdbs.
+  * debian/changelog.new: Removed.
+  * debian/control: Updated Build-Depends.  Removed intltool, dpatch, x-dev,
+    libsm-dev, libice-dev, automake1.8.  Added autotools-dev, imagemagick.
+  * debian/compat, debian/control: Use debhelper 5.
+  * debian/copyright: Updated.
+  * debian/desktop/xpad.desktop: Removed.
+  * debian/desktop/xpad.menu: Removed.
+  * debian/xpad.menu: Updated and renamed to debian/menu.
+  * debian/patches/*: Removed.
+  * debian/prerm: Removed.
+  * debian/rules: Use imagemagick to convert the icon from .png to .xpm.
+  * debian/watch: Updated.
+  * debian/xpad-debian.xpm: Removed.
+  * intl/Makefile, m4/Makefile, scripts/intltool-extract,
+    scripts/intltool-merge, scripts/intltool-update: Removed from .diff.gz.
+  * src/Makefile.am, src/Makefile.in: Removed the changes from .diff.gz.
+
+ -- Bart Martens <bartm@knars.be>  Fri,  6 Apr 2007 10:44:41 +0200
+
+xpad (2.12-1) unstable; urgency=low
+
+  * New upstream release (Closes: Bug#390260)
+
+ -- Søren Boll Overgaard <boll@debian.org>  Fri,  6 Oct 2006 10:09:37 +0200
+
+xpad (2.11-2) unstable; urgency=low
+
+  * Fix path to icon in xpad.desktop (Closes: Bug#370637)
+  * Bump standards version to 3.7.2
+
+ -- Søren Boll Overgaard <boll@debian.org>  Sun, 13 Aug 2006 18:33:11 +0000
+
+xpad (2.11-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Søren Boll Overgaard <boll@debian.org>  Thu,  2 Feb 2006 09:56:14 +0000
+
+xpad (2.10-4) unstable; urgency=low
+
+  * Fix linker breakage by linking with -lSM and -lICE
+
+ -- Søren Boll Overgaard <boll@debian.org>  Fri, 20 Jan 2006 10:56:12 +0000
+
+xpad (2.10-2) unstable; urgency=low
+
+  * Change xlib-dev build-deps (Closes: Bug#346958)
+
+ -- Søren Boll Overgaard <boll@debian.org>  Sat, 14 Jan 2006 21:37:31 +0000
+
+xpad (2.10-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Søren Boll Overgaard <boll@debian.org>  Sat, 22 Oct 2005 21:16:50 +0200
+
+xpad (2.9-2) unstable; urgency=low
+
+  * Fix broken entries in changelog
+  * Bump standards version, no changes
+  * Fix clean target to clean po/
+
+ -- Søren Boll Overgaard <boll@debian.org>  Sun, 28 Aug 2005 10:30:11 +0200
+
+xpad (2.9-1) unstable; urgency=low
+
+  * New upstream release
+  * Change path to icon image in xpad.desktop (Closes: Bug#315020)
+
+ -- Søren Boll Overgaard <boll@debian.org>  Sat, 27 Aug 2005 23:39:12 +0200
+
+xpad (2.8-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Søren Boll Overgaard <boll@debian.org>  Sat, 11 Jun 2005 21:22:52 +0200
+
+xpad (2.7-1) experimental; urgency=low
+
+  * New upstream release
+
+ -- Søren Boll Overgaard <boll@debian.org>  Sat,  4 Jun 2005 09:11:45 +0200
+
+xpad (2.6-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Søren Boll Overgaard <boll@debian.org>  Mon, 14 Mar 2005 10:23:33 +0100
+
+xpad (2.5-1) unstable; urgency=low
+
+  * New upstream release (Closes: Bug#298062)
+
+ -- Søren Boll Overgaard <boll@debian.org>  Fri,  4 Mar 2005 14:23:17 +0100
+
+xpad (2.4-1) unstable; urgency=low
+
+  * New upstream release (Closes: Bug#294264)
+
+ -- Søren Boll Overgaard <boll@debian.org>  Wed,  9 Feb 2005 07:13:28 +0000
+
+xpad (2.3-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Søren Boll Overgaard <boll@debian.org>  Sun,  6 Feb 2005 21:31:37 +0000
+
+xpad (2.2-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Søren Boll Overgaard <boll@debian.org>  Sun,  6 Feb 2005 13:37:49 +0000
+
+xpad (2.1-2) unstable; urgency=low
+
+  * Change description slightly, to include the word postit
+    (Closes: Bug#291024)
+
+ -- Søren Boll Overgaard <boll@debian.org>  Sat, 22 Jan 2005 10:39:06 +0000
+
+xpad (2.1-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Søren Boll Overgaard <boll@debian.org>  Mon, 20 Dec 2004 10:38:16 +0000
+
+xpad (2.0-rel-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Søren Boll Overgaard <boll@debian.org>  Sat, 30 Oct 2004 10:16:38 +0000
+
+xpad (2.0-b3-1) unstable; urgency=low
+
+  * New upstream release (Upstream has fixed #273455, so closed: Bug#273455)
+
+ -- Søren Boll Overgaard <boll@debian.org>  Wed, 29 Sep 2004 16:31:51 +0000
+
+xpad (2.0-b2-1) unstable; urgency=low
+
+  * New upstream release (closes: Bug#270411, Bug#237545)
+  * Disable 01_fix_path_to_ui_files.dpatch, it was fixed upstream.
+
+ -- Søren Boll Overgaard <boll@debian.org>  Sun, 12 Sep 2004 05:21:13 +0000
+
+xpad (2.0-b1-4) unstable; urgency=low
+
+  * Look for menu definitions in /usr/share/xpad
+
+ -- Søren Boll Overgaard <boll@debian.org>  Mon,  6 Sep 2004 06:30:19 +0000
+
+xpad (2.0-b1-3) unstable; urgency=low
+
+  * Introduce debian/watch
+
+ -- Søren Boll Overgaard <boll@debian.org>  Tue, 31 Aug 2004 13:40:33 +0000
+
+xpad (2.0-b1-2) unstable; urgency=low
+
+  * Fix standards version.
+  * Upstream has fixed quite a few bugs, so:
+    closes: Bug#220994, Bug#247583
+  * Fix missing dependency on intltool
+
+ -- Søren Boll Overgaard <boll@debian.org>  Tue, 31 Aug 2004 13:08:34 +0000
+
+xpad (2.0-b1-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Søren Boll Overgaard <boll@debian.org>  Tue, 31 Aug 2004 12:35:06 +0000
+
+xpad (1.13.1-1) unstable; urgency=low
+
+  * New upstream release (closes: Bug#250039)
+
+ -- Søren Boll Overgaard <boll@debian.org>  Sun, 23 May 2004 15:00:42 +0000
+
+xpad (1.13-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Søren Boll Overgaard <boll@debian.org>  Tue, 21 Oct 2003 07:44:38 +0000
+
+xpad (1.12-2) unstable; urgency=low
+
+  * Depend on available versions of stuff (closes: Bug#214954).
+
+ -- Søren Boll Overgaard <boll@debian.org>  Thu,  9 Oct 2003 17:52:47 +0000
+
+xpad (1.12-1) unstable; urgency=low
+
+  * New upstream release (closes: Bug#213148).
+
+ -- Søren Boll Overgaard <boll@debian.org>  Thu,  2 Oct 2003 14:29:43 +0000
+
+xpad (1.11-1) unstable; urgency=low
+
+  * New upstream release (closes: Bug#199919)
+
+ -- Søren Boll Overgaard <boll@debian.org>  Wed,  6 Aug 2003 09:44:35 +0000
+
+xpad (1.10-2) unstable; urgency=low
+
+  * Improve clean target, to remove useless cruft from /tmp/
+    (closes: Bug#194135).
+
+ -- Søren Boll Overgaard <boll@debian.org>  Wed,  4 Jun 2003 14:50:03 +0000
+
+xpad (1.10-1) unstable; urgency=low
+
+  * New upstream release (closes: Bug#185323, closes: Bug#185434)
+
+ -- Søren Boll Overgaard <boll@debian.org>  Thu, 27 Mar 2003 15:27:47 +0000
+
+xpad (1.9.1-2) unstable; urgency=low
+
+  * Fix man page placement (Closes: Bug#183443)
+
+ -- Søren Boll Overgaard <boll@debian.org>  Wed,  5 Mar 2003 14:55:58 +0000
+
+xpad (1.9.1-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Søren Boll Overgaard <boll@debian.org>  Wed, 12 Feb 2003 21:09:11 +0000
+
+xpad (1.9-1) unstable; urgency=low
+
+  * New upstream version
+
+ -- Søren Boll Overgaard <boll@debian.org>  Tue, 11 Feb 2003 16:40:50 +0000
+
+xpad (1.8-1) unstable; urgency=low
+
+  * New upstream version
+
+ -- Søren Boll Overgaard <boll@debian.org>  Tue, 21 Jan 2003 09:25:25 +0000
+
+xpad (1.7-3) unstable; urgency=low
+
+  * Fix icon.
+
+ -- Søren Boll Overgaard <boll@debian.org>  Wed, 11 Dec 2002 08:45:15 +0000
+
+xpad (1.7-2) unstable; urgency=low
+
+  * Fix build-failure on hppa.
+
+ -- Søren Boll Overgaard <boll@debian.org>  Wed, 27 Nov 2002 20:39:20 +0000
+
+xpad (1.7-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Søren Boll Overgaard <boll@debian.org>  Tue, 26 Nov 2002 12:34:53 +0000
+
+xpad (1.6.1-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Søren Boll Overgaard <boll@debian.org>  Thu, 24 Oct 2002 08:41:39 +0200
+
+xpad (1.6-1) unstable; urgency=low
+
+  * New upstream release.
+  * Use upstream man page.
+  * Don't make /usr/doc link.
+  * Standards version 3.5.7.
+
+ -- Søren Boll Overgaard <boll@debian.org>  Mon, 21 Oct 2002 09:28:28 +0200
+
+xpad (1.5.1-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Søren Boll Overgaard <boll@debian.org>  Fri, 27 Sep 2002 16:39:56 +0200
+
+xpad (1.5-2) unstable; urgency=low
+
+  * Clean up control.
+  * Clean up copyright.
+
+ -- Søren Boll Overgaard <boll@debian.org>  Tue, 24 Sep 2002 20:29:31 +0200
+
+xpad (1.5-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Søren Boll Overgaard <boll@debian.org>  Fri, 23 Aug 2002 08:11:32 +0200
+
+xpad (1.4-3) unstable; urgency=low
+
+  * Recompile with new libgtk2.0-png3 (closes: Bug#157319).
+
+ -- Søren Boll Overgaard <boll@debian.org>  Thu, 22 Aug 2002 19:15:59 +0200
+
+xpad (1.4-2) unstable; urgency=low
+
+  * Add Gnome desktop icon (Thanks T. Bugra UYTUN <t.bugra@uytun.com>).
+  * Add Debian menu entry (Thanks T. Bugra UYTUN <t.bugra@uytun.com>).
+
+ -- Søren Boll Overgaard <boll@debian.org>  Sun, 18 Aug 2002 20:05:53 +0200
+
+xpad (1.4-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Søren Boll Overgaard <boll@debian.org>  Sun, 11 Aug 2002 19:46:33 +0200
+
+xpad (1.3-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Søren Boll Overgaard <boll@debian.org>  Sun,  4 Aug 2002 17:55:43 +0200
+
+xpad (1.2.1-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Søren Boll Overgaard <boll@debian.org>  Tue, 23 Jul 2002 17:58:14 +0200
+
+xpad (1.2-1) unstable; urgency=low
+
+  * New upstream release
+  * Added 3 patches from "Jeroen T. Vermeulen" <jtv@xs4all.nl> upstream.
+    (closes: Bug#153796, closes: Bug#153797, closes: Bug#153800)
+  * Add another patch from Jeroen to fix a problem with xpad not remembering
+    the colour settings under special circumstances (closes: Bug#149819)
+
+ -- Søren Boll Overgaard <boll@debian.org>  Tue, 23 Jul 2002 10:02:51 +0200
+
+xpad (1.1-2) unstable; urgency=low
+
+  * Remove useless calls to dh_*
+
+ -- Søren Boll Overgaard <boll@debian.org>  Sat,  1 Jun 2002 19:14:20 +0200
+
+xpad (1.1-1) unstable; urgency=low
+
+  * Initial Release (closes: #118177, closes: #132449)
+  * Changed Makefile to install xpm-file without execute bits set.
+
+ -- Søren Boll Overgaard <boll@debian.org>  Fri, 17 May 2002 17:14:28 +0200
