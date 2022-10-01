@@ -1,11 +1,9 @@
 icondir = $(datadir)/icons
 nobase_icon_DATA = \
-	hicolor/scalable/apps/xpad.svg \
-	hicolor/256x256/apps/xpad.png
+	hicolor/scalable/apps/xpad.svg
 
 EXTRA_DIST = \
-	hicolor/scalable/apps/xpad.svg \
-	hicolor/256x256/apps/xpad.png
+	hicolor/scalable/apps/xpad.svg
 
 gtk_update_icon_cache = gtk-update-icon-cache -f -t $(datadir)/icons/hicolor
 install-data-hook: update-icon-cache

@@ -2,7 +2,6 @@
 
 Copyright (c) 2001-2007 Michael Terry
 Copyright (c) 2009 Paul Ivanov
-Copyright (c) 2011 Sergei Riaguzov
 Copyright (c) 2013-2014 Arthur Borsboom
 
 This program is free software; you can redistribute it and/or modify
@@ -52,7 +51,6 @@ struct XpadPad
 struct XpadPadClass
 {
    GtkWindowClass parent_class;
-   
    void (*closed) (XpadPad *pad);
 };
 
@@ -78,6 +76,7 @@ void xpad_pad_notify_undo_redo_changed (XpadPad *pad);
 
 void xpad_pad_append_pad_titles_to_menu (GtkWidget *menu);
 void xpad_pad_remove_accelerator_group (XpadPad *pad);
+gchar* xpad_pad_get_title_for_menu (XpadPad *pad, gint pad_number);
 
 G_END_DECLS
 

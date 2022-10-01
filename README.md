@@ -1,8 +1,17 @@
-![hamonikr-jin](https://img.shields.io/badge/hamonikr-jin-violet)
+![ubuntu-bionic](https://img.shields.io/badge/ubuntu-18.04-red)
+![ubuntu-focal](https://img.shields.io/badge/ubuntu-20.04-red)
+![ubuntu-hirsute](https://img.shields.io/badge/ubuntu-21.04-red)
+![ubuntu-jammy](https://img.shields.io/badge/ubuntu-22.04-red)
+
+![hamonikr-me](https://img.shields.io/badge/hamonikr-me-orange)
+![hamonikr-sun](https://img.shields.io/badge/hamonikr-sun-blue)
+![hamonikr-jin](https://img.shields.io/badge/hamonikr-jin-green)
+![hamonikr-hanla](https://img.shields.io/badge/hamonikr-hanla-purple)
 
 # xpad
 
-하모니카에서 제공하는 스티커 메모.
+하모니카에서 제공하는 간단한 스티커 메모
+
 메모별로 다양한 설정을 적용해서 사용할 수 있습니다.
 
  * HamoniKR (>= 4.0), Ubuntu (>= 20.04), LinuxMint(>=19) 지원
@@ -25,8 +34,16 @@ sudo apt install -y xpad
 터미널을 열고(Ctrl+Alt+T) 아래 명령어를 입력하세요.
 
 ```
+# 하모니카 APT 저장소 추가 (우분투 21.04 이하)
 curl -sL https://pkg.hamonikr.org/add-hamonikr.apt | sudo -E bash -
-sudo apt install -y xpad=5.4.0-1-hamonikr1
+
+# 우분투 22.04 이상이면 아래와 같이 하모니카 저장소를 추가.
+wget -qO- https://repo.hamonikr.org/hamonikr-app.apt | sudo -E bash -
+
+# 프로그램 설치
+sudo apt install -y xpad
+또는
+sudo apt install -y xpad=5.8.0-hamonikr1
 ```
 
 # Usage

@@ -312,7 +312,13 @@ xpad_session_manager_init (void)
 	xpad_ice_fd = -1;
 	IceAddConnectionWatch (xpad_session_manager_ice_connection_watch, NULL);
 
-	gdk_x11_set_sm_client_id (client_id);
+#ifdef GDK_WINDOWING_X11
+	GdkDisplay *display = gdk_display_get_default();
+
+	if (GDK_IS_X11_DISPLAY (display)) {
+		gdk_x11_set_sm_client_id (client_id);
+	}
+#endif
 }
 
 void

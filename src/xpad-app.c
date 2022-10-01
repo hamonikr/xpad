@@ -102,7 +102,9 @@ xpad_app_init (int argc, char **argv)
 
 	/* Set up support different languages */
 #ifdef ENABLE_NLS
-	bindtextdomain (GETTEXT_PACKAGE, LOCALE_DIR);
+	gchar *locale_dir = g_strdup_printf ("%s/%s", DATADIR, LOCALEDIR);
+	bindtextdomain (GETTEXT_PACKAGE, locale_dir);
+	g_free(locale_dir);
 	bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
 	textdomain (GETTEXT_PACKAGE);
 #endif
@@ -166,7 +168,6 @@ xpad_app_init (int argc, char **argv)
 	pad_group = xpad_pad_group_new();
 	process_remote_args (&xpad_argc, &xpad_argv, TRUE, settings);
 
-	xpad_tray_init (settings);
 	xpad_session_manager_init ();
 
 	/* load all pads */
@@ -185,6 +186,9 @@ xpad_app_init (int argc, char **argv)
 			}
 		}
 	}
+
+    /* Load the optional app indicator / tray */
+	xpad_tray_init (settings);
 
 	/* Initialize Xpad-periodic module */
 	xpad_periodic_init ();
@@ -424,13 +428,15 @@ static void
 register_stock_icons (void)
 {
 	GtkIconTheme *theme = gtk_icon_theme_get_default ();
-	gtk_icon_theme_prepend_search_path (theme, THEME_DIR);
+	gchar *theme_dir = g_strdup_printf ("%s/%s", DATADIR, THEMEDIR);
+	gtk_icon_theme_prepend_search_path (theme, theme_dir);
+	g_free(theme_dir);
 }
 
 static gboolean
 xpad_app_quit_if_no_pads (XpadPadGroup *group)
 {
-	if (!xpad_tray_is_open ())
+	if (!xpad_tray_has_indicator ())
 	{
 		gint num_pads = xpad_pad_group_num_visible_pads (group);
 		if (num_pads == 0)
@@ -450,7 +456,7 @@ xpad_app_first_idle_check (XpadPadGroup *group)
 {
 	/* We do this check at the first idle rather than immediately during
 	   start because we want to give the tray time to become embedded. */
-	if (!xpad_tray_is_open () &&
+	if (!xpad_tray_has_indicator () &&
 	    xpad_pad_group_num_visible_pads (group) == 0)
 	{
 		if (pads_loaded_on_start > 0)

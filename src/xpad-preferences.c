@@ -60,6 +60,7 @@ struct XpadPreferencesPrivate
 	GtkWidget *has_toolbar;
 	GtkWidget *autohide_toolbar;
 	GtkWidget *has_scrollbar;
+	GtkWidget *line_numbering;
 
 	gulong fontcheck_handler;
 	gulong font_handler;
@@ -84,6 +85,7 @@ struct XpadPreferencesPrivate
 	gulong has_toolbar_handler;
 	gulong autohide_toolbar_handler;
 	gulong has_scrollbar_handler;
+	gulong line_numbering_handler;
 
 	gulong notify_font_handler;
 	gulong notify_text_handler;
@@ -104,6 +106,7 @@ struct XpadPreferencesPrivate
 	gulong notify_has_toolbar_handler;
 	gulong notify_autohide_toolbar_handler;
 	gulong notify_has_scrollbar_handler;
+	gulong notify_line_numbering_handler;
 };
 
 G_DEFINE_TYPE_WITH_PRIVATE (XpadPreferences, xpad_preferences, GTK_TYPE_WINDOW)
@@ -136,6 +139,7 @@ static void change_hide_from_task_switcher (GtkToggleButton *button, XpadPrefere
 static void change_has_toolbar (GtkToggleButton *button, XpadPreferences *pref);
 static void change_autohide_toolbar (GtkToggleButton *button, XpadPreferences *pref);
 static void change_has_scrollbar (GtkToggleButton *button, XpadPreferences *pref);
+static void change_line_numbering (GtkToggleButton *button, XpadPreferences *pref);
 
 static void notify_fontname (XpadPreferences *pref);
 static void notify_text_color (XpadPreferences *pref);
@@ -156,6 +160,7 @@ static void notify_hide_from_task_switcher (XpadPreferences *pref);
 static void notify_has_toolbar (XpadPreferences *pref);
 static void notify_autohide_toolbar (XpadPreferences *pref);
 static void notify_has_scrollbar (XpadPreferences *pref);
+static void notify_line_numbering (XpadPreferences *pref);
 
 static GtkWidget * create_label (const gchar *label_text);
 
@@ -215,7 +220,7 @@ static void xpad_preferences_constructed (GObject *object)
 	GtkSizeGroup *size_group_labels = gtk_size_group_new (GTK_SIZE_GROUP_HORIZONTAL);
 	GdkRGBA theme_text_color = {0, 0, 0, 0}, theme_background_color = {0, 0, 0, 0};
 	guint tray_click_configuration, autostart_delay, autostart_display_pads, height, width;
-	gboolean confirm_destroy, edit_lock, autostart_xpad, autostart_wait_systray, autostart_new_pad, autostart_sticky, has_decorations, hide_from_taskbar, hide_from_task_switcher, has_toolbar, autohide_toolbar, has_scrollbar;
+	gboolean confirm_destroy, edit_lock, autostart_xpad, autostart_wait_systray, autostart_new_pad, autostart_sticky, has_decorations, hide_from_taskbar, hide_from_task_switcher, has_toolbar, autohide_toolbar, has_scrollbar, line_numbering;
 
 	g_object_get (pref->priv->settings,
 			"fontname", &fontname,
@@ -238,6 +243,7 @@ static void xpad_preferences_constructed (GObject *object)
 			"has-toolbar", &has_toolbar,
 			"autohide-toolbar", &autohide_toolbar,
 			"has-scrollbar", &has_scrollbar,
+			"line-numbering", &line_numbering,
 			NULL);
 
 	/* create notebook to add pages */
@@ -481,7 +487,7 @@ static void xpad_preferences_constructed (GObject *object)
 	pref->priv->tray_enabled = gtk_check_button_new_with_mnemonic (_("_Enable tray icon"));
 	gtk_box_pack_start (tray_vbox, pref->priv->tray_enabled, FALSE, FALSE, 0);
 
-	label = gtk_label_new_with_mnemonic(_("Tray left mouse click behaviour"));
+	label = gtk_label_new_with_mnemonic(_("Tray left mouse click behavior"));
 	pref->priv->tray_click_configuration = gtk_combo_box_text_new();
 	gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (pref->priv->tray_click_configuration), _("Do Nothing") );
 	gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (pref->priv->tray_click_configuration), _("Toggle Show All") );
@@ -505,14 +511,17 @@ static void xpad_preferences_constructed (GObject *object)
 
 	gtk_notebook_append_page (GTK_NOTEBOOK (pref->priv->notebook), GTK_WIDGET (other_vbox), label);
 
-	pref->priv->editcheck = gtk_check_button_new_with_mnemonic (_("_Make pads read-only"));
+	pref->priv->editcheck = gtk_check_button_new_with_mnemonic (_("_Make pads read-only (CTRL-J)"));
 	pref->priv->confirmcheck = gtk_check_button_new_with_mnemonic (_("_Confirm pad deletion"));
+	pref->priv->line_numbering = gtk_check_button_new_with_mnemonic (_("Enable _line numbering"));
 
 	gtk_box_pack_start (other_vbox, pref->priv->editcheck, FALSE, FALSE, 0);
 	gtk_box_pack_start (other_vbox, pref->priv->confirmcheck, FALSE, FALSE, 0);
+	gtk_box_pack_start (other_vbox, pref->priv->line_numbering, FALSE, FALSE, 0);
 
 	gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (pref->priv->editcheck), edit_lock);
 	gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (pref->priv->confirmcheck), confirm_destroy);
+	gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (pref->priv->line_numbering), line_numbering);
 
 	/* Close button and window title */
 	GtkWidget *button = gtk_button_new_from_icon_name ("gtk-close", GTK_ICON_SIZE_BUTTON);
@@ -558,6 +567,7 @@ static void xpad_preferences_constructed (GObject *object)
 	pref->priv->tray_click_handler = g_signal_connect(pref->priv->tray_click_configuration, "changed", G_CALLBACK(change_tray_click), pref);
 	pref->priv->editcheck_handler = g_signal_connect (pref->priv->editcheck, "toggled", G_CALLBACK (change_edit_check), pref);
 	pref->priv->confirmcheck_handler = g_signal_connect (pref->priv->confirmcheck, "toggled", G_CALLBACK (change_confirm_check), pref);
+	pref->priv->line_numbering_handler = g_signal_connect (pref->priv->line_numbering, "toggled", G_CALLBACK (change_line_numbering), pref);
 
 	pref->priv->notify_has_decorations_handler = g_signal_connect_swapped (pref->priv->settings, "notify::has-decorations", G_CALLBACK (notify_has_decorations), pref);
 	pref->priv->notify_hide_from_taskbar_handler = g_signal_connect_swapped (pref->priv->settings, "notify::hide-from-taskbar", G_CALLBACK (notify_hide_from_taskbar), pref);
@@ -580,6 +590,7 @@ static void xpad_preferences_constructed (GObject *object)
 	pref->priv->notify_confirm_handler = g_signal_connect_swapped (pref->priv->settings, "notify::confirm-destroy", G_CALLBACK (notify_confirm), pref);
 	pref->priv->notify_tray_enabled_handler = g_signal_connect_swapped (pref->priv->settings, "notify::tray-enabled", G_CALLBACK (notify_tray_enabled), pref);
 	pref->priv->notify_tray_click_handler = g_signal_connect_swapped (pref->priv->settings, "notify::tray-click-configuration", G_CALLBACK(notify_tray_click), pref);
+	pref->priv->notify_line_numbering_handler = g_signal_connect_swapped (pref->priv->settings, "notify::line-numbering", G_CALLBACK (notify_line_numbering), pref);
 
 	g_clear_object (&size_group_labels);
 
@@ -739,7 +750,7 @@ change_autostart_wait_systray (GtkToggleButton *button, XpadPreferences *pref)
 	if (!g_key_file_load_from_file (keyfile, filename, flags, &error)) {
 		gchar *errtext;
 		errtext = g_strdup_printf (_("Could not load %s\n%s"), filename, error->message);
-		xpad_app_error (NULL, _("Error changing wait for systray setting"), errtext);
+		xpad_app_error (NULL, _("Failed to change the time delay of starting the Xpad systray"), errtext);
 		g_free (errtext);
 
 		gtk_toggle_button_set_active (button, !wait_systray);
@@ -751,7 +762,7 @@ change_autostart_wait_systray (GtkToggleButton *button, XpadPreferences *pref)
 	if (!g_key_file_save_to_file (keyfile, filename, &error)) {
 		gchar *errtext;
 		errtext = g_strdup_printf (_("Could not save %s\n%s"), filename, error->message);
-		xpad_app_error (NULL, _("Error changing wait for systray setting"), errtext);
+		xpad_app_error (NULL, _("Failed to change the time delay of starting the Xpad systray"), errtext);
 		g_free (errtext);
 
 		gtk_toggle_button_set_active (button, !wait_systray);
@@ -883,6 +894,14 @@ static void
 change_new_pad_width (GtkSpinButton *button, XpadPreferences *pref)
 {
 	g_object_set (pref->priv->settings, "width", gtk_spin_button_get_value_as_int(button), NULL);
+}
+
+static void
+change_line_numbering (GtkToggleButton *button, XpadPreferences *pref)
+{
+	g_signal_handler_block (pref->priv->settings, pref->priv->notify_line_numbering_handler);
+	g_object_set (pref->priv->settings, "line-numbering", gtk_toggle_button_get_active (button), NULL);
+	g_signal_handler_unblock (pref->priv->settings, pref->priv->notify_line_numbering_handler);
 }
 
 static void
@@ -1127,4 +1146,14 @@ notify_has_scrollbar (XpadPreferences *pref)
 	g_signal_handler_block (pref->priv->has_scrollbar, pref->priv->has_scrollbar_handler);
 	gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (pref->priv->has_scrollbar), value);
 	g_signal_handler_unblock (pref->priv->has_scrollbar, pref->priv->has_scrollbar_handler);
+}
+
+static void
+notify_line_numbering (XpadPreferences *pref)
+{
+	gboolean value;
+	g_object_get (pref->priv->settings, "line-numbering", &value, NULL);
+	g_signal_handler_block (pref->priv->line_numbering, pref->priv->line_numbering_handler);
+	gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (pref->priv->line_numbering), value);
+	g_signal_handler_unblock (pref->priv->line_numbering, pref->priv->line_numbering_handler);
 }

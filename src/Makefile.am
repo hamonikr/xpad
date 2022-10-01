@@ -11,15 +11,19 @@ xpad_SOURCES = \
 	xpad-pad-properties.c xpad-pad-properties.h \
 	xpad-periodic.c xpad-periodic.h \
 	xpad-preferences.c xpad-preferences.h \
+	xpad-search-bar.c xpad-search-bar.h \
 	xpad-session-manager.c xpad-session-manager.h \
 	xpad-settings.c xpad-settings.h \
 	xpad-styling-helpers.c xpad-styling-helpers.h \
 	xpad-text-buffer.c xpad-text-buffer.h \
 	xpad-text-view.c xpad-text-view.h \
 	xpad-toolbar.c xpad-toolbar.h \
-	xpad-tray.c xpad-tray.h \
-	xpad-undo.c xpad-undo.h
+	xpad-tray.c xpad-tray.h
 
-AM_CFLAGS = @GTK_CFLAGS@ @X_CFLAGS@ @DEBUG_CFLAGS@ @GTK_SOURCE_VIEW_CFLAGS@ -DDATADIR=\"$(datadir)\"
-xpad_LDADD = @X_PRE_LIBS@ @X_LIBS@ @X_EXTRA_LIBS@ @GTK_LIBS@ @INTLLIBS@ @BINRELOC_LIBS@ @GTK_SOURCE_VIEW_LIBS@
+AM_CFLAGS = @GTK_CFLAGS@ @X_CFLAGS@ @DEBUG_CFLAGS@ @GTK_SOURCE_VIEW_CFLAGS@ -DDATADIR=\"$(datadir)\" -DHELPDIR=\"@HELP_DIR@\" -DHELPFILENAME=\"@HELP_FILE_NAME@\" -DLOCALEDIR=\"@LOCALE_DIR@\" -DTHEMEDIR=\"@THEME_DIR@\"
+xpad_LDADD = @X_PRE_LIBS@ @X_LIBS@ @X_EXTRA_LIBS@ @GTK_LIBS@ @BINRELOC_LIBS@ @GTK_SOURCE_VIEW_LIBS@
 
+if HAVE_APP_INDICATOR
+  AM_CFLAGS += -DHAVE_APP_INDICATOR @APP_INDICATOR_CFLAGS@
+  xpad_LDADD += @APP_INDICATOR_LIBS@
+endif

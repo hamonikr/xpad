@@ -7,58 +7,58 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xpad\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2018-04-26 05:20+0000\n"
+"POT-Creation-Date: 2022-05-16 04:37+0000\n"
 "PO-Revision-Date: 2013-10-13 08:58+0000\n"
 "Last-Translator: Arthur Borsboom <arthurborsboom@gmail.com>\n"
 "Language-Team: Indonesian <id@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-01-02 05:29+0000\n"
-"X-Generator: Launchpad (build 18847)\n"
+"X-Launchpad-Export-Date: 2022-05-17 07:41+0000\n"
+"X-Generator: Launchpad (build 611b427288ed4161ec0670b9f24cdc4f317059dc)\n"
 
-#: ../src/fio.c:147
+#: ../src/fio.c:146
 #, c-format
 msgid "Could not write to file %s: %s"
 msgstr "Tidak dapat menulis ke file %s: %s"
 
-#: ../src/help.c:52
+#: ../src/help.c:53
 msgid "Error showing the help"
 msgstr ""
 
-#: ../src/help.c:52
+#: ../src/help.c:53
 #, c-format
 msgid ""
 "Could not find the help file %s\n"
 "%s"
 msgstr ""
 
-#: ../src/help.c:71 ../src/xpad-preferences.c:485
+#: ../src/help.c:72 ../src/xpad-preferences.c:528
 msgid "Close"
 msgstr ""
 
-#: ../src/help.c:76
+#: ../src/help.c:77
 msgid "Help"
 msgstr "Bantuan"
 
-#: ../src/xpad-app.c:130
+#: ../src/xpad-app.c:133
 msgid "Xpad is a graphical program.  Please run it from your desktop."
 msgstr "Xpad adalah program berbasis GUI. Jalankan dari desktop anda."
 
-#: ../src/xpad-app.c:135 ../xpad.desktop.in.h:1
+#: ../src/xpad-app.c:138
 msgid "Xpad"
 msgstr "Xpad"
 
-#: ../src/xpad-app.c:219
+#: ../src/xpad-app.c:251
 msgid "_Ok"
 msgstr ""
 
-#: ../src/xpad-app.c:469
+#: ../src/xpad-app.c:504
 #, c-format
 msgid "Could not open directory %s."
 msgstr "Tidak dapat membuka direktori %s."
 
-#: ../src/xpad-app.c:472
+#: ../src/xpad-app.c:507
 msgid ""
 "This directory is needed to store preference and pad information.  Xpad will "
 "close now."
@@ -66,506 +66,539 @@ msgstr ""
 "Direktori ini dibutuhkan untuk menyimpan preferensi dan informasi nota. Xpad "
 "akan keluar."
 
-#: ../src/xpad-app.c:783
+#: ../src/xpad-app.c:825
 msgid "Show version number and quit"
 msgstr "Tampilkan nomor versi dan keluar"
 
-#: ../src/xpad-app.c:784
+#: ../src/xpad-app.c:826
 msgid "Don't create a new pad on startup if no previous pads exist"
 msgstr ""
 "Jangan buat nota baru saat startup jika sebelumnya nota tidak pernah dibuat"
 
-#: ../src/xpad-app.c:790
+#: ../src/xpad-app.c:832
 msgid "Create a new pad on startup even if pads already exist"
 msgstr "Buat nota baru saat startup, bahkan jika nota sudah pernah ada"
 
-#: ../src/xpad-app.c:791 ../src/xpad-preferences.c:427
+#: ../src/xpad-app.c:833 ../src/xpad-preferences.c:467
 msgid "Hide all pads"
 msgstr "Sembunyikan semua nota"
 
-#: ../src/xpad-app.c:792
+#: ../src/xpad-app.c:834
 msgid "Show all pads"
 msgstr "Tampilkan semua nota"
 
-#: ../src/xpad-app.c:793
+#: ../src/xpad-app.c:835
 msgid "Toggle between show and hide all pads"
 msgstr "Pilihan beralih antara menampilkan dan menyembunyikan semua nota"
 
-#: ../src/xpad-app.c:794
+#: ../src/xpad-app.c:836
 msgid "Create a new pad with the contents of a file"
 msgstr "Buat nota baru dengan isi sebuah file"
 
-#: ../src/xpad-app.c:794
+#: ../src/xpad-app.c:836
 msgid "FILE"
 msgstr "FILE"
 
-#: ../src/xpad-app.c:795
+#: ../src/xpad-app.c:837
 msgid "Close all pads"
 msgstr "Tutup semua nota"
 
-#: ../src/xpad-app.c:826
+#: ../src/xpad-app.c:868
 #, c-format
 msgid "Xpad %s"
 msgstr "Xpad %s"
 
-#: ../src/xpad-pad.c:178
+#: ../src/xpad-pad.c:191
 #, c-format
 msgid "Could not read file %s."
 msgstr "Tidak dapat membaca file %s."
 
-#: ../src/xpad-pad.c:872
+#: ../src/xpad-pad.c:921
 msgid "Delete this pad?"
 msgstr "Hapus nota ini?"
 
-#: ../src/xpad-pad.c:872
+#: ../src/xpad-pad.c:921
 msgid "All text of this pad will be irrevocably lost."
 msgstr "Semua catatan pada nota ini akan hilang secara permanen."
 
-#: ../src/xpad-pad.c:877 ../src/xpad-pad.c:1568
+#: ../src/xpad-pad.c:926 ../src/xpad-pad.c:1609
 msgid "_Delete"
 msgstr ""
 
-#: ../src/xpad-pad.c:877
+#: ../src/xpad-pad.c:926
 msgid "_Cancel"
 msgstr ""
 
-#: ../src/xpad-pad.c:912
+#: ../src/xpad-pad.c:955
 #, c-format
 msgid "'%s' Layout"
 msgstr ""
 
-#: ../src/xpad-pad.c:1390
+#: ../src/xpad-pad.c:1445
 msgid "Sticky notes"
 msgstr "Sticky-note"
 
 #. Translators: please translate this as your own name and optionally email
 #. like so: "Your Name <your@email.com>"
-#: ../src/xpad-pad.c:1394
+#: ../src/xpad-pad.c:1449
 msgid "translator-credits"
 msgstr ""
 "Launchpad Contributions:\n"
 "  Arthur Borsboom https://launchpad.net/~arthurborsboom\n"
 "  Hertatijanto Hartono https://launchpad.net/~dvertx"
 
-#: ../src/xpad-pad.c:1567 ../src/xpad-tray.c:133
+#: ../src/xpad-pad.c:1608 ../src/xpad-tray.c:67
 msgid "_New"
 msgstr ""
 
-#: ../src/xpad-pad.c:1569
+#: ../src/xpad-pad.c:1610
 msgid "_Reload"
 msgstr ""
 
-#: ../src/xpad-pad.c:1570
+#: ../src/xpad-pad.c:1611
 msgid "_Close"
 msgstr ""
 
 #. Edit submenu
-#: ../src/xpad-pad.c:1573
+#: ../src/xpad-pad.c:1614
 msgid "_Edit"
 msgstr "_Edit"
 
-#: ../src/xpad-pad.c:1577
+#: ../src/xpad-pad.c:1618
 msgid "_Undo"
 msgstr ""
 
-#: ../src/xpad-pad.c:1579
+#: ../src/xpad-pad.c:1620
 msgid "_Redo"
 msgstr ""
 
-#: ../src/xpad-pad.c:1582 ../src/xpad-pad.c:1708
+#: ../src/xpad-pad.c:1623 ../src/xpad-pad.c:1763
 msgid "_Paste"
 msgstr ""
 
-#: ../src/xpad-pad.c:1585
+#: ../src/xpad-pad.c:1626
+msgid "_Find"
+msgstr ""
+
+#: ../src/xpad-pad.c:1628
 msgid "_Layout"
 msgstr ""
 
+#: ../src/xpad-pad.c:1629
+msgid "_Read only"
+msgstr ""
+
 #. Notes submenu - The list of notes will get added in the prep function below
-#: ../src/xpad-pad.c:1591
+#: ../src/xpad-pad.c:1635
 msgid "_Notes"
 msgstr "_Catatan"
 
-#: ../src/xpad-pad.c:1596 ../src/xpad-tray.c:140
+#: ../src/xpad-pad.c:1640 ../src/xpad-tray.c:74
 msgid "_Show All"
 msgstr "Tampilkan _Semua"
 
-#: ../src/xpad-pad.c:1597 ../src/xpad-tray.c:146
+#: ../src/xpad-pad.c:1641 ../src/xpad-tray.c:79
 msgid "_Close All"
 msgstr "_Tutup Semua"
 
 #. Help submenu
-#: ../src/xpad-pad.c:1600 ../src/xpad-pad.c:1604 ../src/xpad-tray.c:164
+#: ../src/xpad-pad.c:1644 ../src/xpad-pad.c:1648 ../src/xpad-tray.c:96
 msgid "_Help"
 msgstr "_Bantuan"
 
-#: ../src/xpad-pad.c:1605
+#: ../src/xpad-pad.c:1649
 msgid "_About"
 msgstr "_Tentang"
 
-#: ../src/xpad-pad.c:1610 ../src/xpad-tray.c:160
+#: ../src/xpad-pad.c:1654 ../src/xpad-tray.c:92
 msgid "_Preferences"
 msgstr ""
 
-#: ../src/xpad-pad.c:1706
+#: ../src/xpad-pad.c:1761
 msgid "Cu_t"
 msgstr ""
 
-#: ../src/xpad-pad.c:1707
+#: ../src/xpad-pad.c:1762
 msgid "_Copy"
 msgstr ""
 
-#: ../src/xpad-pad.c:1711
+#: ../src/xpad-pad.c:1766
 msgid "_Bold"
 msgstr ""
 
-#: ../src/xpad-pad.c:1712
+#: ../src/xpad-pad.c:1767
 msgid "_Italic"
 msgstr ""
 
-#: ../src/xpad-pad.c:1713
+#: ../src/xpad-pad.c:1768
 msgid "_Underline"
 msgstr ""
 
-#: ../src/xpad-pad.c:1714
+#: ../src/xpad-pad.c:1769
 msgid "_Strikethrough"
 msgstr ""
 
-#: ../src/xpad-pad-properties.c:105
+#: ../src/xpad-pad-properties.c:104
 msgid "Appearance"
 msgstr "Tampilan"
 
-#: ../src/xpad-pad-properties.c:113
+#: ../src/xpad-pad-properties.c:112
 msgid "Use font from xpad preferences"
 msgstr "Gunakan font dari preferensi xpad"
 
-#: ../src/xpad-pad-properties.c:114 ../src/xpad-preferences.c:298
+#: ../src/xpad-pad-properties.c:113
 msgid "Use this font:"
 msgstr "Gunakan font ini:"
 
-#: ../src/xpad-pad-properties.c:115
+#: ../src/xpad-pad-properties.c:114
 msgid "Use colors from xpad preferences"
 msgstr "Gunakan warna dari preferensi xpad"
 
-#: ../src/xpad-pad-properties.c:116 ../src/xpad-preferences.c:300
+#: ../src/xpad-pad-properties.c:115
 msgid "Use these colors:"
 msgstr "Gunakan warna ini:"
 
-#: ../src/xpad-pad-properties.c:126
+#: ../src/xpad-pad-properties.c:125
 msgid "Foreground:"
 msgstr "Latar Depan:"
 
-#: ../src/xpad-pad-properties.c:134 ../src/xpad-preferences.c:318
+#: ../src/xpad-pad-properties.c:133
 msgid "Background:"
 msgstr "Latar Belakang:"
 
-#: ../src/xpad-pad-properties.c:148 ../src/xpad-preferences.c:378
+#: ../src/xpad-pad-properties.c:147 ../src/xpad-preferences.c:418
 msgid "Set Foreground Color"
 msgstr "Set Warna Latar Depan"
 
-#: ../src/xpad-pad-properties.c:149 ../src/xpad-preferences.c:379
+#: ../src/xpad-pad-properties.c:148 ../src/xpad-preferences.c:419
 msgid "Set Background Color"
 msgstr "Set Warna Latar Belakang"
 
-#: ../src/xpad-pad-properties.c:150 ../src/xpad-preferences.c:380
+#: ../src/xpad-pad-properties.c:149 ../src/xpad-preferences.c:420
 msgid "Set Font"
 msgstr "Set Font"
 
 #. View options
-#: ../src/xpad-preferences.c:238
+#: ../src/xpad-preferences.c:253
 msgid "View"
 msgstr ""
 
-#: ../src/xpad-preferences.c:249
+#: ../src/xpad-preferences.c:264
 msgid "_Show toolbar"
 msgstr ""
 
-#: ../src/xpad-preferences.c:253
+#: ../src/xpad-preferences.c:268
 msgid "_Autohide toolbar"
 msgstr ""
 
-#: ../src/xpad-preferences.c:260
+#: ../src/xpad-preferences.c:275
 msgid "_Show scrollbar"
 msgstr ""
 
-#: ../src/xpad-preferences.c:264
+#: ../src/xpad-preferences.c:279
 msgid "_Show notes on all workspaces"
 msgstr ""
 
-#: ../src/xpad-preferences.c:268
+#: ../src/xpad-preferences.c:283
 msgid "_Show window decorations"
 msgstr ""
 
-#: ../src/xpad-preferences.c:272
+#: ../src/xpad-preferences.c:287
 msgid "_Hide all notes from the taskbar and possibly the task switcher"
 msgstr ""
 
-#: ../src/xpad-preferences.c:276
+#: ../src/xpad-preferences.c:291
 msgid ""
 "_Hide all notes from the workspace switcher and possibly the task switcher"
 msgstr ""
 
 #. Layout options
-#: ../src/xpad-preferences.c:281
+#: ../src/xpad-preferences.c:296
 msgid "Layout"
 msgstr ""
 
-#: ../src/xpad-preferences.c:297
+#: ../src/xpad-preferences.c:312
 msgid "Use font from theme"
 msgstr "Gunakan font dari tema"
 
-#: ../src/xpad-preferences.c:299
+#: ../src/xpad-preferences.c:313
+msgid "Use this font"
+msgstr ""
+
+#: ../src/xpad-preferences.c:314
 msgid "Use colors from theme"
 msgstr "Gunakan warna dari tema"
 
-#: ../src/xpad-preferences.c:310
-msgid "Text:"
+#: ../src/xpad-preferences.c:315
+msgid "Use these colors"
+msgstr ""
+
+#. Size of new pads: input fields
+#: ../src/xpad-preferences.c:319
+msgid "Height new pad"
+msgstr ""
+
+#: ../src/xpad-preferences.c:325
+msgid "Width new pad"
+msgstr ""
+
+#: ../src/xpad-preferences.c:348
+msgid "Text"
+msgstr ""
+
+#: ../src/xpad-preferences.c:356
+msgid "Background"
 msgstr ""
 
 #. Start options
-#: ../src/xpad-preferences.c:383
+#: ../src/xpad-preferences.c:423
 msgid "Startup"
 msgstr ""
 
-#: ../src/xpad-preferences.c:394
+#: ../src/xpad-preferences.c:434
 msgid "_Start Xpad automatically after login"
 msgstr ""
 
-#: ../src/xpad-preferences.c:398
+#: ../src/xpad-preferences.c:438
 msgid "_Wait for systray (if possible)"
 msgstr ""
 
-#: ../src/xpad-preferences.c:409
+#: ../src/xpad-preferences.c:449
 msgid "_Open a new empty pad"
 msgstr ""
 
-#: ../src/xpad-preferences.c:413
+#: ../src/xpad-preferences.c:453
 msgid "Delay in seconds"
 msgstr ""
 
-#: ../src/xpad-preferences.c:424
+#: ../src/xpad-preferences.c:464
 msgid "Display pads"
 msgstr ""
 
-#: ../src/xpad-preferences.c:426
+#: ../src/xpad-preferences.c:466
 msgid "Open all pads"
 msgstr ""
 
-#: ../src/xpad-preferences.c:428
+#: ../src/xpad-preferences.c:468
 msgid "Restore to previous state"
 msgstr ""
 
 #. Tray options
-#: ../src/xpad-preferences.c:436
+#: ../src/xpad-preferences.c:476
 msgid "Tray"
 msgstr ""
 
-#: ../src/xpad-preferences.c:447
+#: ../src/xpad-preferences.c:487
 msgid "_Enable tray icon"
 msgstr ""
 
-#: ../src/xpad-preferences.c:450
-msgid "Tray left mouse click behaviour"
+#: ../src/xpad-preferences.c:490
+msgid "Tray left mouse click behavior"
 msgstr ""
 
-#: ../src/xpad-preferences.c:452
+#: ../src/xpad-preferences.c:492
 msgid "Do Nothing"
 msgstr ""
 
-#: ../src/xpad-preferences.c:453
+#: ../src/xpad-preferences.c:493
 msgid "Toggle Show All"
 msgstr ""
 
-#: ../src/xpad-preferences.c:454
+#: ../src/xpad-preferences.c:494
 msgid "List of Pads"
 msgstr ""
 
-#: ../src/xpad-preferences.c:455
+#: ../src/xpad-preferences.c:495
 msgid "New Pad"
 msgstr ""
 
 #. Other options
-#: ../src/xpad-preferences.c:463
+#: ../src/xpad-preferences.c:503
 msgid "Other"
 msgstr ""
 
-#: ../src/xpad-preferences.c:474
-msgid "_Make pads read-only"
+#: ../src/xpad-preferences.c:514
+msgid "_Make pads read-only (CTRL-J)"
 msgstr ""
 
-#: ../src/xpad-preferences.c:475
+#: ../src/xpad-preferences.c:515
 msgid "_Confirm pad deletion"
 msgstr "_Konfirmasikan penghapusan nota"
 
-#: ../src/xpad-preferences.c:487
+#: ../src/xpad-preferences.c:516
+msgid "Enable _line numbering"
+msgstr ""
+
+#: ../src/xpad-preferences.c:530
 msgid "Xpad Preferences"
 msgstr "Preferensi Xpad"
 
-#: ../src/xpad-preferences.c:704
+#: ../src/xpad-preferences.c:752
 #, c-format
 msgid ""
 "Could not load %s\n"
 "%s"
 msgstr ""
 
-#: ../src/xpad-preferences.c:705 ../src/xpad-preferences.c:717
-msgid "Error changing wait for systray setting"
+#: ../src/xpad-preferences.c:753 ../src/xpad-preferences.c:765
+msgid "Failed to change the time delay of starting the Xpad systray"
 msgstr ""
 
-#: ../src/xpad-preferences.c:716
+#: ../src/xpad-preferences.c:764
 #, c-format
 msgid ""
 "Could not save %s\n"
 "%s"
 msgstr ""
 
-#: ../src/xpad-settings.c:370 ../src/xpad-settings.c:380
+#: ../src/xpad-settings.c:375 ../src/xpad-settings.c:385
 msgid "Error enabling Xpad autostart"
 msgstr ""
 
-#: ../src/xpad-settings.c:370
+#: ../src/xpad-settings.c:375
 #, c-format
 msgid ""
 "Could not create directory %s\n"
 "%s."
 msgstr ""
 
-#: ../src/xpad-settings.c:380
+#: ../src/xpad-settings.c:385
 #, c-format
 msgid ""
 "Could not copy %s to %s\n"
 "%s"
 msgstr ""
 
-#: ../src/xpad-settings.c:397
+#: ../src/xpad-settings.c:402
 msgid "Error disabling Xpad autostart"
 msgstr ""
 
-#: ../src/xpad-settings.c:397
+#: ../src/xpad-settings.c:402
 #, c-format
 msgid ""
 "Could not delete %s\n"
 "%s"
 msgstr ""
 
-#: ../src/xpad-toolbar.c:79
+#: ../src/xpad-toolbar.c:80
 msgid "Clear Pad Contents"
 msgstr "Hapus Isi Nota"
 
-#: ../src/xpad-toolbar.c:79
+#: ../src/xpad-toolbar.c:80
 msgid "Add C_lear button"
 msgstr ""
 
-#: ../src/xpad-toolbar.c:80
+#: ../src/xpad-toolbar.c:81
 msgid "Close and Save Pad"
 msgstr "Tutup dan Simpan Nota"
 
-#: ../src/xpad-toolbar.c:80
+#: ../src/xpad-toolbar.c:81
 msgid "Add _Close button"
 msgstr ""
 
-#: ../src/xpad-toolbar.c:81
+#: ../src/xpad-toolbar.c:82
 msgid "Copy to Clipboard"
 msgstr ""
 
-#: ../src/xpad-toolbar.c:81
+#: ../src/xpad-toolbar.c:82
 msgid "Add C_opy button"
 msgstr ""
 
-#: ../src/xpad-toolbar.c:82
+#: ../src/xpad-toolbar.c:83
 msgid "Cut to Clipboard"
 msgstr ""
 
-#: ../src/xpad-toolbar.c:82
+#: ../src/xpad-toolbar.c:83
 msgid "Add C_ut button"
 msgstr ""
 
-#: ../src/xpad-toolbar.c:83
+#: ../src/xpad-toolbar.c:84
 msgid "Delete Pad"
 msgstr "Buang Nota"
 
-#: ../src/xpad-toolbar.c:83
+#: ../src/xpad-toolbar.c:84
 msgid "Add _Delete button"
 msgstr ""
 
-#: ../src/xpad-toolbar.c:84
+#: ../src/xpad-toolbar.c:85
+msgid "Find text"
+msgstr ""
+
+#: ../src/xpad-toolbar.c:85
+msgid "Add _Find button"
+msgstr ""
+
+#: ../src/xpad-toolbar.c:86
 msgid "Open New Pad"
 msgstr "Buka Nota Baru"
 
-#: ../src/xpad-toolbar.c:84
+#: ../src/xpad-toolbar.c:86
 msgid "Add _New button"
 msgstr ""
 
-#: ../src/xpad-toolbar.c:85
+#: ../src/xpad-toolbar.c:87
 msgid "Paste from Clipboard"
 msgstr ""
 
-#: ../src/xpad-toolbar.c:85
+#: ../src/xpad-toolbar.c:87
 msgid "Add Pa_ste button"
 msgstr ""
 
-#: ../src/xpad-toolbar.c:86
+#: ../src/xpad-toolbar.c:88
 msgid "Edit Preferences"
 msgstr "Edit Preferensi"
 
-#: ../src/xpad-toolbar.c:86
+#: ../src/xpad-toolbar.c:88
 msgid "Add Pr_eferences button"
 msgstr ""
 
-#: ../src/xpad-toolbar.c:87
+#: ../src/xpad-toolbar.c:89
 msgid "Edit Pad Properties"
 msgstr "Edit Properti Nota"
 
-#: ../src/xpad-toolbar.c:87
+#: ../src/xpad-toolbar.c:89
 msgid "Add Proper_ties button"
 msgstr ""
 
-#: ../src/xpad-toolbar.c:88
+#: ../src/xpad-toolbar.c:90
 msgid "Redo"
 msgstr ""
 
-#: ../src/xpad-toolbar.c:88
+#: ../src/xpad-toolbar.c:90
 msgid "Add _Redo button"
 msgstr ""
 
-#: ../src/xpad-toolbar.c:89
+#: ../src/xpad-toolbar.c:91
 msgid "Close All Pads"
 msgstr "Tutup Semua Nota"
 
-#: ../src/xpad-toolbar.c:89
+#: ../src/xpad-toolbar.c:91
 msgid "Add Close _All button"
 msgstr ""
 
-#: ../src/xpad-toolbar.c:90
+#: ../src/xpad-toolbar.c:92
 msgid "Undo"
 msgstr ""
 
-#: ../src/xpad-toolbar.c:90
+#: ../src/xpad-toolbar.c:92
 msgid "Add _Undo button"
 msgstr ""
 
-#: ../src/xpad-toolbar.c:91
+#: ../src/xpad-toolbar.c:93
 msgid "Add Se_parator"
 msgstr ""
 
-#: ../src/xpad-toolbar.c:518
+#: ../src/xpad-toolbar.c:528
 msgid "Remove All _Buttons"
 msgstr ""
 
-#: ../src/xpad-toolbar.c:525
+#: ../src/xpad-toolbar.c:535
 msgid "Remo_ve Last Button"
 msgstr ""
 
-#: ../src/xpad-tray.c:168
+#: ../src/xpad-tray.c:100
 msgid "_Quit"
 msgstr ""
-
-#: ../xpad.desktop.in.h:2
-msgid "Sticky Notes"
-msgstr "Sticky-Note"
-
-#: ../xpad.desktop.in.h:3
-msgid "Jot down notes for later"
-msgstr "Simpan catatan untuk nanti"
 
 #~ msgid ""
 #~ "Please send comments or bug reports to xpad-devel@lists.sourceforge.net"
@@ -619,6 +652,12 @@ msgstr "Simpan catatan untuk nanti"
 
 #~ msgid "Add _Close to Toolbar"
 #~ msgstr "Tambahkan T_utup pada Toolbar"
+
+#~ msgid "Sticky Notes"
+#~ msgstr "Sticky-Note"
+
+#~ msgid "Jot down notes for later"
+#~ msgstr "Simpan catatan untuk nanti"
 
 #~ msgid "_Move"
 #~ msgstr "_Pindahkan"

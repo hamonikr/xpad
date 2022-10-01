@@ -26,6 +26,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 
 #include "xpad-pad-group.h"
 #include "xpad-pad.h"
+#include "xpad-app.h"
 
 struct XpadPadGroupPrivate
 {
@@ -35,6 +36,7 @@ struct XpadPadGroupPrivate
 G_DEFINE_TYPE_WITH_PRIVATE (XpadPadGroup, xpad_pad_group, G_TYPE_OBJECT)
 
 static void xpad_pad_group_save_unsaved_all (XpadPadGroup *group);
+static guint xpad_pad_group_num_pads (XpadPadGroup *group);
 
 enum {
 	PROP_0
@@ -97,6 +99,28 @@ xpad_pad_group_get_pads (XpadPadGroup *group)
 	return g_slist_copy (group->priv->pads);
 }
 
+static gint
+menu_title_compare (GtkWindow *a, GtkWindow *b)
+{
+        gchar *title_a = g_utf8_casefold (gtk_window_get_title (a), -1);
+        gchar *title_b = g_utf8_casefold (gtk_window_get_title (b), -1);
+
+        gint rv = g_utf8_collate (title_a, title_b);
+
+        g_free (title_a);
+        g_free (title_b);
+
+        return rv;
+}
+
+GSList* xpad_pad_group_get_pads_sorted_by_title(XpadPadGroup *group) {
+        /* Get all the pads */
+        GSList *pads = xpad_pad_group_get_pads (group);
+
+        /* Sort the pads by title. */
+        return g_slist_sort (pads, (GCompareFunc) menu_title_compare);
+}
+
 /* Add a pad to this group */
 void
 xpad_pad_group_add (XpadPadGroup *group, GtkWidget *pad)
@@ -113,6 +137,7 @@ xpad_pad_group_add (XpadPadGroup *group, GtkWidget *pad)
 void
 xpad_pad_group_remove (XpadPadGroup *group, GtkWidget *pad)
 {
+	/* Destroy the pad */
 	group->priv->pads = g_slist_remove (group->priv->pads, XPAD_PAD (pad));
 	g_clear_object(&pad);
 
@@ -130,10 +155,15 @@ xpad_pad_group_destroy_pads (XpadPadGroup *group)
 	g_slist_foreach (group->priv->pads, (GFunc) gtk_widget_destroy, NULL);
 }
 
-guint
+static guint
 xpad_pad_group_num_pads (XpadPadGroup *group)
 {
 	return g_slist_length (group->priv->pads);
+}
+
+gboolean xpad_pad_group_has_pads (XpadPadGroup *group)
+{
+	return xpad_pad_group_num_pads (group) != 0;
 }
 
 guint

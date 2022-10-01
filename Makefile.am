@@ -9,16 +9,10 @@ SUBDIRS = \
 # ACLOCAL_AMFLAGS = -I m4
 
 EXTRA_DIST = \
-	autogen.sh \
-	intltool-extract.in \
-	intltool-merge.in \
-	intltool-update.in
+	autogen.sh
 
 DISTCLEANFILES = \
 	xpad.desktop \
-	intltool-extract \
-	intltool-merge \
-	intltool-update \
 	po/xpad.pot \
 	Makefile.in \
 	aclocal.m4 \
@@ -28,9 +22,6 @@ DISTCLEANFILES = \
 	configure \
 	depcomp \
 	install-sh \
-	intltool-extract.in \
-	intltool-merge.in \
-	intltool-update.in \
 	missing \
 	autopackage/Makefile.in \
 	doc/Makefile.in \

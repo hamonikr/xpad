@@ -64,6 +64,7 @@ enum
 	ACTIVATE_CUT,
 	ACTIVATE_COPY,
 	ACTIVATE_PASTE,
+	ACTIVATE_SEARCH,
 	ACTIVATE_DELETE,
 	ACTIVATE_CLEAR,
 	ACTIVATE_PREFERENCES,
@@ -81,6 +82,7 @@ static const XpadToolbarButton buttons[] =
 	{"Copy", "edit-copy", ACTIVATE_COPY, XPAD_BUTTON_TYPE_BUTTON, N_("Copy to Clipboard"), N_("Add C_opy button")},
 	{"Cut", "edit-cut", ACTIVATE_CUT, XPAD_BUTTON_TYPE_BUTTON, N_("Cut to Clipboard"), N_("Add C_ut button")},
 	{"Delete", "edit-delete", ACTIVATE_DELETE, XPAD_BUTTON_TYPE_BUTTON, N_("Delete Pad"), N_("Add _Delete button")},
+	{"Find", "edit-find", ACTIVATE_SEARCH, XPAD_BUTTON_TYPE_BUTTON, N_("Find text"), N_("Add _Find button")},
 	{"New", "document-new", ACTIVATE_NEW, XPAD_BUTTON_TYPE_BUTTON, N_("Open New Pad"), N_("Add _New button")},
 	{"Paste", "edit-paste", ACTIVATE_PASTE, XPAD_BUTTON_TYPE_BUTTON, N_("Paste from Clipboard"), N_("Add Pa_ste button")},
 	{"Preferences", "preferences-system", ACTIVATE_PREFERENCES, XPAD_BUTTON_TYPE_BUTTON, N_("Edit Preferences"), N_("Add Pr_eferences button")},
@@ -133,7 +135,7 @@ xpad_toolbar_class_init (XpadToolbarClass *klass)
 		g_signal_new ("activate-new",
 		              G_OBJECT_CLASS_TYPE (gobject_class),
 		              G_SIGNAL_RUN_LAST,
-		              G_STRUCT_OFFSET (XpadToolbarClass, activate_new),
+		              0,
 		              NULL, NULL,
 		              g_cclosure_marshal_VOID__VOID, G_TYPE_NONE, 0);
 
@@ -141,7 +143,7 @@ xpad_toolbar_class_init (XpadToolbarClass *klass)
 		g_signal_new ("activate-close",
 		              G_OBJECT_CLASS_TYPE (gobject_class),
 		              G_SIGNAL_RUN_LAST,
-		              G_STRUCT_OFFSET (XpadToolbarClass, activate_close),
+		              0,
 		              NULL, NULL,
 		              g_cclosure_marshal_VOID__VOID, G_TYPE_NONE, 0);
 
@@ -149,7 +151,7 @@ xpad_toolbar_class_init (XpadToolbarClass *klass)
 		g_signal_new ("activate-undo",
 		              G_OBJECT_CLASS_TYPE (gobject_class),
 		              G_SIGNAL_RUN_LAST,
-		              G_STRUCT_OFFSET (XpadToolbarClass, activate_undo),
+		              0,
 		              NULL, NULL,
 		              g_cclosure_marshal_VOID__VOID, G_TYPE_NONE, 0);
 
@@ -157,7 +159,7 @@ xpad_toolbar_class_init (XpadToolbarClass *klass)
 		g_signal_new ("activate-redo",
 		              G_OBJECT_CLASS_TYPE (gobject_class),
 		              G_SIGNAL_RUN_LAST,
-		              G_STRUCT_OFFSET (XpadToolbarClass, activate_redo),
+		              0,
 		              NULL, NULL,
 		              g_cclosure_marshal_VOID__VOID, G_TYPE_NONE, 0);
 
@@ -165,7 +167,7 @@ xpad_toolbar_class_init (XpadToolbarClass *klass)
 		g_signal_new ("activate-cut",
 		              G_OBJECT_CLASS_TYPE (gobject_class),
 		              G_SIGNAL_RUN_LAST,
-		              G_STRUCT_OFFSET (XpadToolbarClass, activate_cut),
+		              0,
 		              NULL, NULL,
 		              g_cclosure_marshal_VOID__VOID, G_TYPE_NONE, 0);
 
@@ -173,7 +175,7 @@ xpad_toolbar_class_init (XpadToolbarClass *klass)
 		g_signal_new ("activate-copy",
 		              G_OBJECT_CLASS_TYPE (gobject_class),
 		              G_SIGNAL_RUN_LAST,
-		              G_STRUCT_OFFSET (XpadToolbarClass, activate_copy),
+		              0,
 		              NULL, NULL,
 		              g_cclosure_marshal_VOID__VOID, G_TYPE_NONE, 0);
 
@@ -181,7 +183,15 @@ xpad_toolbar_class_init (XpadToolbarClass *klass)
 		g_signal_new ("activate-paste",
 		              G_OBJECT_CLASS_TYPE (gobject_class),
 		              G_SIGNAL_RUN_LAST,
-		              G_STRUCT_OFFSET (XpadToolbarClass, activate_paste),
+		              0,
+		              NULL, NULL,
+		              g_cclosure_marshal_VOID__VOID, G_TYPE_NONE, 0);
+
+	signals[ACTIVATE_SEARCH] =
+		g_signal_new ("activate-search",
+		              G_OBJECT_CLASS_TYPE (gobject_class),
+		              G_SIGNAL_RUN_LAST,
+		              0,
 		              NULL, NULL,
 		              g_cclosure_marshal_VOID__VOID, G_TYPE_NONE, 0);
 
@@ -189,7 +199,7 @@ xpad_toolbar_class_init (XpadToolbarClass *klass)
 		g_signal_new ("activate-quit",
 		              G_OBJECT_CLASS_TYPE (gobject_class),
 		              G_SIGNAL_RUN_LAST,
-		              G_STRUCT_OFFSET (XpadToolbarClass, activate_quit),
+		              0,
 		              NULL, NULL,
 		              g_cclosure_marshal_VOID__VOID, G_TYPE_NONE, 0);
 
@@ -197,7 +207,7 @@ xpad_toolbar_class_init (XpadToolbarClass *klass)
 		g_signal_new ("activate-clear",
 		              G_OBJECT_CLASS_TYPE (gobject_class),
 		              G_SIGNAL_RUN_LAST,
-		              G_STRUCT_OFFSET (XpadToolbarClass, activate_clear),
+		              0,
 		              NULL, NULL,
 		              g_cclosure_marshal_VOID__VOID, G_TYPE_NONE, 0);
 	
@@ -205,7 +215,7 @@ xpad_toolbar_class_init (XpadToolbarClass *klass)
 		g_signal_new ("activate-properties",
 		              G_OBJECT_CLASS_TYPE (gobject_class),
 		              G_SIGNAL_RUN_LAST,
-		              G_STRUCT_OFFSET (XpadToolbarClass, activate_properties),
+		              0,
 		              NULL, NULL,
 		              g_cclosure_marshal_VOID__VOID, G_TYPE_NONE, 0);
 
@@ -213,7 +223,7 @@ xpad_toolbar_class_init (XpadToolbarClass *klass)
 		g_signal_new ("activate-preferences",
 		              G_OBJECT_CLASS_TYPE (gobject_class),
 		              G_SIGNAL_RUN_LAST,
-		              G_STRUCT_OFFSET (XpadToolbarClass, activate_preferences),
+		              0,
 		              NULL, NULL,
 		              g_cclosure_marshal_VOID__VOID, G_TYPE_NONE, 0);
 
@@ -221,7 +231,7 @@ xpad_toolbar_class_init (XpadToolbarClass *klass)
 		g_signal_new ("activate-delete",
 		              G_OBJECT_CLASS_TYPE (gobject_class),
 		              G_SIGNAL_RUN_LAST,
-		              G_STRUCT_OFFSET (XpadToolbarClass, activate_delete),
+		              0,
 		              NULL, NULL,
 		              g_cclosure_marshal_VOID__VOID, G_TYPE_NONE, 0);
 
@@ -229,7 +239,7 @@ xpad_toolbar_class_init (XpadToolbarClass *klass)
 		g_signal_new ("popup",
 		              G_OBJECT_CLASS_TYPE (gobject_class),
 		              G_SIGNAL_RUN_LAST,
-		              G_STRUCT_OFFSET (XpadToolbarClass, popup),
+		              0,
 		              NULL, NULL,
 		              g_cclosure_marshal_VOID__OBJECT, G_TYPE_NONE, 1, GTK_TYPE_MENU);
 
@@ -237,7 +247,7 @@ xpad_toolbar_class_init (XpadToolbarClass *klass)
 		g_signal_new ("popdown",
 		              G_OBJECT_CLASS_TYPE (gobject_class),
 		              G_SIGNAL_RUN_LAST,
-		              G_STRUCT_OFFSET (XpadToolbarClass, popdown),
+		              0,
 		              NULL, NULL,
 		              g_cclosure_marshal_VOID__OBJECT, G_TYPE_NONE, 1, GTK_TYPE_MENU);
 

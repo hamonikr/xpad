@@ -45,25 +45,33 @@ struct XpadToolbar
 struct XpadToolbarClass
 {
 	GtkToolbarClass parent_class;
-	
-	void (*activate_clear) (XpadToolbar *toolbar);
-	void (*activate_close) (XpadToolbar *toolbar);
-	void (*activate_undo) (XpadToolbar *toolbar);
-	void (*activate_redo) (XpadToolbar *toolbar);
-	void (*activate_cut) (XpadToolbar *toolbar);
-	void (*activate_copy) (XpadToolbar *toolbar);
-	void (*activate_paste) (XpadToolbar *toolbar);
-	void (*activate_delete) (XpadToolbar *toolbar);
-	void (*activate_new) (XpadToolbar *toolbar);
-	void (*activate_preferences) (XpadToolbar *toolbar);
-	void (*activate_properties) (XpadToolbar *toolbar);
-	void (*activate_quit) (XpadToolbar *toolbar);
-	void (*popup) (XpadToolbar *toolbar, GtkMenu *menu);
-	void (*popdown) (XpadToolbar *toolbar, GtkMenu *menu);
 };
 
 GType xpad_toolbar_get_type (void);
 
+/*
+ * TODO: Why don't return XpadToolbar? Just because in GTK API it is like so?
+ * (but at least in gedit e.g. fields of XXXPrivate structs are of proper child types
+ * and not GtkWidget* everywhere)
+ *
+ * The only citation I've found on the topic is this one:
+ * All of the _new() routines return a GtkWidget*, even though they allocate a subclass; this is for convenience.
+ * (c) https://book.huihoo.com/gtk+-gnome-application-development/cha-gtk.html
+ *
+ * Who's convinience? If you will look at source code of gedit for example
+ * all fields declared in a XXXPrivate has proper child type (what is
+ * return from GTK _new is casted). This gives much more readability - maybe
+ * with the drawback of having to cast things back to GTK_WIDGET to add to
+ * a container and such.
+ *
+ * Anyway in Xpad part of _new functions return GtkWidget* and part
+ * return proper pointer types. Also part of XXXPrivate has GtkWidget*
+ * and part do not. Since Xpad is not an API I propose to return real
+ * type and where is makes sense to store real types in XXXPrivate
+ * (if this will result in too many casts, I will instead make everything
+ * a GtkWidget for consistency). Currently it is a mess in Xpad (even without
+ * arguing with GTK API choices). It should be at least consistent
+ */
 GtkWidget *xpad_toolbar_new (XpadPad *pad);
 
 void xpad_toolbar_enable_undo_button (XpadToolbar *toolbar, gboolean enable);

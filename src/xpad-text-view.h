@@ -53,7 +53,7 @@ struct XpadTextViewClass
 GType xpad_text_view_get_type (void);
 
 GtkWidget *xpad_text_view_new (XpadSettings *settings, XpadPad *pad);
-void xpad_text_view_set_colors (GtkWidget *view, const GdkRGBA *text_color, const GdkRGBA *back_color);
+void xpad_text_view_set_colors (GtkWidget *view, GdkRGBA *text_color, GdkRGBA *back_color);
 void xpad_text_view_set_font (GtkWidget *view, PangoFontDescription *desc);
 
 G_END_DECLS

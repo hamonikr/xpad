@@ -1,0 +1,601 @@
+# Interlingue translation for xpad
+# Copyright (c) 2021 Rosetta Contributors and Canonical Ltd 2021
+# This file is distributed under the same license as the xpad package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: xpad\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2022-05-16 04:37+0000\n"
+"PO-Revision-Date: 2021-01-09 07:37+0000\n"
+"Last-Translator: Arthur Borsboom <arthurborsboom@gmail.com>\n"
+"Language-Team: Interlingue <ie@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2022-05-17 07:41+0000\n"
+"X-Generator: Launchpad (build 611b427288ed4161ec0670b9f24cdc4f317059dc)\n"
+
+#: ../src/fio.c:146
+#, c-format
+msgid "Could not write to file %s: %s"
+msgstr ""
+
+#: ../src/help.c:53
+msgid "Error showing the help"
+msgstr ""
+
+#: ../src/help.c:53
+#, c-format
+msgid ""
+"Could not find the help file %s\n"
+"%s"
+msgstr ""
+
+#: ../src/help.c:72 ../src/xpad-preferences.c:528
+msgid "Close"
+msgstr "Cluder"
+
+#: ../src/help.c:77
+msgid "Help"
+msgstr "Auxilie"
+
+#: ../src/xpad-app.c:133
+msgid "Xpad is a graphical program.  Please run it from your desktop."
+msgstr ""
+
+#: ../src/xpad-app.c:138
+msgid "Xpad"
+msgstr "Xpad"
+
+#: ../src/xpad-app.c:251
+msgid "_Ok"
+msgstr "_OK"
+
+#: ../src/xpad-app.c:504
+#, c-format
+msgid "Could not open directory %s."
+msgstr ""
+
+#: ../src/xpad-app.c:507
+msgid ""
+"This directory is needed to store preference and pad information.  Xpad will "
+"close now."
+msgstr ""
+
+#: ../src/xpad-app.c:825
+msgid "Show version number and quit"
+msgstr ""
+
+#: ../src/xpad-app.c:826
+msgid "Don't create a new pad on startup if no previous pads exist"
+msgstr ""
+
+#: ../src/xpad-app.c:832
+msgid "Create a new pad on startup even if pads already exist"
+msgstr ""
+
+#: ../src/xpad-app.c:833 ../src/xpad-preferences.c:467
+msgid "Hide all pads"
+msgstr ""
+
+#: ../src/xpad-app.c:834
+msgid "Show all pads"
+msgstr ""
+
+#: ../src/xpad-app.c:835
+msgid "Toggle between show and hide all pads"
+msgstr ""
+
+#: ../src/xpad-app.c:836
+msgid "Create a new pad with the contents of a file"
+msgstr ""
+
+#: ../src/xpad-app.c:836
+msgid "FILE"
+msgstr "FILE"
+
+#: ../src/xpad-app.c:837
+msgid "Close all pads"
+msgstr "Cluder omni cadernes"
+
+#: ../src/xpad-app.c:868
+#, c-format
+msgid "Xpad %s"
+msgstr "Xpad %s"
+
+#: ../src/xpad-pad.c:191
+#, c-format
+msgid "Could not read file %s."
+msgstr ""
+
+#: ../src/xpad-pad.c:921
+msgid "Delete this pad?"
+msgstr "Remover ti-ci caderne?"
+
+#: ../src/xpad-pad.c:921
+msgid "All text of this pad will be irrevocably lost."
+msgstr ""
+
+#: ../src/xpad-pad.c:926 ../src/xpad-pad.c:1609
+msgid "_Delete"
+msgstr "_Remover"
+
+#: ../src/xpad-pad.c:926
+msgid "_Cancel"
+msgstr "A_nullar"
+
+#: ../src/xpad-pad.c:955
+#, c-format
+msgid "'%s' Layout"
+msgstr ""
+
+#: ../src/xpad-pad.c:1445
+msgid "Sticky notes"
+msgstr "Adhesiv notes"
+
+#. Translators: please translate this as your own name and optionally email
+#. like so: "Your Name <your@email.com>"
+#: ../src/xpad-pad.c:1449
+msgid "translator-credits"
+msgstr ""
+"Launchpad Contributions:\n"
+"  Arthur Borsboom https://launchpad.net/~arthurborsboom\n"
+"  Silvara https://launchpad.net/~mistresssilvara"
+
+#: ../src/xpad-pad.c:1608 ../src/xpad-tray.c:67
+msgid "_New"
+msgstr "_Crear"
+
+#: ../src/xpad-pad.c:1610
+msgid "_Reload"
+msgstr "_Recargar"
+
+#: ../src/xpad-pad.c:1611
+msgid "_Close"
+msgstr "Cl_uder"
+
+#. Edit submenu
+#: ../src/xpad-pad.c:1614
+msgid "_Edit"
+msgstr "_Redacter"
+
+#: ../src/xpad-pad.c:1618
+msgid "_Undo"
+msgstr "_Defar"
+
+#: ../src/xpad-pad.c:1620
+msgid "_Redo"
+msgstr "_Refar"
+
+#: ../src/xpad-pad.c:1623 ../src/xpad-pad.c:1763
+msgid "_Paste"
+msgstr "Co_llar"
+
+#: ../src/xpad-pad.c:1626
+msgid "_Find"
+msgstr "_Trovar"
+
+#: ../src/xpad-pad.c:1628
+msgid "_Layout"
+msgstr "_Arangeament"
+
+#: ../src/xpad-pad.c:1629
+msgid "_Read only"
+msgstr "Solm_en letion"
+
+#. Notes submenu - The list of notes will get added in the prep function below
+#: ../src/xpad-pad.c:1635
+msgid "_Notes"
+msgstr "_Notes"
+
+#: ../src/xpad-pad.c:1640 ../src/xpad-tray.c:74
+msgid "_Show All"
+msgstr "_Monstrar omni"
+
+#: ../src/xpad-pad.c:1641 ../src/xpad-tray.c:79
+msgid "_Close All"
+msgstr "_Cluder omni"
+
+#. Help submenu
+#: ../src/xpad-pad.c:1644 ../src/xpad-pad.c:1648 ../src/xpad-tray.c:96
+msgid "_Help"
+msgstr "Au_xilie"
+
+#: ../src/xpad-pad.c:1649
+msgid "_About"
+msgstr "_Pri"
+
+#: ../src/xpad-pad.c:1654 ../src/xpad-tray.c:92
+msgid "_Preferences"
+msgstr "_Preferenties"
+
+#: ../src/xpad-pad.c:1761
+msgid "Cu_t"
+msgstr "Exci_ser"
+
+#: ../src/xpad-pad.c:1762
+msgid "_Copy"
+msgstr "_Copiar"
+
+#: ../src/xpad-pad.c:1766
+msgid "_Bold"
+msgstr "_Grass"
+
+#: ../src/xpad-pad.c:1767
+msgid "_Italic"
+msgstr "_Italic"
+
+#: ../src/xpad-pad.c:1768
+msgid "_Underline"
+msgstr "S_ubstrecat"
+
+#: ../src/xpad-pad.c:1769
+msgid "_Strikethrough"
+msgstr "Tra_strecat"
+
+#: ../src/xpad-pad-properties.c:104
+msgid "Appearance"
+msgstr "Aspecte"
+
+#: ../src/xpad-pad-properties.c:112
+msgid "Use font from xpad preferences"
+msgstr ""
+
+#: ../src/xpad-pad-properties.c:113
+msgid "Use this font:"
+msgstr "Usar ti fonde:"
+
+#: ../src/xpad-pad-properties.c:114
+msgid "Use colors from xpad preferences"
+msgstr ""
+
+#: ../src/xpad-pad-properties.c:115
+msgid "Use these colors:"
+msgstr "Usar ti colores:"
+
+#: ../src/xpad-pad-properties.c:125
+msgid "Foreground:"
+msgstr "Avanplan:"
+
+#: ../src/xpad-pad-properties.c:133
+msgid "Background:"
+msgstr "Funde:"
+
+#: ../src/xpad-pad-properties.c:147 ../src/xpad-preferences.c:418
+msgid "Set Foreground Color"
+msgstr ""
+
+#: ../src/xpad-pad-properties.c:148 ../src/xpad-preferences.c:419
+msgid "Set Background Color"
+msgstr ""
+
+#: ../src/xpad-pad-properties.c:149 ../src/xpad-preferences.c:420
+msgid "Set Font"
+msgstr ""
+
+#. View options
+#: ../src/xpad-preferences.c:253
+msgid "View"
+msgstr "Vise"
+
+#: ../src/xpad-preferences.c:264
+msgid "_Show toolbar"
+msgstr ""
+
+#: ../src/xpad-preferences.c:268
+msgid "_Autohide toolbar"
+msgstr ""
+
+#: ../src/xpad-preferences.c:275
+msgid "_Show scrollbar"
+msgstr ""
+
+#: ../src/xpad-preferences.c:279
+msgid "_Show notes on all workspaces"
+msgstr ""
+
+#: ../src/xpad-preferences.c:283
+msgid "_Show window decorations"
+msgstr ""
+
+#: ../src/xpad-preferences.c:287
+msgid "_Hide all notes from the taskbar and possibly the task switcher"
+msgstr ""
+
+#: ../src/xpad-preferences.c:291
+msgid ""
+"_Hide all notes from the workspace switcher and possibly the task switcher"
+msgstr ""
+
+#. Layout options
+#: ../src/xpad-preferences.c:296
+msgid "Layout"
+msgstr "Arangeament"
+
+#: ../src/xpad-preferences.c:312
+msgid "Use font from theme"
+msgstr ""
+
+#: ../src/xpad-preferences.c:313
+msgid "Use this font"
+msgstr ""
+
+#: ../src/xpad-preferences.c:314
+msgid "Use colors from theme"
+msgstr "Usar colores del tema"
+
+#: ../src/xpad-preferences.c:315
+msgid "Use these colors"
+msgstr "Usar ti colores"
+
+#. Size of new pads: input fields
+#: ../src/xpad-preferences.c:319
+msgid "Height new pad"
+msgstr ""
+
+#: ../src/xpad-preferences.c:325
+msgid "Width new pad"
+msgstr ""
+
+#: ../src/xpad-preferences.c:348
+msgid "Text"
+msgstr "Textu"
+
+#: ../src/xpad-preferences.c:356
+msgid "Background"
+msgstr "Funde"
+
+#. Start options
+#: ../src/xpad-preferences.c:423
+msgid "Startup"
+msgstr "Inicie"
+
+#: ../src/xpad-preferences.c:434
+msgid "_Start Xpad automatically after login"
+msgstr ""
+
+#: ../src/xpad-preferences.c:438
+msgid "_Wait for systray (if possible)"
+msgstr ""
+
+#: ../src/xpad-preferences.c:449
+msgid "_Open a new empty pad"
+msgstr ""
+
+#: ../src/xpad-preferences.c:453
+msgid "Delay in seconds"
+msgstr "Retarde in secs"
+
+#: ../src/xpad-preferences.c:464
+msgid "Display pads"
+msgstr ""
+
+#: ../src/xpad-preferences.c:466
+msgid "Open all pads"
+msgstr "Aperter omni cadernes"
+
+#: ../src/xpad-preferences.c:468
+msgid "Restore to previous state"
+msgstr ""
+
+#. Tray options
+#: ../src/xpad-preferences.c:476
+msgid "Tray"
+msgstr ""
+
+#: ../src/xpad-preferences.c:487
+msgid "_Enable tray icon"
+msgstr ""
+
+#: ../src/xpad-preferences.c:490
+msgid "Tray left mouse click behavior"
+msgstr ""
+
+#: ../src/xpad-preferences.c:492
+msgid "Do Nothing"
+msgstr "Far necós"
+
+#: ../src/xpad-preferences.c:493
+msgid "Toggle Show All"
+msgstr ""
+
+#: ../src/xpad-preferences.c:494
+msgid "List of Pads"
+msgstr "Liste de cadernes"
+
+#: ../src/xpad-preferences.c:495
+msgid "New Pad"
+msgstr "Crear un caderne"
+
+#. Other options
+#: ../src/xpad-preferences.c:503
+msgid "Other"
+msgstr "Altri"
+
+#: ../src/xpad-preferences.c:514
+msgid "_Make pads read-only (CTRL-J)"
+msgstr ""
+
+#: ../src/xpad-preferences.c:515
+msgid "_Confirm pad deletion"
+msgstr ""
+
+#: ../src/xpad-preferences.c:516
+msgid "Enable _line numbering"
+msgstr ""
+
+#: ../src/xpad-preferences.c:530
+msgid "Xpad Preferences"
+msgstr "Preferenties de Xpad"
+
+#: ../src/xpad-preferences.c:752
+#, c-format
+msgid ""
+"Could not load %s\n"
+"%s"
+msgstr ""
+
+#: ../src/xpad-preferences.c:753 ../src/xpad-preferences.c:765
+msgid "Failed to change the time delay of starting the Xpad systray"
+msgstr ""
+
+#: ../src/xpad-preferences.c:764
+#, c-format
+msgid ""
+"Could not save %s\n"
+"%s"
+msgstr ""
+
+#: ../src/xpad-settings.c:375 ../src/xpad-settings.c:385
+msgid "Error enabling Xpad autostart"
+msgstr ""
+
+#: ../src/xpad-settings.c:375
+#, c-format
+msgid ""
+"Could not create directory %s\n"
+"%s."
+msgstr ""
+
+#: ../src/xpad-settings.c:385
+#, c-format
+msgid ""
+"Could not copy %s to %s\n"
+"%s"
+msgstr ""
+
+#: ../src/xpad-settings.c:402
+msgid "Error disabling Xpad autostart"
+msgstr ""
+
+#: ../src/xpad-settings.c:402
+#, c-format
+msgid ""
+"Could not delete %s\n"
+"%s"
+msgstr ""
+
+#: ../src/xpad-toolbar.c:80
+msgid "Clear Pad Contents"
+msgstr ""
+
+#: ../src/xpad-toolbar.c:80
+msgid "Add C_lear button"
+msgstr ""
+
+#: ../src/xpad-toolbar.c:81
+msgid "Close and Save Pad"
+msgstr "Gardar e cluder li caderne"
+
+#: ../src/xpad-toolbar.c:81
+msgid "Add _Close button"
+msgstr ""
+
+#: ../src/xpad-toolbar.c:82
+msgid "Copy to Clipboard"
+msgstr "Copiar al Paperiere"
+
+#: ../src/xpad-toolbar.c:82
+msgid "Add C_opy button"
+msgstr ""
+
+#: ../src/xpad-toolbar.c:83
+msgid "Cut to Clipboard"
+msgstr "Exciser al Paperiere"
+
+#: ../src/xpad-toolbar.c:83
+msgid "Add C_ut button"
+msgstr ""
+
+#: ../src/xpad-toolbar.c:84
+msgid "Delete Pad"
+msgstr "Remover li caderne"
+
+#: ../src/xpad-toolbar.c:84
+msgid "Add _Delete button"
+msgstr ""
+
+#: ../src/xpad-toolbar.c:85
+msgid "Find text"
+msgstr ""
+
+#: ../src/xpad-toolbar.c:85
+msgid "Add _Find button"
+msgstr ""
+
+#: ../src/xpad-toolbar.c:86
+msgid "Open New Pad"
+msgstr ""
+
+#: ../src/xpad-toolbar.c:86
+msgid "Add _New button"
+msgstr ""
+
+#: ../src/xpad-toolbar.c:87
+msgid "Paste from Clipboard"
+msgstr ""
+
+#: ../src/xpad-toolbar.c:87
+msgid "Add Pa_ste button"
+msgstr ""
+
+#: ../src/xpad-toolbar.c:88
+msgid "Edit Preferences"
+msgstr ""
+
+#: ../src/xpad-toolbar.c:88
+msgid "Add Pr_eferences button"
+msgstr ""
+
+#: ../src/xpad-toolbar.c:89
+msgid "Edit Pad Properties"
+msgstr ""
+
+#: ../src/xpad-toolbar.c:89
+msgid "Add Proper_ties button"
+msgstr ""
+
+#: ../src/xpad-toolbar.c:90
+msgid "Redo"
+msgstr "Refar"
+
+#: ../src/xpad-toolbar.c:90
+msgid "Add _Redo button"
+msgstr ""
+
+#: ../src/xpad-toolbar.c:91
+msgid "Close All Pads"
+msgstr "Cluder omni cadernes"
+
+#: ../src/xpad-toolbar.c:91
+msgid "Add Close _All button"
+msgstr ""
+
+#: ../src/xpad-toolbar.c:92
+msgid "Undo"
+msgstr "Defar"
+
+#: ../src/xpad-toolbar.c:92
+msgid "Add _Undo button"
+msgstr ""
+
+#: ../src/xpad-toolbar.c:93
+msgid "Add Se_parator"
+msgstr "Adjunter un se_parator"
+
+#: ../src/xpad-toolbar.c:528
+msgid "Remove All _Buttons"
+msgstr "Remover omni _butones"
+
+#: ../src/xpad-toolbar.c:535
+msgid "Remo_ve Last Button"
+msgstr ""
+
+#: ../src/xpad-tray.c:100
+msgid "_Quit"
+msgstr "S_urtir"
+
+#~ msgid "Sticky Notes"
+#~ msgstr "Adhesiv notes"

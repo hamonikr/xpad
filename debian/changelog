@@ -1,3 +1,12 @@
+xpad (5.8.0-hamonikr1) jammy; urgency=medium
+
+  * Release for Ubuntu 22.04
+   - merge from upstream v5.8.0 (https://launchpad.net/xpad/+milestone/5.8.0)
+   - Add Korean Help to doc/xpad-user-help.txt
+   - Update po/ko.po
+
+ -- HamoniKR <pkg@hamonikr.org>  Sat, 01 Oct 2022 11:36:35 +0900
+
 xpad (5.4.0-1-hamonikr1) jin; urgency=medium
 
   * Release for HamoniKR user

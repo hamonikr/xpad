@@ -1,6 +1,6 @@
 dist_man_MANS = xpad.1
 
-helpdir=$(datadir)/xpad/help
+helpdir=$(datadir)/@HELP_DIR@
 help_DATA= \
-	xpad-user-help.txt \
+	@HELP_FILE_NAME@ \
 	$(NULL)

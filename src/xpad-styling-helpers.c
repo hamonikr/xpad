@@ -75,15 +75,17 @@ gchar * pango_font_description_to_css (PangoFontDescription *desc) {
 		}
 
 		if (set & PANGO_FONT_MASK_VARIANT) {
-		  switch (pango_font_description_get_variant (desc))
-			{
-			case PANGO_VARIANT_NORMAL:
-			  g_string_append (s, "font-variant: normal; ");
-			  break;
-			case PANGO_VARIANT_SMALL_CAPS:
-			  g_string_append (s, "font-variant: small-caps; ");
-			  break;
-			}
+		      switch (pango_font_description_get_variant (desc))
+		        {
+		        case PANGO_VARIANT_NORMAL:
+		          g_string_append (s, "font-variant: normal; ");
+		          break;
+		        case PANGO_VARIANT_SMALL_CAPS:
+		          g_string_append (s, "font-variant: small-caps; ");
+		          break;
+		        default:
+		          break;
+		        }
 		}
 
 		if (set & PANGO_FONT_MASK_WEIGHT) {

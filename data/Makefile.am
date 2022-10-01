@@ -1,12 +1,10 @@
 desktopdir = $(datadir)/applications
 desktop_in_files = xpad.desktop.in
 desktop_DATA = $(desktop_in_files:.desktop.in=.desktop)
-@INTLTOOL_DESKTOP_RULE@
 
 appdatadir = $(datadir)/metainfo
 appdata_in_files = xpad.appdata.xml.in
 appdata_DATA = $(appdata_in_files:.xml.in=.xml)
-@INTLTOOL_XML_RULE@
 
 CLEANFILES = \
 	$(appdata_DATA) \
@@ -15,3 +13,9 @@ CLEANFILES = \
 EXTRA_DIST = \
 	$(appdata_in_files) \
 	$(desktop_in_files)
+
+$(desktop_DATA): $(desktop_in_files)
+	$(AM_V_GEN)$(MSGFMT) --desktop --template $< -d $(top_srcdir)/po -o $@
+
+$(appdata_DATA): $(appdata_in_files)
+	$(AM_V_GEN)$(MSGFMT) --xml --template $< -d $(top_srcdir)/po -o $@

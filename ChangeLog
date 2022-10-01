@@ -1,3 +1,29 @@
+Version 5.8
+* Fix: the move from GtkSourceView 3 > 4 has resulted in a border of 5 pixels around the pad. Restoring the original behavior by changing the outer border back to the inner margin. (#1967964)
+* Fix: segfault with the 'Use colors from theme' option" (#1971568)
+
+Version 5.7
+* Fix: undo build dependency on Pango v1.50 back to Pango v1.32 (#1964094)
+* Fix: Replace libappindicator with libayatana-appindicator, since libappindicator is not maintained. (#1964116)
+* Fix: App indicator (systray): make [Show All] / [Close All] menu items clickable
+
+Version 5.6
+* Fix: build problem where external files, like the help, were inaccessible. (#1960838)
+* Fix: if pads changed (new, update or delete) the change was not reflected in in the tray overview with the pads. (#1960802)
+* Fix: several memory leaks
+
+Version 5.5
+* New: Ability to search through a pad by Siergiej Riaguzow. (#452226)
+* Fix: Removal of the obsolete undo/redo functionality, since it is already provided by the GtkSourceBuffer by Siergiej Riaguzow. (#1349838)
+* Fix: 'make check' fails over missing/moved xpad.desktop.in (#1812678)
+* Fix: Phased out the deprecated intltool (translation system) in favor of gettext. Source: https://wiki.gnome.org/MigratingFromIntltoolToGettext
+* Fix: Comply to C90 coding standards for comments
+* Fix: Increased the minimum required Glib version from 2.40 to 2.58 in preparation for a shift from GtkSourceView v3 to v4,
+       following https://gitlab.gnome.org/GNOME/gtksourceview/-/issues/84. GtkSourceView v3 uses the deprecated GTimeVal, which is not year 2038 proof.
+* Fix: Increased the minimum required GtkSourceView version from v3.10 to v4.0.3.
+* Fix: Search: use GtkSouceView v4; fix uninitialized variable.
+* Fix: Wayland compatibility: only set the X11 client ID, if Xpad is running in an X11 session.
+
 Version 5.4
 * New: added the AppStream metadata for easier packaging/software maintenance across Linux distributions. (#1809985)
 * Fix: Fixed the regression that the scrollbars are not showing (#1810153)

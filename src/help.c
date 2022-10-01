@@ -45,10 +45,12 @@ void show_help ()
 		GError *error = NULL;
 
 		/* Load help text from file */
-		success = g_file_get_contents (HELP_FILE, &helptextbuf, NULL, &error);
+		gchar *help_file = g_strdup_printf ("%s/%s/%s", DATADIR, HELPDIR, HELPFILENAME);
+		success = g_file_get_contents (help_file, &helptextbuf, NULL, &error);
+		g_free(help_file);
 
 		if (!success) {
-			xpad_app_error (NULL, _("Error showing the help"), g_strdup_printf (_("Could not find the help file %s\n%s"), HELP_FILE, error->message));
+			xpad_app_error (NULL, _("Error showing the help"), g_strdup_printf (_("Could not find the help file %s\n%s"), help_file, error->message));
 			return;
 		}
 
