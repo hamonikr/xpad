@@ -10,11 +10,11 @@
 
 # xpad
 
-하모니카에서 제공하는 간단한 스티커 메모
+Simple sticker memo provided by HamoniKR
 
 메모별로 다양한 설정을 적용해서 사용할 수 있습니다.
 
- * HamoniKR (>= 4.0), Ubuntu (>= 20.04), LinuxMint(>=19) 지원
+ * HamoniKR, Ubuntu, LinuxMin 지원
  * 한글 설정 및 인터페이스 지원
  * upstream : https://launchpad.net/xpad
  
@@ -22,28 +22,17 @@
 
 # Install
 
-## HamoniKR 사용자의 경우
-터미널을 열고(Ctrl+Alt+T) 아래 명령어를 입력하세요.
+## Ubuntu, Debian, LinuxMint...
+Open the terminal and enter the command below (Ctrl+Alt+T).
 
 ```
-sudo apt update
+# Add Harmonica APT Storage
+wget -qO- https://pkg.hamonikr.org/add-hamonikr.apt | sudo -E bash -
+
+
+# Program installation
 sudo apt install -y xpad
-```
 
-## Ubuntu, LinuxMint 등 다른 배포판 사용자의 경우
-터미널을 열고(Ctrl+Alt+T) 아래 명령어를 입력하세요.
-
-```
-# 하모니카 APT 저장소 추가 (우분투 21.04 이하)
-curl -sL https://pkg.hamonikr.org/add-hamonikr.apt | sudo -E bash -
-
-# 우분투 22.04 이상이면 아래와 같이 하모니카 저장소를 추가.
-wget -qO- https://repo.hamonikr.org/hamonikr-app.apt | sudo -E bash -
-
-# 프로그램 설치
-sudo apt install -y xpad
-또는
-sudo apt install -y xpad=5.8.0-hamonikr1
 ```
 
 # Usage
