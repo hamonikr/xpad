@@ -8,7 +8,8 @@ Build-Depends:
  libgl1-mesa-dev,
  libglib2.0-dev (>= 2.56),
  libgtk-3-dev (>= 3.22),
- libgtksourceview-3.0-dev (>= 3.22)
+ libgtksourceview-3.0-dev (>= 3.22),
+ libgtksourceview-4-dev,
 Standards-Version: 4.4.0
 Homepage: https://launchpad.net/xpad
 Vcs-Git: https://github.com/jcfp/debpkg-xpad.git
@@ -17,7 +18,7 @@ Vcs-Browser: https://github.com/jcfp/debpkg-xpad/
 Package: xpad
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Replaces: hamonikr-jin-icon-theme
+Replaces: hamonikr-jin-icon-theme, hamonikr-themes
 Description: sticky note application for X
  This program consists of independent pad windows, each is basically a text box
  in which notes can be written. Xpad attempts to emulate the look of postit

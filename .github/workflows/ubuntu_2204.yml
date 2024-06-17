@@ -1,0 +1,29 @@
+name: Build Debian Package
+
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v4
+
+      - name: Build Debian Package
+        uses: jtdor/build-deb-action@v1
+        env:
+          DEB_BUILD_OPTIONS: noautodbgsym
+        with:
+          docker-image: ubuntu:22.04
+          buildpackage-opts: --build=binary --no-sign
+          # When change deb package name as git rev id
+          # before-build-hook: debchange --controlmaint --local="+ci${{ github.run_id }}~git$(git rev-parse --short HEAD)" "CI build"
+          extra-build-deps: devscripts git equivs debhelper build-essential debhelper-compat intltool libgl1-mesa-dev libglib2.0-dev libgtk-3-dev libgtksourceview-3.0-dev libgtksourceview-4-dev
+          host-arch: amd64
+          artifacts-dir: debian/artifacts
+
+      - run: ls -R debian/artifacts

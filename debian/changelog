@@ -1,3 +1,9 @@
+xpad (5.8.0-hamonikr2) stable; urgency=medium
+
+  * Release for paektu
+
+ -- HamoniKR <pkg@hamonikr.org>  Mon, 17 Jun 2024 14:45:19 +0900
+
 xpad (5.8.0-hamonikr1) jammy; urgency=medium
 
   * Release for Ubuntu 22.04
