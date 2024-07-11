@@ -1,3 +1,9 @@
+xpad (5.8.1+hamonikr3) stable; urgency=medium
+
+  * Release for bookworm arm64
+
+ -- HamoniKR <pkg@hamonikr.org>  Fri, 12 Jul 2024 03:18:53 +0900
+
 xpad (5.8.1+hamonikr2) stable; urgency=medium
 
   * Release for paektu
