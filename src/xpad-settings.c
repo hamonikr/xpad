@@ -53,6 +53,7 @@ struct XpadSettingsPrivate
 	gboolean autostart_sticky;
 	guint autostart_display_pads;
 	gboolean line_numbering;
+	gchar *data_directory;
 };
 
 G_DEFINE_TYPE_WITH_PRIVATE (XpadSettings, xpad_settings, G_TYPE_OBJECT)
@@ -90,6 +91,7 @@ enum
 	PROP_HIDE_FROM_TASKBAR,
 	PROP_HIDE_FROM_TASK_SWITCHER,
 	PROP_LINE_NUMBERING,
+	PROP_DATA_DIRECTORY,
 	N_PROPERTIES
 };
 
@@ -129,7 +131,7 @@ xpad_settings_class_init (XpadSettingsClass *klass)
 	obj_prop[PROP_EDIT_LOCK] = g_param_spec_boolean ("edit-lock", "Edit lock", "Toggle read-only mode", FALSE, G_PARAM_READWRITE);
 	obj_prop[PROP_TRAY_ENABLED] = g_param_spec_boolean ("tray-enabled", "Enable tray icon", "Enable or disable the systray icon", TRUE, G_PARAM_READWRITE);
 	obj_prop[PROP_TRAY_CLICK_CONFIGURATION] = g_param_spec_uint ("tray-click-configuration", "Tray click configuration", "Configure tray left click", 0, G_MAXUINT, 0, G_PARAM_READWRITE);
-	obj_prop[PROP_HAS_TOOLBAR] = g_param_spec_boolean ("has-toolbar", "Has toolbar", "Whether pads have toolbars", TRUE, G_PARAM_READWRITE);
+	obj_prop[PROP_HAS_TOOLBAR] = g_param_spec_boolean ("has-toolbar", "Has toolbar", "Whether pads have toolbars", FALSE, G_PARAM_READWRITE);
 	obj_prop[PROP_AUTOHIDE_TOOLBAR] = g_param_spec_boolean ("autohide-toolbar", "Autohide toolbar", "Hide toolbars when not used", TRUE, G_PARAM_READWRITE);
 	obj_prop[PROP_HAS_SCROLLBAR] = g_param_spec_boolean ("has-scrollbar", "Has scrollbar", "Whether pads have scrollbars", TRUE, G_PARAM_READWRITE);
 	obj_prop[PROP_FONTNAME] = g_param_spec_string ("fontname", "Font name", "Default name of pad font", NULL, G_PARAM_READWRITE);
@@ -144,6 +146,7 @@ xpad_settings_class_init (XpadSettingsClass *klass)
 	obj_prop[PROP_HIDE_FROM_TASKBAR] = g_param_spec_boolean ("hide-from-taskbar", "Hide from taskbar", "Hide the pads from the task bar", FALSE, G_PARAM_READWRITE);
 	obj_prop[PROP_HIDE_FROM_TASK_SWITCHER] = g_param_spec_boolean ("hide-from-task-switcher", "Hide from task switcher", "Hide the pads from the task or workspace switcher", FALSE, G_PARAM_READWRITE);
 	obj_prop[PROP_LINE_NUMBERING] = g_param_spec_boolean ("line-numbering", "Toggle line numbering", "Enable or disable the line numbering", FALSE, G_PARAM_READWRITE);
+	obj_prop[PROP_DATA_DIRECTORY] = g_param_spec_string ("data-directory", "Data directory", "Directory where pad data is stored", NULL, G_PARAM_READWRITE);
 
 	g_object_class_install_properties (gobject_class, N_PROPERTIES, obj_prop);
 
@@ -173,7 +176,7 @@ xpad_settings_init (XpadSettings *settings)
 	settings->priv->edit_lock = FALSE;
 	settings->priv->tray_enabled = TRUE;
 	settings->priv->tray_click_configuration = 1;
-	settings->priv->has_toolbar = TRUE;
+	settings->priv->has_toolbar = FALSE;
 	settings->priv->autohide_toolbar = TRUE;
 	settings->priv->has_scrollbar = TRUE;
 	settings->priv->fontname = g_strdup (font_default);
@@ -185,6 +188,7 @@ xpad_settings_init (XpadSettings *settings)
 	settings->priv->autostart_delay = 0;
 	settings->priv->autostart_display_pads = 2;
 	settings->priv->line_numbering = FALSE;
+	settings->priv->data_directory = NULL;
 
 	settings->priv->toolbar_buttons = NULL;
 	settings->priv->toolbar_buttons = g_slist_append (settings->priv->toolbar_buttons, g_strdup ("New"));
@@ -213,6 +217,8 @@ xpad_settings_finalize (GObject *object)
 		gdk_rgba_free (settings->priv->text);
 	if (settings->priv->back)
 		gdk_rgba_free (settings->priv->back);
+	
+	g_free (settings->priv->data_directory);
 
 	G_OBJECT_CLASS (xpad_settings_parent_class)->finalize (object);
 }
@@ -435,6 +441,11 @@ xpad_settings_set_property (GObject *object, guint prop_id, const GValue *value,
 		settings->priv->line_numbering = g_value_get_boolean (value);
 		break;
 
+	case PROP_DATA_DIRECTORY:
+		g_free (settings->priv->data_directory);
+		settings->priv->data_directory = g_value_dup_string (value);
+		break;
+
 	default:
 		G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
 		return;
@@ -547,6 +558,10 @@ xpad_settings_get_property (GObject *object, guint prop_id, GValue *value, GPara
 		g_value_set_boolean (value, settings->priv->line_numbering);
 		break;
 
+	case PROP_DATA_DIRECTORY:
+		g_value_set_string (value, settings->priv->data_directory);
+		break;
+
 	default:
 		G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
 		return;
@@ -633,6 +648,8 @@ load_from_file (XpadSettings *settings, const gchar *filename)
     if (settings->priv->fontname && strcmp (settings->priv->fontname, "NULL") == 0) {
     	settings->priv->fontname = NULL;
     }
+
+    /* data_directory is handled separately in xpad-app.c */
 
 	if (buttons) {
 		gint i;

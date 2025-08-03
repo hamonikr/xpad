@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xpad 2.0-b2\n"
 "Report-Msgid-Bugs-To: xpad-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2022-10-01 11:09+0900\n"
+"POT-Creation-Date: 2025-08-03 19:33+0900\n"
 "PO-Revision-Date: 2022-02-15 17:29+0000\n"
 "Last-Translator: Toni Estevez <toni.estevez@gmail.com>\n"
 "Language-Team: Spanish <es@li.org>\n"
@@ -23,11 +23,11 @@ msgstr ""
 msgid "Could not write to file %s: %s"
 msgstr "No se ha podido escribir en el archivo %s: %s"
 
-#: src/help.c:53
+#: src/help.c:63
 msgid "Error showing the help"
 msgstr "Se ha producido un error al mostrar la ayuda"
 
-#: src/help.c:53
+#: src/help.c:63
 #, c-format
 msgid ""
 "Could not find the help file %s\n"
@@ -36,32 +36,32 @@ msgstr ""
 "No se ha podido encontrar el archivo de ayuda %s\n"
 "%s"
 
-#: src/help.c:72 src/xpad-preferences.c:528
+#: src/help.c:87 src/xpad-preferences.c:541
 msgid "Close"
 msgstr "Cerrar"
 
-#: src/help.c:77
+#: src/help.c:92
 msgid "Help"
 msgstr "Ayuda"
 
-#: src/xpad-app.c:133
+#: src/xpad-app.c:152
 msgid "Xpad is a graphical program.  Please run it from your desktop."
 msgstr "Xpad es un programa gráfico. Ejecútelo desde el escritorio."
 
-#: src/xpad-app.c:138 data/xpad.desktop.in:5 data/xpad.appdata.xml.in:5
+#: src/xpad-app.c:157 data/xpad.desktop.in:5 data/xpad.appdata.xml.in:5
 msgid "Xpad"
 msgstr "Xpad"
 
-#: src/xpad-app.c:251
+#: src/xpad-app.c:280
 msgid "_Ok"
 msgstr "_Aceptar"
 
-#: src/xpad-app.c:504
+#: src/xpad-app.c:559
 #, c-format
 msgid "Could not open directory %s."
 msgstr "No se ha podido abrir la carpeta %s."
 
-#: src/xpad-app.c:507
+#: src/xpad-app.c:562
 msgid ""
 "This directory is needed to store preference and pad information.  Xpad will "
 "close now."
@@ -69,47 +69,47 @@ msgstr ""
 "Esta carpeta es necesaria para almacenar las preferencias y la información "
 "de las notas. Ahora se cerrará Xpad."
 
-#: src/xpad-app.c:825
+#: src/xpad-app.c:880
 msgid "Show version number and quit"
 msgstr "Mostrar el número de versión y salir"
 
-#: src/xpad-app.c:826
+#: src/xpad-app.c:881
 msgid "Don't create a new pad on startup if no previous pads exist"
 msgstr ""
 "No crear una nota nueva al iniciar el programa aunque no existan notas "
 "anteriores"
 
-#: src/xpad-app.c:832
+#: src/xpad-app.c:887
 msgid "Create a new pad on startup even if pads already exist"
 msgstr ""
 "Crear una nota nueva al iniciar el programa aunque ya existan notas "
 "anteriores"
 
-#: src/xpad-app.c:833 src/xpad-preferences.c:467
+#: src/xpad-app.c:888 src/xpad-preferences.c:469
 msgid "Hide all pads"
 msgstr "Ocultar todas las notas"
 
-#: src/xpad-app.c:834
+#: src/xpad-app.c:889
 msgid "Show all pads"
 msgstr "Mostrar todas las notas"
 
-#: src/xpad-app.c:835
+#: src/xpad-app.c:890
 msgid "Toggle between show and hide all pads"
 msgstr "Conmutar entre mostrar y ocultar todas las notas"
 
-#: src/xpad-app.c:836
+#: src/xpad-app.c:891
 msgid "Create a new pad with the contents of a file"
 msgstr "Crear una nota nueva con el contenido de un archivo"
 
-#: src/xpad-app.c:836
+#: src/xpad-app.c:891
 msgid "FILE"
 msgstr "ARCHIVO"
 
-#: src/xpad-app.c:837
+#: src/xpad-app.c:892
 msgid "Close all pads"
 msgstr "Cerrar todas las notas"
 
-#: src/xpad-app.c:868
+#: src/xpad-app.c:923
 #, c-format
 msgid "Xpad %s"
 msgstr "Xpad %s"
@@ -279,50 +279,50 @@ msgstr "Primer plano:"
 msgid "Background:"
 msgstr "Fondo:"
 
-#: src/xpad-pad-properties.c:147 src/xpad-preferences.c:418
+#: src/xpad-pad-properties.c:147 src/xpad-preferences.c:420
 msgid "Set Foreground Color"
 msgstr "Configurar el color del primer plano"
 
-#: src/xpad-pad-properties.c:148 src/xpad-preferences.c:419
+#: src/xpad-pad-properties.c:148 src/xpad-preferences.c:421
 msgid "Set Background Color"
 msgstr "Configurar el color del fondo"
 
-#: src/xpad-pad-properties.c:149 src/xpad-preferences.c:420
+#: src/xpad-pad-properties.c:149 src/xpad-preferences.c:422
 msgid "Set Font"
 msgstr "Configurar la tipografía"
 
 #. View options
-#: src/xpad-preferences.c:253
+#: src/xpad-preferences.c:255
 msgid "View"
 msgstr "Ver"
 
-#: src/xpad-preferences.c:264
+#: src/xpad-preferences.c:266
 msgid "_Show toolbar"
 msgstr "Mostrar la barra de herramientas"
 
-#: src/xpad-preferences.c:268
+#: src/xpad-preferences.c:270
 msgid "_Autohide toolbar"
 msgstr "_Ocultar automáticamente la barra de herramientas"
 
-#: src/xpad-preferences.c:275
+#: src/xpad-preferences.c:277
 msgid "_Show scrollbar"
 msgstr "_Mostrar la barra de desplazamiento"
 
-#: src/xpad-preferences.c:279
+#: src/xpad-preferences.c:281
 msgid "_Show notes on all workspaces"
 msgstr "_Mostrar las notas en todos los espacios de trabajo"
 
-#: src/xpad-preferences.c:283
+#: src/xpad-preferences.c:285
 msgid "_Show window decorations"
 msgstr "_Mostrar la decoración de las ventanas"
 
-#: src/xpad-preferences.c:287
+#: src/xpad-preferences.c:289
 msgid "_Hide all notes from the taskbar and possibly the task switcher"
 msgstr ""
 "_Ocultar todas las notas de la barra de tareas y, posiblemente, del "
 "conmutador de tareas"
 
-#: src/xpad-preferences.c:291
+#: src/xpad-preferences.c:293
 msgid ""
 "_Hide all notes from the workspace switcher and possibly the task switcher"
 msgstr ""
@@ -330,127 +330,136 @@ msgstr ""
 "del conmutador de tareas"
 
 #. Layout options
-#: src/xpad-preferences.c:296
+#: src/xpad-preferences.c:298
 msgid "Layout"
 msgstr "Diseño"
 
-#: src/xpad-preferences.c:312
+#: src/xpad-preferences.c:314
 msgid "Use font from theme"
 msgstr "Usar la tipografía del tema del sistema"
 
-#: src/xpad-preferences.c:313
+#: src/xpad-preferences.c:315
 msgid "Use this font"
 msgstr "Usar esta tipografía:"
 
-#: src/xpad-preferences.c:314
+#: src/xpad-preferences.c:316
 msgid "Use colors from theme"
 msgstr "Usar los colores del tema del sistema"
 
-#: src/xpad-preferences.c:315
+#: src/xpad-preferences.c:317
 msgid "Use these colors"
 msgstr "Usar estos colores:"
 
 #. Size of new pads: input fields
-#: src/xpad-preferences.c:319
+#: src/xpad-preferences.c:321
 msgid "Height new pad"
 msgstr "Altura de las notas nuevas:"
 
-#: src/xpad-preferences.c:325
+#: src/xpad-preferences.c:327
 msgid "Width new pad"
 msgstr "Anchura de las notas nuevas:"
 
-#: src/xpad-preferences.c:348
+#: src/xpad-preferences.c:350
 msgid "Text"
 msgstr "Texto:"
 
-#: src/xpad-preferences.c:356
+#: src/xpad-preferences.c:358
 msgid "Background"
 msgstr "Fondo:"
 
 #. Start options
-#: src/xpad-preferences.c:423
+#: src/xpad-preferences.c:425
 msgid "Startup"
 msgstr "Inicio"
 
-#: src/xpad-preferences.c:434
+#: src/xpad-preferences.c:436
 msgid "_Start Xpad automatically after login"
 msgstr "Iniciar Xpad automáticamente después de iniciar sesión"
 
-#: src/xpad-preferences.c:438
+#: src/xpad-preferences.c:440
 msgid "_Wait for systray (if possible)"
 msgstr "_Minimizar en el área de notificación si es posible"
 
-#: src/xpad-preferences.c:449
+#: src/xpad-preferences.c:451
 msgid "_Open a new empty pad"
 msgstr "_Abrir una nota nueva vacía"
 
-#: src/xpad-preferences.c:453
+#: src/xpad-preferences.c:455
 msgid "Delay in seconds"
 msgstr "Retraso en segundos:"
 
-#: src/xpad-preferences.c:464
+#: src/xpad-preferences.c:466
 msgid "Display pads"
 msgstr "Visualización de las notas:"
 
-#: src/xpad-preferences.c:466
+#: src/xpad-preferences.c:468
 msgid "Open all pads"
 msgstr "Mostrar todas las notas"
 
-#: src/xpad-preferences.c:468
+#: src/xpad-preferences.c:470
 msgid "Restore to previous state"
 msgstr "Restablecer el estado previo"
 
 #. Tray options
-#: src/xpad-preferences.c:476
+#: src/xpad-preferences.c:478
 msgid "Tray"
 msgstr "Área de notificación"
 
-#: src/xpad-preferences.c:487
+#: src/xpad-preferences.c:489
 msgid "_Enable tray icon"
 msgstr "_Activar el icono del área de notificación"
 
-#: src/xpad-preferences.c:490
+#: src/xpad-preferences.c:492
 msgid "Tray left mouse click behavior"
 msgstr ""
 
-#: src/xpad-preferences.c:492
+#: src/xpad-preferences.c:494
 msgid "Do Nothing"
 msgstr "No hacer nada"
 
-#: src/xpad-preferences.c:493
+#: src/xpad-preferences.c:495
 msgid "Toggle Show All"
 msgstr "Mostrar/ocultar todas las notas"
 
-#: src/xpad-preferences.c:494
+#: src/xpad-preferences.c:496
 msgid "List of Pads"
 msgstr "Lista de notas"
 
-#: src/xpad-preferences.c:495
+#: src/xpad-preferences.c:497
 msgid "New Pad"
 msgstr "Nota nueva"
 
 #. Other options
-#: src/xpad-preferences.c:503
+#: src/xpad-preferences.c:505
 msgid "Other"
 msgstr "Otras"
 
-#: src/xpad-preferences.c:514
+#: src/xpad-preferences.c:516
 msgid "_Make pads read-only (CTRL-J)"
 msgstr ""
 
-#: src/xpad-preferences.c:515
+#: src/xpad-preferences.c:517
 msgid "_Confirm pad deletion"
 msgstr "_Confirmar la eliminación de las notas"
 
-#: src/xpad-preferences.c:516
+#: src/xpad-preferences.c:518
 msgid "Enable _line numbering"
 msgstr ""
 
-#: src/xpad-preferences.c:530
+#. Add data directory chooser
+#: src/xpad-preferences.c:521
+msgid "_Data Directory"
+msgstr ""
+
+#: src/xpad-preferences.c:522
+msgid "Select Data Directory"
+msgstr ""
+
+#: src/xpad-preferences.c:543
 msgid "Xpad Preferences"
 msgstr "Preferencias de Xpad"
 
-#: src/xpad-preferences.c:752
+#: src/xpad-preferences.c:766
 #, c-format
 msgid ""
 "Could not load %s\n"
@@ -459,11 +468,11 @@ msgstr ""
 "No se ha podido cargar %s\n"
 "%s"
 
-#: src/xpad-preferences.c:753 src/xpad-preferences.c:765
+#: src/xpad-preferences.c:767 src/xpad-preferences.c:779
 msgid "Failed to change the time delay of starting the Xpad systray"
 msgstr ""
 
-#: src/xpad-preferences.c:764
+#: src/xpad-preferences.c:778
 #, c-format
 msgid ""
 "Could not save %s\n"
@@ -472,11 +481,31 @@ msgstr ""
 "No se ha podido guardar %s\n"
 "%s"
 
-#: src/xpad-settings.c:375 src/xpad-settings.c:385
+#: src/xpad-preferences.c:939
+#, fuzzy
+#| msgid ""
+#| "Could not create directory %s\n"
+#| "%s."
+msgid "Failed to create directory"
+msgstr ""
+"No se ha podido crear la carpeta %s\n"
+"%s."
+
+#: src/xpad-preferences.c:941
+#, fuzzy, c-format
+#| msgid ""
+#| "Could not create directory %s\n"
+#| "%s."
+msgid "Could not create directory: %s"
+msgstr ""
+"No se ha podido crear la carpeta %s\n"
+"%s."
+
+#: src/xpad-settings.c:381 src/xpad-settings.c:391
 msgid "Error enabling Xpad autostart"
 msgstr "Se ha producido un error al activar el inicio automático de Xpad"
 
-#: src/xpad-settings.c:375
+#: src/xpad-settings.c:381
 #, c-format
 msgid ""
 "Could not create directory %s\n"
@@ -485,7 +514,7 @@ msgstr ""
 "No se ha podido crear la carpeta %s\n"
 "%s."
 
-#: src/xpad-settings.c:385
+#: src/xpad-settings.c:391
 #, c-format
 msgid ""
 "Could not copy %s to %s\n"
@@ -494,11 +523,11 @@ msgstr ""
 "No se ha podido copiar %s a %s\n"
 "%s"
 
-#: src/xpad-settings.c:402
+#: src/xpad-settings.c:408
 msgid "Error disabling Xpad autostart"
 msgstr "Se ha producido un error al desactivar el inicio automático de Xpad"
 
-#: src/xpad-settings.c:402
+#: src/xpad-settings.c:408
 #, c-format
 msgid ""
 "Could not delete %s\n"

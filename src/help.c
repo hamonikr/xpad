@@ -23,6 +23,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 
 #include <glib/gi18n.h>
 #include <gtk/gtk.h>
+#include <locale.h>
 
 #include "help.h"
 #include "xpad-app.h"
@@ -44,15 +45,29 @@ void show_help ()
 		gboolean success;
 		GError *error = NULL;
 
-		/* Load help text from file */
-		gchar *help_file = g_strdup_printf ("%s/%s/%s", DATADIR, HELPDIR, HELPFILENAME);
+		/* Load help text from file based on current locale */
+		const gchar *locale = setlocale(LC_MESSAGES, NULL);
+		gchar *help_filename;
+		
+		/* Choose appropriate help file based on locale */
+		if (locale && g_str_has_prefix(locale, "ko")) {
+			help_filename = g_strdup("xpad-user-help-ko.txt");
+		} else {
+			help_filename = g_strdup("xpad-user-help-en.txt");
+		}
+		
+		gchar *help_file = g_strdup_printf ("%s/%s/%s", DATADIR, HELPDIR, help_filename);
 		success = g_file_get_contents (help_file, &helptextbuf, NULL, &error);
-		g_free(help_file);
 
 		if (!success) {
 			xpad_app_error (NULL, _("Error showing the help"), g_strdup_printf (_("Could not find the help file %s\n%s"), help_file, error->message));
+			g_free(help_file);
+			g_free(help_filename);
 			return;
 		}
+		
+		g_free(help_file);
+		g_free(help_filename);
 
 		/* Set layout of help text */
 		helptext = gtk_label_new ("");
@@ -76,7 +91,7 @@ void show_help ()
 		help_window = GTK_WINDOW (gtk_window_new (GTK_WINDOW_TOPLEVEL));
 		gtk_window_set_title (help_window, _("Help"));
 		gtk_window_set_position (help_window, GTK_WIN_POS_CENTER);
-		gtk_window_resize (help_window, 800, 1000);
+		gtk_window_resize (help_window, 600, 650);
 
 		/* Add scrollbars */
 		scrolled_window = gtk_scrolled_window_new (NULL, NULL);

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xpad\n"
 "Report-Msgid-Bugs-To: xpad-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2022-10-01 11:09+0900\n"
+"POT-Creation-Date: 2025-08-03 19:33+0900\n"
 "PO-Revision-Date: 2021-05-11 14:46+0000\n"
 "Last-Translator: Shinichirou Yamada <yamada_strong_yamada_nice_64bit@yahoo."
 "co.jp>\n"
@@ -24,11 +24,11 @@ msgstr ""
 msgid "Could not write to file %s: %s"
 msgstr "ファイル %s に書き込めません: %s"
 
-#: src/help.c:53
+#: src/help.c:63
 msgid "Error showing the help"
 msgstr "ヘルプの表示中にエラーが発生しました"
 
-#: src/help.c:53
+#: src/help.c:63
 #, c-format
 msgid ""
 "Could not find the help file %s\n"
@@ -37,33 +37,33 @@ msgstr ""
 "ヘルプファイル %s が見つかりません\n"
 "%s"
 
-#: src/help.c:72 src/xpad-preferences.c:528
+#: src/help.c:87 src/xpad-preferences.c:541
 msgid "Close"
 msgstr "閉じる"
 
-#: src/help.c:77
+#: src/help.c:92
 msgid "Help"
 msgstr "ヘルプ"
 
-#: src/xpad-app.c:133
+#: src/xpad-app.c:152
 msgid "Xpad is a graphical program.  Please run it from your desktop."
 msgstr ""
 "Xpad はグラフィカルなプログラムです。デスクトップから実行してください。"
 
-#: src/xpad-app.c:138 data/xpad.desktop.in:5 data/xpad.appdata.xml.in:5
+#: src/xpad-app.c:157 data/xpad.desktop.in:5 data/xpad.appdata.xml.in:5
 msgid "Xpad"
 msgstr "Xpad"
 
-#: src/xpad-app.c:251
+#: src/xpad-app.c:280
 msgid "_Ok"
 msgstr "OK(_O)"
 
-#: src/xpad-app.c:504
+#: src/xpad-app.c:559
 #, c-format
 msgid "Could not open directory %s."
 msgstr "ディレクトリ %s を開けません。"
 
-#: src/xpad-app.c:507
+#: src/xpad-app.c:562
 msgid ""
 "This directory is needed to store preference and pad information.  Xpad will "
 "close now."
@@ -71,43 +71,43 @@ msgstr ""
 "このディレクトリは設定やパッドの情報を保存するために必要です。Xpad は終了しま"
 "す。"
 
-#: src/xpad-app.c:825
+#: src/xpad-app.c:880
 msgid "Show version number and quit"
 msgstr "バージョン名を表示して終了する"
 
-#: src/xpad-app.c:826
+#: src/xpad-app.c:881
 msgid "Don't create a new pad on startup if no previous pads exist"
 msgstr "以前のパッドが存在しない場合は起動時に新しいパッドを作成しない"
 
-#: src/xpad-app.c:832
+#: src/xpad-app.c:887
 msgid "Create a new pad on startup even if pads already exist"
 msgstr "パッドがすでに存在する場合でも新しいパッドを作成する"
 
-#: src/xpad-app.c:833 src/xpad-preferences.c:467
+#: src/xpad-app.c:888 src/xpad-preferences.c:469
 msgid "Hide all pads"
 msgstr "すべてのパッドを非表示にする"
 
-#: src/xpad-app.c:834
+#: src/xpad-app.c:889
 msgid "Show all pads"
 msgstr "すべてのパッドを表示する"
 
-#: src/xpad-app.c:835
+#: src/xpad-app.c:890
 msgid "Toggle between show and hide all pads"
 msgstr "すべてのパッドの表示/非表示を切り替え"
 
-#: src/xpad-app.c:836
+#: src/xpad-app.c:891
 msgid "Create a new pad with the contents of a file"
 msgstr "ファイルから新しいパッドを作成する"
 
-#: src/xpad-app.c:836
+#: src/xpad-app.c:891
 msgid "FILE"
 msgstr "ファイル"
 
-#: src/xpad-app.c:837
+#: src/xpad-app.c:892
 msgid "Close all pads"
 msgstr "すべてのパッドを閉じる"
 
-#: src/xpad-app.c:868
+#: src/xpad-app.c:923
 #, c-format
 msgid "Xpad %s"
 msgstr "Xpad %s"
@@ -276,175 +276,184 @@ msgstr "前景色:"
 msgid "Background:"
 msgstr "背景色:"
 
-#: src/xpad-pad-properties.c:147 src/xpad-preferences.c:418
+#: src/xpad-pad-properties.c:147 src/xpad-preferences.c:420
 msgid "Set Foreground Color"
 msgstr "前景色を設定"
 
-#: src/xpad-pad-properties.c:148 src/xpad-preferences.c:419
+#: src/xpad-pad-properties.c:148 src/xpad-preferences.c:421
 msgid "Set Background Color"
 msgstr "背景色を設定"
 
-#: src/xpad-pad-properties.c:149 src/xpad-preferences.c:420
+#: src/xpad-pad-properties.c:149 src/xpad-preferences.c:422
 msgid "Set Font"
 msgstr "フォントを設定"
 
 #. View options
-#: src/xpad-preferences.c:253
+#: src/xpad-preferences.c:255
 msgid "View"
 msgstr "表示"
 
-#: src/xpad-preferences.c:264
+#: src/xpad-preferences.c:266
 msgid "_Show toolbar"
 msgstr "ツールバーを表示する(_S)"
 
-#: src/xpad-preferences.c:268
+#: src/xpad-preferences.c:270
 msgid "_Autohide toolbar"
 msgstr "ツールバーを自動で非表示にする(_A)"
 
-#: src/xpad-preferences.c:275
+#: src/xpad-preferences.c:277
 msgid "_Show scrollbar"
 msgstr "スクロールバーを表示する(_S)"
 
-#: src/xpad-preferences.c:279
+#: src/xpad-preferences.c:281
 msgid "_Show notes on all workspaces"
 msgstr "すべてのワークスペースにメモを表示する(_S)"
 
-#: src/xpad-preferences.c:283
+#: src/xpad-preferences.c:285
 msgid "_Show window decorations"
 msgstr "ウィンドウ装飾を表示する(_S)"
 
-#: src/xpad-preferences.c:287
+#: src/xpad-preferences.c:289
 msgid "_Hide all notes from the taskbar and possibly the task switcher"
 msgstr "すべてのメモをタスクバーとタスクスイッチャーに表示しない(_H)"
 
-#: src/xpad-preferences.c:291
+#: src/xpad-preferences.c:293
 msgid ""
 "_Hide all notes from the workspace switcher and possibly the task switcher"
 msgstr ""
 "すべてのメモをワークスペーススイッチャーとタスクスイッチャーに表示しない(_H)"
 
 #. Layout options
-#: src/xpad-preferences.c:296
+#: src/xpad-preferences.c:298
 msgid "Layout"
 msgstr "レイアウト"
 
-#: src/xpad-preferences.c:312
+#: src/xpad-preferences.c:314
 msgid "Use font from theme"
 msgstr "テーマのフォントを使用する"
 
-#: src/xpad-preferences.c:313
+#: src/xpad-preferences.c:315
 msgid "Use this font"
 msgstr "このフォントを使用する"
 
-#: src/xpad-preferences.c:314
+#: src/xpad-preferences.c:316
 msgid "Use colors from theme"
 msgstr "テーマの色を使用する"
 
-#: src/xpad-preferences.c:315
+#: src/xpad-preferences.c:317
 msgid "Use these colors"
 msgstr "この色を使用する"
 
 #. Size of new pads: input fields
-#: src/xpad-preferences.c:319
+#: src/xpad-preferences.c:321
 msgid "Height new pad"
 msgstr "新規パッドの高さ"
 
-#: src/xpad-preferences.c:325
+#: src/xpad-preferences.c:327
 msgid "Width new pad"
 msgstr "新規パッドの幅"
 
-#: src/xpad-preferences.c:348
+#: src/xpad-preferences.c:350
 msgid "Text"
 msgstr "テキスト"
 
-#: src/xpad-preferences.c:356
+#: src/xpad-preferences.c:358
 msgid "Background"
 msgstr "背景"
 
 #. Start options
-#: src/xpad-preferences.c:423
+#: src/xpad-preferences.c:425
 msgid "Startup"
 msgstr "起動"
 
-#: src/xpad-preferences.c:434
+#: src/xpad-preferences.c:436
 msgid "_Start Xpad automatically after login"
 msgstr "ログイン時に Xpad を自動的に起動する(_S)"
 
-#: src/xpad-preferences.c:438
+#: src/xpad-preferences.c:440
 msgid "_Wait for systray (if possible)"
 msgstr "システムトレイで待機する (可能な場合)(_W)"
 
-#: src/xpad-preferences.c:449
+#: src/xpad-preferences.c:451
 msgid "_Open a new empty pad"
 msgstr "新しい空のパッドを開く(_O)"
 
-#: src/xpad-preferences.c:453
+#: src/xpad-preferences.c:455
 msgid "Delay in seconds"
 msgstr "遅延秒数"
 
-#: src/xpad-preferences.c:464
+#: src/xpad-preferences.c:466
 msgid "Display pads"
 msgstr "パッドの表示"
 
-#: src/xpad-preferences.c:466
+#: src/xpad-preferences.c:468
 msgid "Open all pads"
 msgstr "すべてのパッドを開く"
 
-#: src/xpad-preferences.c:468
+#: src/xpad-preferences.c:470
 msgid "Restore to previous state"
 msgstr "以前の状態を復元する"
 
 #. Tray options
-#: src/xpad-preferences.c:476
+#: src/xpad-preferences.c:478
 msgid "Tray"
 msgstr "トレイ"
 
-#: src/xpad-preferences.c:487
+#: src/xpad-preferences.c:489
 msgid "_Enable tray icon"
 msgstr "トレイアイコンを有効にする(_E)"
 
-#: src/xpad-preferences.c:490
+#: src/xpad-preferences.c:492
 msgid "Tray left mouse click behavior"
 msgstr "トレイをマウスで左クリックした場合の挙動"
 
-#: src/xpad-preferences.c:492
+#: src/xpad-preferences.c:494
 msgid "Do Nothing"
 msgstr "何もしない"
 
-#: src/xpad-preferences.c:493
+#: src/xpad-preferences.c:495
 msgid "Toggle Show All"
 msgstr "すべての表示を切り替え"
 
-#: src/xpad-preferences.c:494
+#: src/xpad-preferences.c:496
 msgid "List of Pads"
 msgstr "パッド一覧"
 
-#: src/xpad-preferences.c:495
+#: src/xpad-preferences.c:497
 msgid "New Pad"
 msgstr "新しいパッド"
 
 #. Other options
-#: src/xpad-preferences.c:503
+#: src/xpad-preferences.c:505
 msgid "Other"
 msgstr "その他"
 
-#: src/xpad-preferences.c:514
+#: src/xpad-preferences.c:516
 msgid "_Make pads read-only (CTRL-J)"
 msgstr "パッドを読み取り専用にする (CTRL-J)(_M)"
 
-#: src/xpad-preferences.c:515
+#: src/xpad-preferences.c:517
 msgid "_Confirm pad deletion"
 msgstr "パッドの削除を確認する(_C)"
 
-#: src/xpad-preferences.c:516
+#: src/xpad-preferences.c:518
 msgid "Enable _line numbering"
 msgstr "行番号を有効にする(_L)"
 
-#: src/xpad-preferences.c:530
+#. Add data directory chooser
+#: src/xpad-preferences.c:521
+msgid "_Data Directory"
+msgstr ""
+
+#: src/xpad-preferences.c:522
+msgid "Select Data Directory"
+msgstr ""
+
+#: src/xpad-preferences.c:543
 msgid "Xpad Preferences"
 msgstr "Xpad の設定"
 
-#: src/xpad-preferences.c:752
+#: src/xpad-preferences.c:766
 #, c-format
 msgid ""
 "Could not load %s\n"
@@ -453,11 +462,11 @@ msgstr ""
 "%s を読み込めません\n"
 "%s"
 
-#: src/xpad-preferences.c:753 src/xpad-preferences.c:765
+#: src/xpad-preferences.c:767 src/xpad-preferences.c:779
 msgid "Failed to change the time delay of starting the Xpad systray"
 msgstr ""
 
-#: src/xpad-preferences.c:764
+#: src/xpad-preferences.c:778
 #, c-format
 msgid ""
 "Could not save %s\n"
@@ -466,11 +475,31 @@ msgstr ""
 "%s を保存できません\n"
 "%s"
 
-#: src/xpad-settings.c:375 src/xpad-settings.c:385
+#: src/xpad-preferences.c:939
+#, fuzzy
+#| msgid ""
+#| "Could not create directory %s\n"
+#| "%s."
+msgid "Failed to create directory"
+msgstr ""
+"ディレクトリ %s を作成できません\n"
+"%s."
+
+#: src/xpad-preferences.c:941
+#, fuzzy, c-format
+#| msgid ""
+#| "Could not create directory %s\n"
+#| "%s."
+msgid "Could not create directory: %s"
+msgstr ""
+"ディレクトリ %s を作成できません\n"
+"%s."
+
+#: src/xpad-settings.c:381 src/xpad-settings.c:391
 msgid "Error enabling Xpad autostart"
 msgstr "Xpad の自動起動の有効化中にエラーが発生しました"
 
-#: src/xpad-settings.c:375
+#: src/xpad-settings.c:381
 #, c-format
 msgid ""
 "Could not create directory %s\n"
@@ -479,7 +508,7 @@ msgstr ""
 "ディレクトリ %s を作成できません\n"
 "%s."
 
-#: src/xpad-settings.c:385
+#: src/xpad-settings.c:391
 #, c-format
 msgid ""
 "Could not copy %s to %s\n"
@@ -488,11 +517,11 @@ msgstr ""
 "%s を %s にコピーできません\n"
 "%s"
 
-#: src/xpad-settings.c:402
+#: src/xpad-settings.c:408
 msgid "Error disabling Xpad autostart"
 msgstr "Xpad の自動起動の無効化中にエラーが発生しました"
 
-#: src/xpad-settings.c:402
+#: src/xpad-settings.c:408
 #, c-format
 msgid ""
 "Could not delete %s\n"

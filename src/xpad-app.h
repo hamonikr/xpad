@@ -33,6 +33,7 @@ void       xpad_app_error     (GtkWindow *parent, const gchar *primary, const gc
 GtkWidget *xpad_app_alert_dialog (GtkWindow *parent, const gchar *icon_name, const gchar *primary, const gchar *secondary);
 
 const gchar *xpad_app_get_config_dir (void);
+void xpad_app_set_config_dir (const gchar *new_dir);
 const gchar *xpad_app_get_program_path (void);
 XpadPadGroup *xpad_app_get_pad_group (void);
 void xpad_app_quit (void);

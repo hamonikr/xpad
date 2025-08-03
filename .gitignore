@@ -1,0 +1,99 @@
+# Autotools generated files
+/aclocal.m4
+/autom4te.cache/
+/config.guess
+/config.sub
+/config.rpath
+/configure
+/depcomp
+/install-sh
+/ltmain.sh
+/missing
+/compile
+/config.h.in
+/config.h
+/config.log
+/config.status
+/libtool
+/stamp-h1
+/ABOUT-NLS
+
+# Build directories and files
+.deps/
+.libs/
+*.o
+*.lo
+*.la
+*.so
+*.so.*
+*.a
+Makefile
+Makefile.in
+*.tar.gz
+*.tar.bz2
+*.tar.xz
+
+# Generated m4 files
+/m4/gettext.m4
+/m4/host-cpu-c-abi.m4
+/m4/iconv.m4
+/m4/intlmacosx.m4
+/m4/lib-ld.m4
+/m4/lib-link.m4
+/m4/lib-prefix.m4
+/m4/nls.m4
+/m4/po.m4
+/m4/progtest.m4
+
+# Translation files
+/po/*.gmo
+/po/*.mo
+/po/stamp-po
+/po/POTFILES
+/po/Makevars.template
+
+# Generated desktop and appdata files
+/data/xpad.desktop
+/data/xpad.appdata.xml
+
+# Binary executables
+/src/xpad
+
+# Backup and temporary files
+*~
+*.bak
+*.orig
+*.rej
+.#*
+#*#
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS specific files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Documentation build files
+/doc/*.html
+/doc/*.pdf
+
+# Package build files
+*.deb
+*.rpm
+*.pkg.tar.xz
+
+# Test files and coverage
+*.gcov
+*.gcda
+*.gcno
+coverage/

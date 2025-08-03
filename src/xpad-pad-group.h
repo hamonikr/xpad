@@ -57,6 +57,7 @@ XpadPadGroup *xpad_pad_group_new      (void);
 void     xpad_pad_group_add                          (XpadPadGroup *group, GtkWidget *pad);
 void     xpad_pad_group_remove                       (XpadPadGroup *group, GtkWidget *pad);
 
+void     xpad_pad_group_save_all                     (XpadPadGroup *group);
 void     xpad_pad_group_close_all                    (XpadPadGroup *group);
 void     xpad_pad_group_show_all                     (XpadPadGroup *group);
 void     xpad_pad_group_toggle_hide                  (XpadPadGroup *group);

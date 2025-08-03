@@ -1,3 +1,19 @@
+xpad (5.8.2-hamonikr1) noble; urgency=medium
+
+  [Kevin Kim]
+  * Improved help system
+    - Separate help files by language (Korean: xpad-user-help-ko.txt, English: xpad-user-help-en.txt)
+    - Display appropriate help based on current locale
+    - Redesigned help content to be more concise and user-friendly
+    - Reduced help window size from 800x1000 to 600x650
+  * Added data storage path configuration guide
+    - Added instructions for changing data directory in help
+    - Added information about cloud storage integration
+  * Improved build system
+    - Automatically include new language-specific help files in Makefile.am
+
+ -- HamoniKR <pkg@hamonikr.org>  Mon, 06 Jan 2025 19:38:00 +0900
+
 xpad (5.8.1+hamonikr4) paektu; urgency=medium
 
   [Kevin Kim]

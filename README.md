@@ -8,19 +8,21 @@
 ![hamonikr-jin](https://img.shields.io/badge/hamonikr-jin-green)
 ![hamonikr-hanla](https://img.shields.io/badge/hamonikr-hanla-purple)
 
-# xpad
+## xpad
 
 Simple sticker memo provided by HamoniKR
 
-메모별로 다양한 설정을 적용해서 사용할 수 있습니다.
+데스크톱 에서 사용하는 포스트잇 메모 프로그램으로 메모별로 다양한 설정을 적용해서 사용할 수 있습니다.
 
- * HamoniKR, Ubuntu, LinuxMin 지원
- * 한글 설정 및 인터페이스 지원
  * upstream : https://launchpad.net/xpad
  
-![xpad](docs/img-1.png)
+![xpad](docs/xpad.png)
 
-# Install
+ * 데이터 디렉토리를 클라우드 폴더로 설정하면 `여러 컴퓨터에서 동기화`됩니다
+
+![xpad](docs/data-folder.png)
+
+## Install
 
 ## Ubuntu, Debian, LinuxMint...
 Open the terminal and enter the command below (Ctrl+Alt+T).
@@ -35,62 +37,64 @@ sudo apt install -y xpad
 
 ```
 
-# Usage
+## Usage
  * 프로그램 설치 후 재시작 하면 시스템 트레이(패널)에 프로그램의 아이콘이 나옵니다. 
 
  * 트레이의 아이콘 위에서 마우스 오른쪽 버튼을 클릭하면 새 메모 추가 또는 설정 메뉴가 나옵니다.
 
-<hr>
 
-# 스티커 메모 프로그램 도움말
+## Build from Source
 
-이 프로그램은 메모를 작성할 수있는 바탕 화면의 스티커 메모입니다. 
+If you want to compile and install xpad from source code, follow these steps:
 
-모든 메모는 자동으로 저장됩니다.
+### Prerequisites
+Install the required dependencies:
 
-## 메모 이동하기
+```bash
+# Ubuntu/Debian/LinuxMint
+sudo apt update
+sudo apt install -y build-essential autotools-dev automake autoconf libtool
+sudo apt install -y libgtk-3-dev libglib2.0-dev intltool gettext pkg-config
 
-데스크탑에서 메모를 이동하는 방법에는 여러 가지가 있습니다.
+# For older systems, you might need GTK2 instead:
+# sudo apt install -y libgtk2.0-dev
+```
 
-텍스트 영역에서 [CTRL + 마우스 왼쪽 버튼 드래그]
+### Compilation and Installation
 
-[제목 표시 줄을 마우스 왼쪽 버튼으로 클릭]
+1. Clone or download the source code
+2. Navigate to the xpad directory
+3. Run the following commands:
 
-[도구 모음에서 마우스 왼쪽 버튼 클릭]
+```bash
+# Generate configure script (if building from git)
+./autogen.sh
 
-## 메모 크기 조정하기
+# Configure the build
+./configure --prefix=/usr/local
 
-각 패드는 원하는 크기로 크기를 조정할 수 있습니다.
+# Compile the source code
+make
 
-텍스트 영역에서 [CTRL + 마우스 오른쪽 버튼 드래그]
+# Install the program (requires root privileges)
+sudo make install
 
-## 메모 보이기/숨기기
+# Update desktop database
+sudo update-desktop-database
+```
 
-모든 메모를 표시하고 숨기는 몇 가지 방법이 있습니다.
+### Alternative Installation Prefix
+If you want to install to a different location (e.g., `/usr`):
 
-[오른쪽 클릭 텍스트 영역]-[메모]–[모두 보이기]/[모두 닫기]
+```bash
+./configure --prefix=/usr
+make
+sudo make install
+```
 
-[트레이 아이콘 오른쪽 클릭]–[모두 보이기]/[모두 닫기]
+### Uninstall
+To remove xpad installed from source:
 
-## 메모 개별 설정
-
-각각의 메모는 고유한 색상과 글꼴을 설정할 수 있습니다.
-
-[텍스트 영역에서 마우스 오른쪽 버튼 클릭]-[속성]
-
-패드에는 굵게, 기울임 꼴, 밑줄 및 취소 선과 같은 다양한 스타일이 포함될 수 있습니다.
-
-[텍스트 선택]-[오른쪽 클릭]-이 텍스트에 대한 새 옵션이 나타납니다.
-
-## 메모 단축키
-
-CTRL-Q : 종료
-CTRL-W : 현재 메모 닫기
-CTRL-A : 모두 선택
-CTRL-Z : 실행 취소
-CTRL-Y : 다시 실행
-CTRL-N : 새 메모
-CTRL-B : 굵게
-CTRL-I : 기울임 꼴
-CTRL-U : 밑줄
-SHIFT-DEL : 메모 삭제
+```bash
+sudo make uninstall
+```

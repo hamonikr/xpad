@@ -61,6 +61,7 @@ struct XpadPreferencesPrivate
 	GtkWidget *autohide_toolbar;
 	GtkWidget *has_scrollbar;
 	GtkWidget *line_numbering;
+	GtkWidget *data_dir_button;
 
 	gulong fontcheck_handler;
 	gulong font_handler;
@@ -140,6 +141,7 @@ static void change_has_toolbar (GtkToggleButton *button, XpadPreferences *pref);
 static void change_autohide_toolbar (GtkToggleButton *button, XpadPreferences *pref);
 static void change_has_scrollbar (GtkToggleButton *button, XpadPreferences *pref);
 static void change_line_numbering (GtkToggleButton *button, XpadPreferences *pref);
+static void change_data_dir (GtkFileChooserButton *button, XpadPreferences *pref);
 
 static void notify_fontname (XpadPreferences *pref);
 static void notify_text_color (XpadPreferences *pref);
@@ -515,6 +517,17 @@ static void xpad_preferences_constructed (GObject *object)
 	pref->priv->confirmcheck = gtk_check_button_new_with_mnemonic (_("_Confirm pad deletion"));
 	pref->priv->line_numbering = gtk_check_button_new_with_mnemonic (_("Enable _line numbering"));
 
+	/* Add data directory chooser */
+	label = gtk_label_new_with_mnemonic(_("_Data Directory"));
+	pref->priv->data_dir_button = gtk_file_chooser_button_new(_("Select Data Directory"), GTK_FILE_CHOOSER_ACTION_SELECT_FOLDER);
+	gtk_file_chooser_set_current_folder(GTK_FILE_CHOOSER(pref->priv->data_dir_button), xpad_app_get_config_dir());
+
+	hbox = GTK_BOX (gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 6));
+	gtk_box_pack_start (hbox, label, FALSE, FALSE, 0);
+	gtk_box_pack_start (hbox, pref->priv->data_dir_button, TRUE, TRUE, 0);
+	gtk_box_pack_start (other_vbox, GTK_WIDGET (hbox), FALSE, FALSE, 0);
+
+
 	gtk_box_pack_start (other_vbox, pref->priv->editcheck, FALSE, FALSE, 0);
 	gtk_box_pack_start (other_vbox, pref->priv->confirmcheck, FALSE, FALSE, 0);
 	gtk_box_pack_start (other_vbox, pref->priv->line_numbering, FALSE, FALSE, 0);
@@ -568,6 +581,7 @@ static void xpad_preferences_constructed (GObject *object)
 	pref->priv->editcheck_handler = g_signal_connect (pref->priv->editcheck, "toggled", G_CALLBACK (change_edit_check), pref);
 	pref->priv->confirmcheck_handler = g_signal_connect (pref->priv->confirmcheck, "toggled", G_CALLBACK (change_confirm_check), pref);
 	pref->priv->line_numbering_handler = g_signal_connect (pref->priv->line_numbering, "toggled", G_CALLBACK (change_line_numbering), pref);
+	g_signal_connect (pref->priv->data_dir_button, "file-set", G_CALLBACK (change_data_dir), pref);
 
 	pref->priv->notify_has_decorations_handler = g_signal_connect_swapped (pref->priv->settings, "notify::has-decorations", G_CALLBACK (notify_has_decorations), pref);
 	pref->priv->notify_hide_from_taskbar_handler = g_signal_connect_swapped (pref->priv->settings, "notify::hide-from-taskbar", G_CALLBACK (notify_hide_from_taskbar), pref);
@@ -902,6 +916,67 @@ change_line_numbering (GtkToggleButton *button, XpadPreferences *pref)
 	g_signal_handler_block (pref->priv->settings, pref->priv->notify_line_numbering_handler);
 	g_object_set (pref->priv->settings, "line-numbering", gtk_toggle_button_get_active (button), NULL);
 	g_signal_handler_unblock (pref->priv->settings, pref->priv->notify_line_numbering_handler);
+}
+
+static void
+change_data_dir (GtkFileChooserButton *button, XpadPreferences *pref)
+{
+    gchar *new_data_dir = gtk_file_chooser_get_filename (GTK_FILE_CHOOSER (button));
+    const gchar *old_data_dir = xpad_app_get_config_dir();
+
+    if (g_strcmp0(new_data_dir, old_data_dir) == 0) {
+        g_free(new_data_dir);
+        return;
+    }
+
+    /* Create new directory if it doesn't exist */
+    if (!g_file_test(new_data_dir, G_FILE_TEST_EXISTS)) {
+        if (g_mkdir_with_parents(new_data_dir, 0700) != 0) {
+            GtkWidget *error_dialog = gtk_message_dialog_new (GTK_WINDOW(pref),
+                                                            GTK_DIALOG_MODAL | GTK_DIALOG_DESTROY_WITH_PARENT,
+                                                            GTK_MESSAGE_ERROR,
+                                                            GTK_BUTTONS_OK,
+                                                            _("Failed to create directory"));
+            gtk_message_dialog_format_secondary_text (GTK_MESSAGE_DIALOG (error_dialog), 
+                                                    _("Could not create directory: %s"), new_data_dir);
+            gtk_dialog_run (GTK_DIALOG (error_dialog));
+            gtk_widget_destroy (error_dialog);
+            g_free(new_data_dir);
+            return;
+        }
+    }
+
+    /* Save the new data directory to the system config file */
+    gchar *system_config_dir = g_build_filename (g_get_user_config_dir (), "xpad", NULL);
+    g_mkdir_with_parents(system_config_dir, 0700); // Ensure system config directory exists
+    gchar *config_file_path = g_build_filename (system_config_dir, "xpad.conf", NULL);
+    g_free(system_config_dir);
+    GKeyFile *key_file = g_key_file_new();
+    g_key_file_load_from_file(key_file, config_file_path, G_KEY_FILE_NONE, NULL); // Load existing or create new
+    g_key_file_set_string(key_file, "General", "data_directory", new_data_dir);
+    g_key_file_save_to_file(key_file, config_file_path, NULL);
+    g_key_file_free(key_file);
+    g_free(config_file_path);
+
+    /* Move files from old to new directory */
+    GDir *dir;
+    const gchar *filename;
+    dir = g_dir_open(old_data_dir, 0, NULL);
+    if (dir) {
+        while ((filename = g_dir_read_name(dir))) {
+            gchar *old_path = g_build_filename(old_data_dir, filename, NULL);
+            gchar *new_path = g_build_filename(new_data_dir, filename, NULL);
+            rename(old_path, new_path);
+            g_free(old_path);
+            g_free(new_path);
+        }
+        g_dir_close(dir);
+    }
+
+    /* Apply changes immediately without restart */
+    xpad_app_set_config_dir(new_data_dir);
+
+    g_free(new_data_dir);
 }
 
 static void

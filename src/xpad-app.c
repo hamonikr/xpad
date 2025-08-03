@@ -118,6 +118,25 @@ xpad_app_init (int argc, char **argv)
 	first_time = !config_dir_exists ();
 	config_dir = make_config_dir ();
 
+	/* Read data_directory from a separate config file */
+	gchar *config_file_path = g_build_filename (g_get_user_config_dir (), "xpad", "xpad.conf", NULL);
+	if (g_file_test(config_file_path, G_FILE_TEST_EXISTS)) {
+		gchar *data_dir = NULL;
+		GKeyFile *key_file = g_key_file_new();
+		if (g_key_file_load_from_file(key_file, config_file_path, G_KEY_FILE_NONE, NULL)) {
+			data_dir = g_key_file_get_string(key_file, "General", "data_directory", NULL);
+		}
+		g_key_file_free(key_file);
+
+		if (data_dir && g_strcmp0(data_dir, "") != 0) {
+			g_free(config_dir);
+			config_dir = data_dir;
+		} else {
+			g_free(data_dir);
+		}
+	}
+	g_free(config_file_path);
+
 	/* create master socket name */
 	server_filename = g_build_filename (xpad_app_get_config_dir (), "server", NULL);
 
@@ -157,6 +176,16 @@ xpad_app_init (int argc, char **argv)
 
 	/* Read the Xpad configuration file from disk (if exists) */
 	settings = xpad_settings_new ();
+
+	/* Override config_dir with data_directory from settings if available */
+	gchar *data_dir = NULL;
+	g_object_get(settings, "data-directory", &data_dir, NULL);
+	if (data_dir && g_strcmp0(data_dir, "") != 0) {
+		g_free(config_dir);
+		config_dir = data_dir;
+	} else {
+		g_free(data_dir);
+	}
 
 	/* Delay program startup, if user configured it, to wait for example for the loading of the systray. */
 	guint autostart_delay;
@@ -259,6 +288,32 @@ const gchar *
 xpad_app_get_config_dir (void)
 {
 	return config_dir;
+}
+
+/* Update the config directory and reload all pads */
+void
+xpad_app_set_config_dir (const gchar *new_dir)
+{
+	if (g_strcmp0(config_dir, new_dir) == 0) {
+		return; /* No change needed */
+	}
+
+	/* Update the global config_dir */
+	g_free(config_dir);
+	config_dir = g_strdup(new_dir);
+
+	/* Update server filename */
+	g_free(server_filename);
+	server_filename = g_build_filename (xpad_app_get_config_dir (), "server", NULL);
+
+	/* Save all current pads before switching */
+	xpad_pad_group_save_all(pad_group);
+
+	/* Close all existing pads */
+	xpad_pad_group_close_all(pad_group);
+
+	/* Reload pads from new directory */
+	xpad_app_load_pads();
 }
 
 /* Returns absolute path to our own executable. May be NULL. */

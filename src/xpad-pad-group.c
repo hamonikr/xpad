@@ -189,6 +189,15 @@ static void xpad_pad_group_save_unsaved_all (XpadPadGroup *group) {
 }
 
 void
+xpad_pad_group_save_all (XpadPadGroup *group)
+{
+	if (group) {
+		g_slist_foreach (group->priv->pads, (GFunc) xpad_pad_save_content, NULL);
+		g_slist_foreach (group->priv->pads, (GFunc) xpad_pad_save_info, NULL);
+	}
+}
+
+void
 xpad_pad_group_close_all (XpadPadGroup *group)
 {
 	if (group)
