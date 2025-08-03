@@ -27,7 +27,7 @@ jobs:
           artifacts-dir: debian/artifacts
 
       - name: Upload Debian Package
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: debian-package
           path: debian/artifacts/*.deb
@@ -39,7 +39,7 @@ jobs:
     steps:
 
       - name: Download build artifacts
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v4
         with:
           name: debian-package
           path: .
