@@ -1,3 +1,10 @@
+xpad (5.8.3-hamonikr1) sejong; urgency=medium
+
+  [Kevin Kim]
+  * Release for HamoniKR sejong
+
+ -- HamoniKR <pkg@hamonikr.org>  Sun, 03 Aug 2025 22:21:02 +0900
+
 xpad (5.8.2-hamonikr1) noble; urgency=medium
 
   [Kevin Kim]
