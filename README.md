@@ -7,6 +7,7 @@
 ![hamonikr-sun](https://img.shields.io/badge/hamonikr-sun-blue)
 ![hamonikr-jin](https://img.shields.io/badge/hamonikr-jin-green)
 ![hamonikr-hanla](https://img.shields.io/badge/hamonikr-hanla-purple)
+![hamonikr-sejong](https://img.shields.io/badge/hamonikr-sejong-yellow)
 
 ## xpad
 
@@ -28,8 +29,8 @@ Simple sticker memo provided by HamoniKR
 Open the terminal and enter the command below (Ctrl+Alt+T).
 
 ```
-# Add Harmonica APT Storage
-wget -qO- https://pkg.hamonikr.org/add-hamonikr.apt | sudo -E bash -
+# Add HamoniKR APT
+wget -qO- https://repo.hamonikr.org/hamonikr.apt | sudo -E bash -
 
 
 # Program installation
