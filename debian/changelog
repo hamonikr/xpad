@@ -1,3 +1,10 @@
+xpad (5.8.3-hamonikr2) sejong; urgency=medium
+
+  [Kevin Kim]
+  * Fix issue where multiple tray icons appear
+
+ -- HamoniKR <pkg@hamonikr.org>  Mon, 04 Aug 2025 17:33:27 +0900
+
 xpad (5.8.3-hamonikr1) sejong; urgency=medium
 
   [Kevin Kim]

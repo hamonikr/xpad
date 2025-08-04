@@ -29,6 +29,8 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 
 #ifdef HAVE_APP_INDICATOR
 #include <libayatana-appindicator/app-indicator.h>
+#include <unistd.h>
+#include <sys/types.h>
 
 #include "xpad-tray.h"
 #include "xpad-app.h"
@@ -50,6 +52,7 @@ enum
 #define TRAY_ICON "xpad-panel"
 
 static AppIndicator *app_indicator = NULL;
+static gboolean tray_initialized = FALSE;
 
 static void menu_spawn (XpadSettings *settings)
 {
@@ -128,9 +131,22 @@ static char const* getIconName(void)
 static AppIndicator* xpad_tray_app_indicator_new (XpadSettings *settings)
 {
 	char const* icon_name = getIconName();
-	AppIndicator* indicator = app_indicator_new(ICON_NAME, icon_name, APP_INDICATOR_CATEGORY_SYSTEM_SERVICES);
+	
+	/* Create a unique ID based on process ID to prevent conflicts */
+	gchar* unique_id = g_strdup_printf("%s-%d", ICON_NAME, getpid());
+	
+	AppIndicator* indicator = app_indicator_new(unique_id, icon_name, APP_INDICATOR_CATEGORY_SYSTEM_SERVICES);
+	
+	if (indicator == NULL) {
+		g_warning("Failed to create AppIndicator with ID: %s", unique_id);
+		g_free(unique_id);
+		return NULL;
+	}
+	
 	app_indicator_set_status(indicator, APP_INDICATOR_STATUS_ACTIVE);
 	app_indicator_set_title(indicator, g_get_application_name());
+	
+	g_free(unique_id);
 	return indicator;
 }
 
@@ -183,19 +199,52 @@ void xpad_tray_init (XpadSettings *settings) {
     gboolean tray_enabled;
     g_object_get (settings, "tray-enabled", &tray_enabled, NULL);
 
-    if (tray_enabled) {
-        app_indicator = xpad_tray_app_indicator_new(settings);
-	xpad_tray_update_menu(settings);
-
-	/* Refresh the menu every x seconds */
-	guint refresh_each_seconds = 10;
-	g_timeout_add_seconds(refresh_each_seconds, (GSourceFunc) xpad_tray_update_menu, settings);
+    if (!tray_enabled) {
+        return;
     }
+
+    /* Check if tray is already initialized to prevent duplicates */
+    if (tray_initialized) {
+        g_debug("Tray already initialized, skipping duplicate initialization");
+        return;
+    }
+
+    /* Check if there's already an indicator to prevent duplicates */
+    if (app_indicator != NULL) {
+        g_debug("Tray indicator already exists, skipping initialization");
+        return;
+    }
+    
+    app_indicator = xpad_tray_app_indicator_new(settings);
+    
+    /* Verify the indicator was created successfully */
+    if (app_indicator == NULL) {
+        g_warning("Failed to create tray indicator");
+        return;
+    }
+    
+    /* Mark as initialized */
+    tray_initialized = TRUE;
+    
+    xpad_tray_update_menu(settings);
+
+    /* Refresh the menu every x seconds */
+    guint refresh_each_seconds = 10;
+    g_timeout_add_seconds(refresh_each_seconds, (GSourceFunc) xpad_tray_update_menu, settings);
+    
+    g_debug("Tray indicator successfully initialized");
 }
 
 void xpad_tray_dispose (XpadSettings *settings) {
-    if (app_indicator)
+    if (app_indicator) {
         g_clear_object (&app_indicator);
+        app_indicator = NULL;
+    }
+    
+    /* Reset the initialization flag */
+    tray_initialized = FALSE;
+    
+    g_debug("Tray indicator disposed");
 }
 
 gboolean xpad_tray_has_indicator ()
