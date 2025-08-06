@@ -334,3 +334,135 @@ void fio_remove_file (const gchar *filename)
 	g_file_delete (file, NULL, NULL);
 	g_clear_object (&file);
 }
+
+/* Clean up temporary files created by GIO operations */
+void fio_cleanup_temp_files (void)
+{
+	GFile *config_dir;
+	GFileEnumerator *enumerator;
+	GFileInfo *info;
+	GError *error = NULL;
+	
+	config_dir = fio_fill_filename (".", CONFIG_DIR);
+	enumerator = g_file_enumerate_children (config_dir,
+		G_FILE_ATTRIBUTE_STANDARD_NAME,
+		G_FILE_QUERY_INFO_NONE,
+		NULL, &error);
+	
+	if (enumerator) {
+		while ((info = g_file_enumerator_next_file (enumerator, NULL, NULL))) {
+			const gchar *name = g_file_info_get_name (info);
+			
+			/* Remove GIO temporary files */
+			if (g_str_has_prefix (name, ".goutputstream-")) {
+				GFile *temp_file = g_file_get_child (config_dir, name);
+				g_file_delete (temp_file, NULL, NULL);
+				g_clear_object (&temp_file);
+			}
+			
+			g_clear_object (&info);
+		}
+		g_clear_object (&enumerator);
+	}
+	
+	if (error) {
+		g_error_free (error);
+	}
+	
+	g_clear_object (&config_dir);
+}
+
+/* Clean up orphaned info files that have no corresponding content files */
+void fio_cleanup_orphaned_files (void)
+{
+	GFile *config_dir;
+	GFileEnumerator *enumerator;
+	GFileInfo *info;
+	GError *error = NULL;
+	GSList *info_files = NULL;
+	GSList *content_files = NULL;
+	GSList *iter;
+	
+	config_dir = fio_fill_filename (".", CONFIG_DIR);
+	enumerator = g_file_enumerate_children (config_dir,
+		G_FILE_ATTRIBUTE_STANDARD_NAME,
+		G_FILE_QUERY_INFO_NONE,
+		NULL, &error);
+	
+	if (enumerator) {
+		/* Collect all info- and content- files */
+		while ((info = g_file_enumerator_next_file (enumerator, NULL, NULL))) {
+			const gchar *name = g_file_info_get_name (info);
+			
+			if (g_str_has_prefix (name, "info-")) {
+				info_files = g_slist_prepend (info_files, g_strdup (name));
+			} else if (g_str_has_prefix (name, "content-")) {
+				content_files = g_slist_prepend (content_files, g_strdup (name));
+			}
+			
+			g_clear_object (&info);
+		}
+		g_clear_object (&enumerator);
+		
+		/* Remove orphaned info files */
+		for (iter = info_files; iter; iter = iter->next) {
+			const gchar *info_name = (const gchar *) iter->data;
+			const gchar *suffix = info_name + 5; /* Skip "info-" prefix */
+			gchar *content_name = g_strdup_printf ("content-%s", suffix);
+			gboolean has_content = FALSE;
+			
+			/* Check if corresponding content file exists */
+			GSList *content_iter;
+			for (content_iter = content_files; content_iter; content_iter = content_iter->next) {
+				if (g_strcmp0 (content_name, (const gchar *) content_iter->data) == 0) {
+					has_content = TRUE;
+					break;
+				}
+			}
+			
+			/* Remove orphaned info file */
+			if (!has_content) {
+				GFile *orphaned_file = g_file_get_child (config_dir, info_name);
+				g_file_delete (orphaned_file, NULL, NULL);
+				g_clear_object (&orphaned_file);
+			}
+			
+			g_free (content_name);
+		}
+		
+		/* Remove orphaned content files */
+		for (iter = content_files; iter; iter = iter->next) {
+			const gchar *content_name = (const gchar *) iter->data;
+			const gchar *suffix = content_name + 8; /* Skip "content-" prefix */
+			gchar *info_name = g_strdup_printf ("info-%s", suffix);
+			gboolean has_info = FALSE;
+			
+			/* Check if corresponding info file exists */
+			GSList *info_iter;
+			for (info_iter = info_files; info_iter; info_iter = info_iter->next) {
+				if (g_strcmp0 (info_name, (const gchar *) info_iter->data) == 0) {
+					has_info = TRUE;
+					break;
+				}
+			}
+			
+			/* Remove orphaned content file */
+			if (!has_info) {
+				GFile *orphaned_file = g_file_get_child (config_dir, content_name);
+				g_file_delete (orphaned_file, NULL, NULL);
+				g_clear_object (&orphaned_file);
+			}
+			
+			g_free (info_name);
+		}
+	}
+	
+	if (error) {
+		g_error_free (error);
+	}
+	
+	/* Free lists */
+	g_slist_free_full (info_files, g_free);
+	g_slist_free_full (content_files, g_free);
+	g_clear_object (&config_dir);
+}

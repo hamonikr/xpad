@@ -353,6 +353,9 @@ xpad_app_quit (void)
 	/* Free the memory used by the settings menu. */
 	g_clear_object (&settings);
 
+	/* Clean up temporary files before exiting */
+	fio_cleanup_temp_files ();
+
 	exit(EXIT_SUCCESS);
 }
 
@@ -549,6 +552,10 @@ xpad_app_load_pads (void)
 	const gchar *name;
 
 	g_signal_connect (pad_group, "pad-added", G_CALLBACK (xpad_app_pad_added), NULL);
+
+	/* Clean up temporary and orphaned files before loading pads */
+	fio_cleanup_temp_files ();
+	fio_cleanup_orphaned_files ();
 
 	dir = g_dir_open (xpad_app_get_config_dir (), 0, NULL);
 

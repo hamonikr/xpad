@@ -31,6 +31,8 @@ G_BEGIN_DECLS
 gchar *fio_get_file (const gchar *name, DirectoryType dirType);
 gboolean fio_set_file (const gchar *name, const gchar *value);
 void fio_remove_file (const gchar *filename);
+void fio_cleanup_temp_files (void);
+void fio_cleanup_orphaned_files (void);
 
 gint fio_get_values_from_file (const gchar *filename, ...);
 gint fio_set_values_to_file (const gchar *filename, ...);

@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "postgresql": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-postgres",
+        "postgresql://ivs:1234@localhost:5433/airun"
+      ]
+    }
+  }
+}
