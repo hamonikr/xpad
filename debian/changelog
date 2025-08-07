@@ -1,3 +1,10 @@
+xpad (5.8.5) sejong; urgency=medium
+
+  * Release v5.8.5
+  *   * 버전 5.8.4로 업데이트 및 의존성 추가
+
+ -- HamoniKR <pkg@hamonikr.org>  Thu, 07 Aug 2025 10:44:25 +0900
+
 xpad (5.8.4) sejong; urgency=medium
 
   [Kevin Kim]

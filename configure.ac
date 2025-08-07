@@ -1,7 +1,7 @@
 # Process this file with autoconf to produce a configure script.
 
 # Sets up autoconf.
-AC_INIT([Xpad],[5.8.4],[xpad-hackers@lists.launchpad.net])
+AC_INIT([Xpad],[5.8.5],[xpad-hackers@lists.launchpad.net])
 AC_CONFIG_SRCDIR(src/xpad-app.c)
 AC_CONFIG_HEADERS([config.h:config.h.in])
 
