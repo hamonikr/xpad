@@ -36,6 +36,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 #include <glib/gstdio.h>
 
 #include "xpad-app.h"
+#include "fio.h"
 #include "help.h"
 #include "xpad-pad.h"
 #include "xpad-pad-group.h"

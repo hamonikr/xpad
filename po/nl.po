@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xpad 2.11\n"
 "Report-Msgid-Bugs-To: xpad-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2025-08-03 19:33+0900\n"
+"POT-Creation-Date: 2025-08-07 09:29+0900\n"
 "PO-Revision-Date: 2021-05-11 14:46+0000\n"
 "Last-Translator: Arthur Borsboom <arthurborsboom@gmail.com>\n"
 "Language-Team: Dutch <vertaling@vrijschrift.org>\n"
@@ -45,25 +45,25 @@ msgstr "Sluiten"
 msgid "Help"
 msgstr "Hulp"
 
-#: src/xpad-app.c:152
+#: src/xpad-app.c:153
 msgid "Xpad is a graphical program.  Please run it from your desktop."
 msgstr ""
 "Xpad is een grafisch programma; draai het a.u.b. in een grafische omgeving."
 
-#: src/xpad-app.c:157 data/xpad.desktop.in:5 data/xpad.appdata.xml.in:5
+#: src/xpad-app.c:158 data/xpad.desktop.in:5 data/xpad.appdata.xml.in:5
 msgid "Xpad"
 msgstr "Xpad"
 
-#: src/xpad-app.c:280
+#: src/xpad-app.c:281
 msgid "_Ok"
 msgstr "_OK"
 
-#: src/xpad-app.c:559
+#: src/xpad-app.c:567
 #, c-format
 msgid "Could not open directory %s."
 msgstr "Kon map %s niet openen."
 
-#: src/xpad-app.c:562
+#: src/xpad-app.c:570
 msgid ""
 "This directory is needed to store preference and pad information.  Xpad will "
 "close now."
@@ -71,45 +71,45 @@ msgstr ""
 "Deze map is nodig om voorkeuren en memo-informatie in op te slaan.  Xpad "
 "sluit nu af."
 
-#: src/xpad-app.c:880
+#: src/xpad-app.c:888
 msgid "Show version number and quit"
 msgstr "Versienummer tonen en afsluiten"
 
-#: src/xpad-app.c:881
+#: src/xpad-app.c:889
 msgid "Don't create a new pad on startup if no previous pads exist"
 msgstr ""
 "Bij starten geen nieuw memoblaadje aanmaken\n"
 "                                    als er nog geen bestaat"
 
-#: src/xpad-app.c:887
+#: src/xpad-app.c:895
 msgid "Create a new pad on startup even if pads already exist"
 msgstr "Bij starten altijd een nieuw blaadje aanmaken"
 
-#: src/xpad-app.c:888 src/xpad-preferences.c:469
+#: src/xpad-app.c:896 src/xpad-preferences.c:469
 msgid "Hide all pads"
 msgstr "Alle memo's verbergen"
 
-#: src/xpad-app.c:889
+#: src/xpad-app.c:897
 msgid "Show all pads"
 msgstr "Alle memo's tonen"
 
-#: src/xpad-app.c:890
+#: src/xpad-app.c:898
 msgid "Toggle between show and hide all pads"
 msgstr "Schakelen tussen alle memo's tonen/verbergen"
 
-#: src/xpad-app.c:891
+#: src/xpad-app.c:899
 msgid "Create a new pad with the contents of a file"
 msgstr "Nieuw memo maken van de inhoud van een bestand"
 
-#: src/xpad-app.c:891
+#: src/xpad-app.c:899
 msgid "FILE"
 msgstr "BESTAND"
 
-#: src/xpad-app.c:892
+#: src/xpad-app.c:900
 msgid "Close all pads"
 msgstr "Alle memo's sluiten"
 
-#: src/xpad-app.c:923
+#: src/xpad-app.c:931
 #, c-format
 msgid "Xpad %s"
 msgstr "Xpad %s"
@@ -157,7 +157,7 @@ msgstr ""
 "  Jeroen T. Vermeulen https://launchpad.net/~jtv\n"
 "  Pjotr12345 https://launchpad.net/~computertip"
 
-#: src/xpad-pad.c:1608 src/xpad-tray.c:67
+#: src/xpad-pad.c:1608 src/xpad-tray.c:70
 msgid "_New"
 msgstr "_Nieuw"
 
@@ -203,16 +203,16 @@ msgstr "_Alleen lezen"
 msgid "_Notes"
 msgstr "_Notities"
 
-#: src/xpad-pad.c:1640 src/xpad-tray.c:74
+#: src/xpad-pad.c:1640 src/xpad-tray.c:77
 msgid "_Show All"
 msgstr "Alle _weergeven"
 
-#: src/xpad-pad.c:1641 src/xpad-tray.c:79
+#: src/xpad-pad.c:1641 src/xpad-tray.c:82
 msgid "_Close All"
 msgstr "Alle _sluiten"
 
 #. Help submenu
-#: src/xpad-pad.c:1644 src/xpad-pad.c:1648 src/xpad-tray.c:96
+#: src/xpad-pad.c:1644 src/xpad-pad.c:1648 src/xpad-tray.c:99
 msgid "_Help"
 msgstr "_Hulp"
 
@@ -220,7 +220,7 @@ msgstr "_Hulp"
 msgid "_About"
 msgstr "O_ver"
 
-#: src/xpad-pad.c:1654 src/xpad-tray.c:92
+#: src/xpad-pad.c:1654 src/xpad-tray.c:95
 msgid "_Preferences"
 msgstr "_Voorkeuren"
 
@@ -646,7 +646,7 @@ msgstr "Verwijder alle knoppen"
 msgid "Remo_ve Last Button"
 msgstr "Verwijder de laatste knop"
 
-#: src/xpad-tray.c:100
+#: src/xpad-tray.c:103
 msgid "_Quit"
 msgstr "_Afsluiten"
 

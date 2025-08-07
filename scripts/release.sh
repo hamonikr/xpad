@@ -141,6 +141,67 @@ fi
 echo -e "${YELLOW}업데이트 후 configure.ac 버전:${NC}"
 grep "AC_INIT" configure.ac
 
+# debian/changelog 업데이트
+if [ -f "debian/changelog" ]; then
+    echo -e "\n${YELLOW}debian/changelog 버전 업데이트 중...${NC}"
+    
+    # 현재 배포판 이름 가져오기 (기본값: sejong)
+    DISTRIBUTION=$(head -n1 debian/changelog | awk '{print $3}' | tr -d ';' || echo "sejong")
+    
+    # 변경사항 수집 (master와 dev 브랜치 간 차이)
+    CHANGELOG_ENTRIES=""
+    while IFS= read -r line; do
+        # 커밋 메시지에서 feat:, fix:, chore: 등을 제거하고 정리
+        CLEAN_MSG=$(echo "$line" | sed -E 's/^[a-f0-9]+ //' | sed -E 's/^(feat|fix|chore|docs|style|refactor|test|build):\s*//')
+        if [ -n "$CLEAN_MSG" ]; then
+            CHANGELOG_ENTRIES="${CHANGELOG_ENTRIES}  * ${CLEAN_MSG}\n"
+        fi
+    done < <(git --no-pager log --oneline origin/master..origin/dev --pretty=format:"%h %s")
+    
+    # dch 명령어가 있는지 확인
+    if command -v dch &> /dev/null; then
+        # dch를 사용하여 새 엔트리 추가
+        DEBEMAIL="${DEBEMAIL:-pkg@hamonikr.org}" \
+        DEBFULLNAME="${DEBFULLNAME:-HamoniKR}" \
+        dch --newversion "${NEW_VERSION#v}" --distribution "$DISTRIBUTION" "Release ${NEW_VERSION}"
+        
+        # 변경사항 추가
+        if [ -n "$CHANGELOG_ENTRIES" ]; then
+            echo -e "$CHANGELOG_ENTRIES" | while IFS= read -r entry; do
+                if [ -n "$entry" ]; then
+                    dch --append "$entry"
+                fi
+            done
+        fi
+    else
+        # dch가 없으면 수동으로 업데이트
+        echo -e "${YELLOW}dch 명령어가 없습니다. 수동으로 debian/changelog를 업데이트합니다.${NC}"
+        
+        # 현재 날짜를 debian changelog 형식으로
+        CHANGELOG_DATE=$(date -R)
+        
+        # 새 changelog 엔트리 생성
+        NEW_ENTRY="xpad (${NEW_VERSION#v}) $DISTRIBUTION; urgency=medium\n\n"
+        if [ -n "$CHANGELOG_ENTRIES" ]; then
+            NEW_ENTRY="${NEW_ENTRY}${CHANGELOG_ENTRIES}"
+        else
+            NEW_ENTRY="${NEW_ENTRY}  * Release ${NEW_VERSION}\n"
+        fi
+        NEW_ENTRY="${NEW_ENTRY}\n -- ${DEBFULLNAME:-HamoniKR} <${DEBEMAIL:-pkg@hamonikr.org}>  $CHANGELOG_DATE\n\n"
+        
+        # 기존 changelog 백업
+        cp debian/changelog debian/changelog.bak
+        
+        # 새 엔트리를 파일 맨 위에 추가
+        echo -e "$NEW_ENTRY" > debian/changelog.tmp
+        cat debian/changelog.bak >> debian/changelog.tmp
+        mv debian/changelog.tmp debian/changelog
+    fi
+    
+    echo -e "${YELLOW}debian/changelog 업데이트 완료${NC}"
+    head -n6 debian/changelog
+fi
+
 
 
 # 변경사항 요약 표시
@@ -163,9 +224,12 @@ else
     fi
 fi
 
-# configure.ac 변경사항 커밋
-echo -e "\n${YELLOW}configure.ac 커밋${NC}"
+# configure.ac와 debian/changelog 변경사항 커밋
+echo -e "\n${YELLOW}버전 변경사항 커밋${NC}"
 git add configure.ac
+if [ -f "debian/changelog" ]; then
+    git add debian/changelog
+fi
 git commit -m "chore: bump version to ${NEW_VERSION}"
 
 # 릴리즈 프로세스 실행

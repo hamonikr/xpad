@@ -1,4 +1,4 @@
-xpad (5.8.3-hamonikr2) sejong; urgency=medium
+xpad (5.8.4) sejong; urgency=medium
 
   [Kevin Kim]
   * Fix issue where multiple tray icons appear

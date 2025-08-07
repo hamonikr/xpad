@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xpad 2.0-b2\n"
 "Report-Msgid-Bugs-To: xpad-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2025-08-03 19:33+0900\n"
+"POT-Creation-Date: 2025-08-07 09:29+0900\n"
 "PO-Revision-Date: 2022-02-15 17:29+0000\n"
 "Last-Translator: Toni Estevez <toni.estevez@gmail.com>\n"
 "Language-Team: Spanish <es@li.org>\n"
@@ -44,24 +44,24 @@ msgstr "Cerrar"
 msgid "Help"
 msgstr "Ayuda"
 
-#: src/xpad-app.c:152
+#: src/xpad-app.c:153
 msgid "Xpad is a graphical program.  Please run it from your desktop."
 msgstr "Xpad es un programa gráfico. Ejecútelo desde el escritorio."
 
-#: src/xpad-app.c:157 data/xpad.desktop.in:5 data/xpad.appdata.xml.in:5
+#: src/xpad-app.c:158 data/xpad.desktop.in:5 data/xpad.appdata.xml.in:5
 msgid "Xpad"
 msgstr "Xpad"
 
-#: src/xpad-app.c:280
+#: src/xpad-app.c:281
 msgid "_Ok"
 msgstr "_Aceptar"
 
-#: src/xpad-app.c:559
+#: src/xpad-app.c:567
 #, c-format
 msgid "Could not open directory %s."
 msgstr "No se ha podido abrir la carpeta %s."
 
-#: src/xpad-app.c:562
+#: src/xpad-app.c:570
 msgid ""
 "This directory is needed to store preference and pad information.  Xpad will "
 "close now."
@@ -69,47 +69,47 @@ msgstr ""
 "Esta carpeta es necesaria para almacenar las preferencias y la información "
 "de las notas. Ahora se cerrará Xpad."
 
-#: src/xpad-app.c:880
+#: src/xpad-app.c:888
 msgid "Show version number and quit"
 msgstr "Mostrar el número de versión y salir"
 
-#: src/xpad-app.c:881
+#: src/xpad-app.c:889
 msgid "Don't create a new pad on startup if no previous pads exist"
 msgstr ""
 "No crear una nota nueva al iniciar el programa aunque no existan notas "
 "anteriores"
 
-#: src/xpad-app.c:887
+#: src/xpad-app.c:895
 msgid "Create a new pad on startup even if pads already exist"
 msgstr ""
 "Crear una nota nueva al iniciar el programa aunque ya existan notas "
 "anteriores"
 
-#: src/xpad-app.c:888 src/xpad-preferences.c:469
+#: src/xpad-app.c:896 src/xpad-preferences.c:469
 msgid "Hide all pads"
 msgstr "Ocultar todas las notas"
 
-#: src/xpad-app.c:889
+#: src/xpad-app.c:897
 msgid "Show all pads"
 msgstr "Mostrar todas las notas"
 
-#: src/xpad-app.c:890
+#: src/xpad-app.c:898
 msgid "Toggle between show and hide all pads"
 msgstr "Conmutar entre mostrar y ocultar todas las notas"
 
-#: src/xpad-app.c:891
+#: src/xpad-app.c:899
 msgid "Create a new pad with the contents of a file"
 msgstr "Crear una nota nueva con el contenido de un archivo"
 
-#: src/xpad-app.c:891
+#: src/xpad-app.c:899
 msgid "FILE"
 msgstr "ARCHIVO"
 
-#: src/xpad-app.c:892
+#: src/xpad-app.c:900
 msgid "Close all pads"
 msgstr "Cerrar todas las notas"
 
-#: src/xpad-app.c:923
+#: src/xpad-app.c:931
 #, c-format
 msgid "Xpad %s"
 msgstr "Xpad %s"
@@ -160,7 +160,7 @@ msgstr ""
 "  Toni Estevez https://launchpad.net/~toni-estevez\n"
 "  angvp https://launchpad.net/~angvp"
 
-#: src/xpad-pad.c:1608 src/xpad-tray.c:67
+#: src/xpad-pad.c:1608 src/xpad-tray.c:70
 msgid "_New"
 msgstr "_Nota nueva"
 
@@ -206,16 +206,16 @@ msgstr "Solo _lectura"
 msgid "_Notes"
 msgstr "N_otas"
 
-#: src/xpad-pad.c:1640 src/xpad-tray.c:74
+#: src/xpad-pad.c:1640 src/xpad-tray.c:77
 msgid "_Show All"
 msgstr "_Mostrar todas las notas"
 
-#: src/xpad-pad.c:1641 src/xpad-tray.c:79
+#: src/xpad-pad.c:1641 src/xpad-tray.c:82
 msgid "_Close All"
 msgstr "_Cerrar todas las notas"
 
 #. Help submenu
-#: src/xpad-pad.c:1644 src/xpad-pad.c:1648 src/xpad-tray.c:96
+#: src/xpad-pad.c:1644 src/xpad-pad.c:1648 src/xpad-tray.c:99
 msgid "_Help"
 msgstr "Ay_uda"
 
@@ -223,7 +223,7 @@ msgstr "Ay_uda"
 msgid "_About"
 msgstr "Acerca _de"
 
-#: src/xpad-pad.c:1654 src/xpad-tray.c:92
+#: src/xpad-pad.c:1654 src/xpad-tray.c:95
 msgid "_Preferences"
 msgstr "_Preferencias"
 
@@ -652,7 +652,7 @@ msgstr "Eliminar todos los _botones"
 msgid "Remo_ve Last Button"
 msgstr "Eliminar el ú_ltimo botón"
 
-#: src/xpad-tray.c:100
+#: src/xpad-tray.c:103
 msgid "_Quit"
 msgstr "_Salir"
 

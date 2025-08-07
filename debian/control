@@ -5,6 +5,7 @@ Maintainer: JCF Ploemen (jcfp) <linux@jcf.pm>
 Build-Depends:
  debhelper-compat (= 12),
  intltool,
+ libayatana-appindicator3-dev,
  libgl1-mesa-dev,
  libglib2.0-dev (>= 2.56),
  libgtk-3-dev (>= 3.22),
@@ -17,7 +18,7 @@ Vcs-Browser: https://github.com/jcfp/debpkg-xpad/
 
 Package: xpad
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
+Depends: ${shlibs:Depends}, ${misc:Depends}, libayatana-appindicator3-1
 Replaces: hamonikr-jin-icon-theme, hamonikr-themes
 Description: sticky note application for X
  This program consists of independent pad windows, each is basically a text box
