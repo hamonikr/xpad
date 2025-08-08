@@ -182,9 +182,12 @@ xpad_app_init (int argc, char **argv)
 	gchar *data_dir = NULL;
 	g_object_get(settings, "data-directory", &data_dir, NULL);
 	if (data_dir && g_strcmp0(data_dir, "") != 0) {
-		/* Update config_dir with the value from settings */
+		/* Simply use the configured data directory without any automatic copying */
 		g_free(config_dir);
 		config_dir = data_dir;
+		
+		/* Ensure the directory exists */
+		g_mkdir_with_parents(config_dir, 0700);
 		
 		/* Sync this value back to the xpad.conf file to ensure consistency */
 		gchar *system_config_dir = g_build_filename (g_get_user_config_dir (), "xpad", NULL);
@@ -313,22 +316,103 @@ xpad_app_set_config_dir (const gchar *new_dir)
 		return; /* No change needed */
 	}
 
+	/* Save all current pads before switching */
+	xpad_pad_group_save_all(pad_group);
+
 	/* Update the global config_dir */
 	g_free(config_dir);
 	config_dir = g_strdup(new_dir);
 
+	/* Ensure the new directory exists */
+	g_mkdir_with_parents(config_dir, 0700);
+
 	/* Update server filename */
 	g_free(server_filename);
 	server_filename = g_build_filename (xpad_app_get_config_dir (), "server", NULL);
-
-	/* Save all current pads before switching */
-	xpad_pad_group_save_all(pad_group);
 
 	/* Close all existing pads */
 	xpad_pad_group_close_all(pad_group);
 
 	/* Reload pads from new directory */
 	xpad_app_load_pads();
+}
+
+/* Recover orphaned content files by creating missing info files */
+static void
+xpad_app_recover_orphaned_content_files (void)
+{
+	GDir *dir;
+	const gchar *name;
+	GSList *info_files = NULL;
+	GSList *content_files = NULL;
+	GSList *iter;
+	
+	dir = g_dir_open (xpad_app_get_config_dir (), 0, NULL);
+	if (!dir) {
+		return;
+	}
+	
+	/* Collect all info- and content- files */
+	while ((name = g_dir_read_name (dir))) {
+		if (g_str_has_prefix (name, "info-")) {
+			info_files = g_slist_prepend (info_files, g_strdup (name));
+		} else if (g_str_has_prefix (name, "content-")) {
+			content_files = g_slist_prepend (content_files, g_strdup (name));
+		}
+	}
+	g_dir_close (dir);
+	
+	/* Create missing info files for orphaned content files */
+	for (iter = content_files; iter; iter = iter->next) {
+		const gchar *content_name = (const gchar *) iter->data;
+		const gchar *suffix = content_name + 8; /* Skip "content-" prefix */
+		gchar *info_name = g_strdup_printf ("info-%s", suffix);
+		gboolean has_info = FALSE;
+		
+		/* Check if corresponding info file exists */
+		GSList *info_iter;
+		for (info_iter = info_files; info_iter; info_iter = info_iter->next) {
+			if (g_strcmp0 (info_name, (const gchar *) info_iter->data) == 0) {
+				has_info = TRUE;
+				break;
+			}
+		}
+		
+		/* Create missing info file with default values */
+		if (!has_info) {
+			gchar *info_path = g_build_filename (xpad_app_get_config_dir (), info_name, NULL);
+			
+			/* Create a basic info file with default settings */
+			fio_set_values_to_file (info_name,
+				"i|width", 200,
+				"i|height", 200,
+				"i|x", 50,
+				"i|y", 50,
+				"b|sticky", FALSE,
+				"b|decorations", TRUE,
+				"b|toolbar", FALSE,
+				"b|scrollbar", FALSE,
+				"b|autohide_toolbar", FALSE,
+				"b|has_scrollbar", FALSE,
+				"b|has_decorations", TRUE,
+				"b|follow_font_style", TRUE,
+				"b|follow_color_style", TRUE,
+				"s|fontname", "",
+				"s|back_color", "",
+				"s|text_color", "",
+				"s|contentname", content_name,
+				NULL);
+			
+			g_free (info_path);
+			g_print ("Recovered orphaned content file: %s -> created %s\n", content_name, info_name);
+		}
+		
+		g_free (info_name);
+	}
+	
+	/* Free lists */
+	g_slist_free_full (info_files, g_free);
+	g_slist_free_full (content_files, g_free);
 }
 
 /* Returns absolute path to our own executable. May be NULL. */
@@ -568,9 +652,13 @@ xpad_app_load_pads (void)
 
 	g_signal_connect (pad_group, "pad-added", G_CALLBACK (xpad_app_pad_added), NULL);
 
-	/* Clean up temporary and orphaned files before loading pads */
+	/* Clean up temporary files before loading pads */
 	fio_cleanup_temp_files ();
-	fio_cleanup_orphaned_files ();
+	/* DISABLED: fio_cleanup_orphaned_files() - Never delete any user files automatically */
+	/* Both info and content files should be preserved to prevent any data loss */
+	
+	/* Create missing info files for orphaned content files to recover user data */
+	xpad_app_recover_orphaned_content_files();
 
 	dir = g_dir_open (xpad_app_get_config_dir (), 0, NULL);
 

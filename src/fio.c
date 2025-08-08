@@ -372,7 +372,8 @@ void fio_cleanup_temp_files (void)
 	g_clear_object (&config_dir);
 }
 
-/* Clean up orphaned info files that have no corresponding content files */
+/* Clean up orphaned info files that have no corresponding content files.
+ * SAFETY: Content files are never deleted to prevent data loss. */
 void fio_cleanup_orphaned_files (void)
 {
 	GFile *config_dir;
@@ -430,31 +431,8 @@ void fio_cleanup_orphaned_files (void)
 			g_free (content_name);
 		}
 		
-		/* Remove orphaned content files */
-		for (iter = content_files; iter; iter = iter->next) {
-			const gchar *content_name = (const gchar *) iter->data;
-			const gchar *suffix = content_name + 8; /* Skip "content-" prefix */
-			gchar *info_name = g_strdup_printf ("info-%s", suffix);
-			gboolean has_info = FALSE;
-			
-			/* Check if corresponding info file exists */
-			GSList *info_iter;
-			for (info_iter = info_files; info_iter; info_iter = info_iter->next) {
-				if (g_strcmp0 (info_name, (const gchar *) info_iter->data) == 0) {
-					has_info = TRUE;
-					break;
-				}
-			}
-			
-			/* Remove orphaned content file */
-			if (!has_info) {
-				GFile *orphaned_file = g_file_get_child (config_dir, content_name);
-				g_file_delete (orphaned_file, NULL, NULL);
-				g_clear_object (&orphaned_file);
-			}
-			
-			g_free (info_name);
-		}
+		/* SAFETY: Do not remove orphaned content files to prevent data loss */
+		/* Content files contain user's memo data and should never be automatically deleted */
 	}
 	
 	if (error) {

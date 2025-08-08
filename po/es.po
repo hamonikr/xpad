@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xpad 2.0-b2\n"
 "Report-Msgid-Bugs-To: xpad-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2025-08-08 10:25+0900\n"
+"POT-Creation-Date: 2025-08-08 11:00+0900\n"
 "PO-Revision-Date: 2022-02-15 17:29+0000\n"
 "Last-Translator: Toni Estevez <toni.estevez@gmail.com>\n"
 "Language-Team: Spanish <es@li.org>\n"
@@ -52,16 +52,16 @@ msgstr "Xpad es un programa gráfico. Ejecútelo desde el escritorio."
 msgid "Xpad"
 msgstr "Xpad"
 
-#: src/xpad-app.c:295
+#: src/xpad-app.c:298
 msgid "_Ok"
 msgstr "_Aceptar"
 
-#: src/xpad-app.c:581
+#: src/xpad-app.c:669
 #, c-format
 msgid "Could not open directory %s."
 msgstr "No se ha podido abrir la carpeta %s."
 
-#: src/xpad-app.c:584
+#: src/xpad-app.c:672
 msgid ""
 "This directory is needed to store preference and pad information.  Xpad will "
 "close now."
@@ -69,47 +69,47 @@ msgstr ""
 "Esta carpeta es necesaria para almacenar las preferencias y la información "
 "de las notas. Ahora se cerrará Xpad."
 
-#: src/xpad-app.c:902
+#: src/xpad-app.c:990
 msgid "Show version number and quit"
 msgstr "Mostrar el número de versión y salir"
 
-#: src/xpad-app.c:903
+#: src/xpad-app.c:991
 msgid "Don't create a new pad on startup if no previous pads exist"
 msgstr ""
 "No crear una nota nueva al iniciar el programa aunque no existan notas "
 "anteriores"
 
-#: src/xpad-app.c:909
+#: src/xpad-app.c:997
 msgid "Create a new pad on startup even if pads already exist"
 msgstr ""
 "Crear una nota nueva al iniciar el programa aunque ya existan notas "
 "anteriores"
 
-#: src/xpad-app.c:910 src/xpad-preferences.c:469
+#: src/xpad-app.c:998 src/xpad-preferences.c:469
 msgid "Hide all pads"
 msgstr "Ocultar todas las notas"
 
-#: src/xpad-app.c:911
+#: src/xpad-app.c:999
 msgid "Show all pads"
 msgstr "Mostrar todas las notas"
 
-#: src/xpad-app.c:912
+#: src/xpad-app.c:1000
 msgid "Toggle between show and hide all pads"
 msgstr "Conmutar entre mostrar y ocultar todas las notas"
 
-#: src/xpad-app.c:913
+#: src/xpad-app.c:1001
 msgid "Create a new pad with the contents of a file"
 msgstr "Crear una nota nueva con el contenido de un archivo"
 
-#: src/xpad-app.c:913
+#: src/xpad-app.c:1001
 msgid "FILE"
 msgstr "ARCHIVO"
 
-#: src/xpad-app.c:914
+#: src/xpad-app.c:1002
 msgid "Close all pads"
 msgstr "Cerrar todas las notas"
 
-#: src/xpad-app.c:945
+#: src/xpad-app.c:1033
 #, c-format
 msgid "Xpad %s"
 msgstr "Xpad %s"
@@ -127,7 +127,7 @@ msgstr "¿Eliminar esta nota?"
 msgid "All text of this pad will be irrevocably lost."
 msgstr "Todo el texto de esta nota se perderá irreversiblemente."
 
-#: src/xpad-pad.c:926 src/xpad-pad.c:1609
+#: src/xpad-pad.c:926 src/xpad-pad.c:1638
 msgid "_Delete"
 msgstr "_Eliminar"
 
@@ -140,13 +140,13 @@ msgstr "_Cancelar"
 msgid "'%s' Layout"
 msgstr "Propiedades de «%s»"
 
-#: src/xpad-pad.c:1445 data/xpad.appdata.xml.in:6
+#: src/xpad-pad.c:1474 data/xpad.appdata.xml.in:6
 msgid "Sticky notes"
 msgstr "Notas adhesivas"
 
 #. Translators: please translate this as your own name and optionally email
 #. like so: "Your Name <your@email.com>"
-#: src/xpad-pad.c:1449
+#: src/xpad-pad.c:1478
 msgid "translator-credits"
 msgstr ""
 "Launchpad Contributions:\n"
@@ -160,94 +160,94 @@ msgstr ""
 "  Toni Estevez https://launchpad.net/~toni-estevez\n"
 "  angvp https://launchpad.net/~angvp"
 
-#: src/xpad-pad.c:1608 src/xpad-tray.c:70
+#: src/xpad-pad.c:1637 src/xpad-tray.c:70
 msgid "_New"
 msgstr "_Nota nueva"
 
-#: src/xpad-pad.c:1610
+#: src/xpad-pad.c:1639
 msgid "_Reload"
 msgstr "_Recargar"
 
-#: src/xpad-pad.c:1611
+#: src/xpad-pad.c:1640
 msgid "_Close"
 msgstr "_Cerrar"
 
 #. Edit submenu
-#: src/xpad-pad.c:1614
+#: src/xpad-pad.c:1643
 msgid "_Edit"
 msgstr "_Editar"
 
-#: src/xpad-pad.c:1618
+#: src/xpad-pad.c:1647
 msgid "_Undo"
 msgstr "_Deshacer"
 
-#: src/xpad-pad.c:1620
+#: src/xpad-pad.c:1649
 msgid "_Redo"
 msgstr "_Rehacer"
 
-#: src/xpad-pad.c:1623 src/xpad-pad.c:1763
+#: src/xpad-pad.c:1652 src/xpad-pad.c:1792
 msgid "_Paste"
 msgstr "_Pegar"
 
-#: src/xpad-pad.c:1626
+#: src/xpad-pad.c:1655
 msgid "_Find"
 msgstr "_Encontrar"
 
-#: src/xpad-pad.c:1628
+#: src/xpad-pad.c:1657
 msgid "_Layout"
 msgstr "Pr_opiedades"
 
-#: src/xpad-pad.c:1629
+#: src/xpad-pad.c:1658
 msgid "_Read only"
 msgstr "Solo _lectura"
 
 #. Notes submenu - The list of notes will get added in the prep function below
-#: src/xpad-pad.c:1635
+#: src/xpad-pad.c:1664
 msgid "_Notes"
 msgstr "N_otas"
 
-#: src/xpad-pad.c:1640 src/xpad-tray.c:77
+#: src/xpad-pad.c:1669 src/xpad-tray.c:77
 msgid "_Show All"
 msgstr "_Mostrar todas las notas"
 
-#: src/xpad-pad.c:1641 src/xpad-tray.c:82
+#: src/xpad-pad.c:1670 src/xpad-tray.c:82
 msgid "_Close All"
 msgstr "_Cerrar todas las notas"
 
 #. Help submenu
-#: src/xpad-pad.c:1644 src/xpad-pad.c:1648 src/xpad-tray.c:99
+#: src/xpad-pad.c:1673 src/xpad-pad.c:1677 src/xpad-tray.c:99
 msgid "_Help"
 msgstr "Ay_uda"
 
-#: src/xpad-pad.c:1649
+#: src/xpad-pad.c:1678
 msgid "_About"
 msgstr "Acerca _de"
 
-#: src/xpad-pad.c:1654 src/xpad-tray.c:95
+#: src/xpad-pad.c:1683 src/xpad-tray.c:95
 msgid "_Preferences"
 msgstr "_Preferencias"
 
-#: src/xpad-pad.c:1761
+#: src/xpad-pad.c:1790
 msgid "Cu_t"
 msgstr "Cor_tar"
 
-#: src/xpad-pad.c:1762
+#: src/xpad-pad.c:1791
 msgid "_Copy"
 msgstr "_Copiar"
 
-#: src/xpad-pad.c:1766
+#: src/xpad-pad.c:1795
 msgid "_Bold"
 msgstr "_Negrita"
 
-#: src/xpad-pad.c:1767
+#: src/xpad-pad.c:1796
 msgid "_Italic"
 msgstr "C_ursiva"
 
-#: src/xpad-pad.c:1768
+#: src/xpad-pad.c:1797
 msgid "_Underline"
 msgstr "_Subrayado"
 
-#: src/xpad-pad.c:1769
+#: src/xpad-pad.c:1798
 msgid "_Strikethrough"
 msgstr "T_achado"
 

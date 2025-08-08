@@ -1259,7 +1259,13 @@ xpad_pad_save_content (XpadPad *pad)
 	/* create content file if it doesn't exist yet */
 	if (!pad->priv->contentname)
 	{
-		pad->priv->contentname = fio_unique_name ("content-");
+		/* Use the same ID as info file to ensure pairing */
+		if (pad->priv->infoname) {
+			const gchar *info_suffix = pad->priv->infoname + 5; /* Skip "info-" prefix */
+			pad->priv->contentname = g_strdup_printf ("content-%s", info_suffix);
+		} else {
+			pad->priv->contentname = fio_unique_name ("content-");
+		}
 		if (!pad->priv->contentname)
 			return;
 	}
@@ -1306,7 +1312,24 @@ xpad_pad_load_info (XpadPad *pad, gboolean *show)
 		NULL))
 		return;
 
-	pad->priv->unsaved_info = FALSE;
+	/* Fix content filename to match info filename ID for consistency */
+	gboolean content_filename_fixed = FALSE;
+	if (pad->priv->contentname && pad->priv->infoname) {
+		const gchar *info_suffix = pad->priv->infoname + 5; /* Skip "info-" prefix */
+		gchar *expected_contentname = g_strdup_printf ("content-%s", info_suffix);
+		
+		if (g_strcmp0 (pad->priv->contentname, expected_contentname) != 0) {
+			/* Content filename doesn't match info filename ID - fix it */
+			g_free (pad->priv->contentname);
+			pad->priv->contentname = g_strdup (expected_contentname);
+			content_filename_fixed = TRUE;
+		}
+		
+		g_free (expected_contentname);
+	}
+
+	/* Set unsaved_info based on whether we fixed the content filename */
+	pad->priv->unsaved_info = content_filename_fixed;
 	pad->priv->location_valid = TRUE;
 
 	g_object_get (pad->priv->settings, "has-toolbar", &has_toolbar, "autohide-toolbar", &autohide_toolbar, NULL);
@@ -1393,7 +1416,13 @@ xpad_pad_save_info (XpadPad *pad)
 	/* create content file if it doesn't exist yet */
 	if (!pad->priv->contentname)
 	{
-		pad->priv->contentname = fio_unique_name ("content-");
+		/* Use the same ID as info file to ensure pairing */
+		if (pad->priv->infoname) {
+			const gchar *info_suffix = pad->priv->infoname + 5; /* Skip "info-" prefix */
+			pad->priv->contentname = g_strdup_printf ("content-%s", info_suffix);
+		} else {
+			pad->priv->contentname = fio_unique_name ("content-");
+		}
 		if (!pad->priv->contentname)
 			return;
 	}

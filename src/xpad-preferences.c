@@ -958,76 +958,7 @@ change_data_dir (GtkFileChooserButton *button, XpadPreferences *pref)
     g_key_file_free(key_file);
     g_free(config_file_path);
 
-    /* Ask user for confirmation before moving data */
-    GtkWidget *confirm_dialog = gtk_message_dialog_new (GTK_WINDOW(pref),
-                                                        GTK_DIALOG_MODAL | GTK_DIALOG_DESTROY_WITH_PARENT,
-                                                        GTK_MESSAGE_QUESTION,
-                                                        GTK_BUTTONS_YES_NO,
-                                                        _("Move existing data to new directory?"));
-    gtk_message_dialog_format_secondary_text (GTK_MESSAGE_DIALOG (confirm_dialog), 
-                                            _("Do you want to copy existing memo data from:\n%s\n\nto the new directory:\n%s\n\nOriginal data will be kept as backup."), 
-                                            old_data_dir, new_data_dir);
-    
-    gint response = gtk_dialog_run (GTK_DIALOG (confirm_dialog));
-    gtk_widget_destroy (confirm_dialog);
-    
-    if (response == GTK_RESPONSE_YES) {
-        /* Copy files from old to new directory (keeping originals as backup) */
-        GDir *dir;
-        const gchar *filename;
-        gboolean copy_success = TRUE;
-        
-        dir = g_dir_open(old_data_dir, 0, NULL);
-        if (dir) {
-            while ((filename = g_dir_read_name(dir))) {
-                gchar *old_path = g_build_filename(old_data_dir, filename, NULL);
-                gchar *new_path = g_build_filename(new_data_dir, filename, NULL);
-                
-                /* Skip directories and hidden files */
-                if (g_file_test(old_path, G_FILE_TEST_IS_REGULAR)) {
-                    GError *error = NULL;
-                    GFile *source = g_file_new_for_path(old_path);
-                    GFile *dest = g_file_new_for_path(new_path);
-                    
-                    if (!g_file_copy(source, dest, G_FILE_COPY_OVERWRITE, NULL, NULL, NULL, &error)) {
-                        g_warning("Failed to copy %s to %s: %s", old_path, new_path, error ? error->message : "Unknown error");
-                        copy_success = FALSE;
-                        if (error) g_error_free(error);
-                    }
-                    
-                    g_object_unref(source);
-                    g_object_unref(dest);
-                }
-                
-                g_free(old_path);
-                g_free(new_path);
-            }
-            g_dir_close(dir);
-        }
-        
-        if (!copy_success) {
-            GtkWidget *error_dialog = gtk_message_dialog_new (GTK_WINDOW(pref),
-                                                            GTK_DIALOG_MODAL | GTK_DIALOG_DESTROY_WITH_PARENT,
-                                                            GTK_MESSAGE_WARNING,
-                                                            GTK_BUTTONS_OK,
-                                                            _("Some files could not be copied"));
-            gtk_message_dialog_format_secondary_text (GTK_MESSAGE_DIALOG (error_dialog), 
-                                                    _("Some memo files could not be copied to the new directory. Please check the console for details. Your original data in %s remains safe."), old_data_dir);
-            gtk_dialog_run (GTK_DIALOG (error_dialog));
-            gtk_widget_destroy (error_dialog);
-        } else {
-            /* Show success message */
-            GtkWidget *success_dialog = gtk_message_dialog_new (GTK_WINDOW(pref),
-                                                                GTK_DIALOG_MODAL | GTK_DIALOG_DESTROY_WITH_PARENT,
-                                                                GTK_MESSAGE_INFO,
-                                                                GTK_BUTTONS_OK,
-                                                                _("Data copied successfully"));
-            gtk_message_dialog_format_secondary_text (GTK_MESSAGE_DIALOG (success_dialog), 
-                                                    _("Your memo data has been copied to the new directory. Original data in %s is kept as backup."), old_data_dir);
-            gtk_dialog_run (GTK_DIALOG (success_dialog));
-            gtk_widget_destroy (success_dialog);
-        }
-    }
+    /* Data copying will be handled automatically by xpad_app_set_config_dir */
 
     /* Update the settings object to keep it in sync */
     g_object_set(pref->priv->settings, "data-directory", new_data_dir, NULL);
