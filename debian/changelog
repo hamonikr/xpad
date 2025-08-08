@@ -1,3 +1,10 @@
+xpad (5.8.6) sejong; urgency=medium
+
+  * Release v5.8.6
+  *   * 기능 개선: 고아 파일 정리 로직 비활성화 및 데이터 디렉토리 변경 시 자동 복사 처리
+
+ -- HamoniKR <pkg@hamonikr.org>  Fri, 08 Aug 2025 11:03:10 +0900
+
 xpad (5.8.5) sejong; urgency=medium
 
   * Release v5.8.5
