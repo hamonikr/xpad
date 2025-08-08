@@ -91,6 +91,8 @@ static gboolean		xpad_app_quit_if_no_pads    (XpadPadGroup *group);
 static gboolean		xpad_app_first_idle_check   (XpadPadGroup *group);
 static gboolean		xpad_app_pass_args          (void);
 static gboolean		xpad_app_open_proc_file     (void);
+static gboolean		xpad_app_cleanup_stale_resources (void);
+static gboolean		xpad_app_is_process_running (pid_t pid);
 static void enable_unix_signal_handlers();
 static void unix_signal_handler(int sig) __attribute__(( __noreturn__ ));
 
@@ -165,6 +167,9 @@ xpad_app_init (int argc, char **argv)
 		program_path = NULL;
 
 	process_local_args (&xpad_argc, &xpad_argv);
+
+	/* Clean up stale resources from abnormal termination before checking for existing instance */
+	xpad_app_cleanup_stale_resources ();
 
 	if (xpad_app_pass_args ())
 		exit (0);
@@ -454,6 +459,23 @@ xpad_app_quit (void)
 
 	/* Clean up temporary files before exiting */
 	fio_cleanup_temp_files ();
+
+	/* Clean up socket and lock files */
+	if (server_filename) {
+		gchar *lock_file = g_strdup_printf("%s.lock", server_filename);
+		
+		g_debug("Cleaning up socket and lock files on exit");
+		g_unlink(server_filename);
+		g_unlink(lock_file);
+		
+		g_free(lock_file);
+	}
+	
+	/* Close server socket */
+	if (server_fd != -1) {
+		close(server_fd);
+		server_fd = -1;
+	}
 
 	exit(EXIT_SUCCESS);
 }
@@ -887,8 +909,26 @@ xpad_app_open_proc_file (void)
 {
 	GIOChannel *channel;
 	struct sockaddr_un master;
+	gchar *lock_file;
+	gchar *pid_str;
+	GError *error = NULL;
 
 	g_unlink (server_filename);
+
+	/* Create and write PID lock file */
+	lock_file = g_strdup_printf("%s.lock", server_filename);
+	pid_str = g_strdup_printf("%d", getpid());
+	
+	if (!g_file_set_contents(lock_file, pid_str, -1, &error)) {
+		g_warning("Failed to create lock file %s: %s", lock_file, error->message);
+		g_error_free(error);
+		g_free(lock_file);
+		g_free(pid_str);
+		return FALSE;
+	}
+	
+	g_free(pid_str);
+	g_debug("Created lock file: %s with PID %d", lock_file, getpid());
 
 	/* create the socket */
 	server_fd = socket (PF_LOCAL, SOCK_STREAM, 0);
@@ -896,18 +936,26 @@ xpad_app_open_proc_file (void)
 	master.sun_family = AF_LOCAL;
 	strcpy (master.sun_path, server_filename);
 
-	if (bind (server_fd, (struct sockaddr *) &master, SUN_LEN (&master)))
+	if (bind (server_fd, (struct sockaddr *) &master, SUN_LEN (&master))) {
+		g_unlink(lock_file);
+		g_free(lock_file);
 		return FALSE;
+	}
 
 	/* listen for connections */
-	if (listen (server_fd, 5))
+	if (listen (server_fd, 5)) {
+		g_unlink(server_filename);
+		g_unlink(lock_file);
+		g_free(lock_file);
 		return FALSE;
+	}
 
 	/* set up input loop, waiting for read */
 	channel = g_io_channel_unix_new (server_fd);
 	g_io_add_watch (channel, G_IO_IN, can_read_from_server_fd, NULL);
 	g_io_channel_unref (channel);
 
+	g_free(lock_file);
 	return TRUE;
 }
 
@@ -1132,4 +1180,81 @@ process_remote_args (gint *argc, gchar **argv[], gboolean have_gtk, XpadSettings
 
 	return(option_new || option_quit || option_smid || option_files ||
 	       option_hide || option_show || option_toggle);
+}
+
+/* Check if a process with given PID is still running */
+static gboolean
+xpad_app_is_process_running (pid_t pid)
+{
+	if (pid <= 0)
+		return FALSE;
+	
+	/* Use kill with signal 0 to check if process exists */
+	return (kill(pid, 0) == 0);
+}
+
+/* Clean up stale resources from abnormal termination */
+static gboolean
+xpad_app_cleanup_stale_resources (void)
+{
+	gboolean cleaned_up = FALSE;
+	
+	/* Check and clean up stale socket file */
+	if (g_file_test(server_filename, G_FILE_TEST_EXISTS)) {
+		/* Try to extract PID from any existing lock file */
+		gchar *lock_file = g_strdup_printf("%s.lock", server_filename);
+		
+		if (g_file_test(lock_file, G_FILE_TEST_EXISTS)) {
+			gchar *contents = NULL;
+			gsize length;
+			
+			if (g_file_get_contents(lock_file, &contents, &length, NULL)) {
+				pid_t old_pid = (pid_t) g_ascii_strtoll(contents, NULL, 10);
+				
+				/* If the process is not running, clean up stale files */
+				if (!xpad_app_is_process_running(old_pid)) {
+					g_debug("Cleaning up stale resources from PID %d", old_pid);
+					
+					/* Remove stale socket file */
+					if (g_unlink(server_filename) == 0) {
+						g_debug("Removed stale socket file: %s", server_filename);
+						cleaned_up = TRUE;
+					}
+					
+					/* Remove stale lock file */
+					if (g_unlink(lock_file) == 0) {
+						g_debug("Removed stale lock file: %s", lock_file);
+						cleaned_up = TRUE;
+					}
+				} else {
+					g_debug("Process %d is still running, not cleaning up", old_pid);
+				}
+				
+				g_free(contents);
+			}
+		} else {
+			/* No lock file, but socket exists - might be stale */
+			/* Try to connect to see if it's really stale */
+			int test_fd = socket(PF_LOCAL, SOCK_STREAM, 0);
+			if (test_fd != -1) {
+				struct sockaddr_un test_addr;
+				test_addr.sun_family = AF_LOCAL;
+				strcpy(test_addr.sun_path, server_filename);
+				
+				if (connect(test_fd, (struct sockaddr *) &test_addr, SUN_LEN(&test_addr)) != 0) {
+					/* Connection failed, socket is likely stale */
+					g_debug("Socket connection test failed, removing stale socket");
+					if (g_unlink(server_filename) == 0) {
+						g_debug("Removed stale socket file: %s", server_filename);
+						cleaned_up = TRUE;
+					}
+				}
+				close(test_fd);
+			}
+		}
+		
+		g_free(lock_file);
+	}
+	
+	return cleaned_up;
 }

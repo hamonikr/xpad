@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xpad 1.13\n"
 "Report-Msgid-Bugs-To: xpad-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2025-08-08 11:00+0900\n"
+"POT-Creation-Date: 2025-08-08 11:39+0900\n"
 "PO-Revision-Date: 2013-10-12 08:27+0000\n"
 "Last-Translator: Michael Terry <mike@mterry.name>\n"
 "Language-Team: Romanian <translation-team-ro@lists.sourceforge.net>\n"
@@ -42,24 +42,24 @@ msgstr ""
 msgid "Help"
 msgstr "Ajutor"
 
-#: src/xpad-app.c:153
+#: src/xpad-app.c:155
 msgid "Xpad is a graphical program.  Please run it from your desktop."
 msgstr ""
 
-#: src/xpad-app.c:158 data/xpad.desktop.in:5 data/xpad.appdata.xml.in:5
+#: src/xpad-app.c:160 data/xpad.desktop.in:5 data/xpad.appdata.xml.in:5
 msgid "Xpad"
 msgstr "Xpad"
 
-#: src/xpad-app.c:298
+#: src/xpad-app.c:303
 msgid "_Ok"
 msgstr ""
 
-#: src/xpad-app.c:669
+#: src/xpad-app.c:691
 #, c-format
 msgid "Could not open directory %s."
 msgstr "Nu am putut deschide directorul %s."
 
-#: src/xpad-app.c:672
+#: src/xpad-app.c:694
 msgid ""
 "This directory is needed to store preference and pad information.  Xpad will "
 "close now."
@@ -67,43 +67,43 @@ msgstr ""
 "Acest director este necesar pentru stocare preferinþe ºi informaþii. Xpad "
 "seva închide acum."
 
-#: src/xpad-app.c:990
+#: src/xpad-app.c:1038
 msgid "Show version number and quit"
 msgstr ""
 
-#: src/xpad-app.c:991
+#: src/xpad-app.c:1039
 msgid "Don't create a new pad on startup if no previous pads exist"
 msgstr ""
 
-#: src/xpad-app.c:997
+#: src/xpad-app.c:1045
 msgid "Create a new pad on startup even if pads already exist"
 msgstr ""
 
-#: src/xpad-app.c:998 src/xpad-preferences.c:469
+#: src/xpad-app.c:1046 src/xpad-preferences.c:469
 msgid "Hide all pads"
 msgstr ""
 
-#: src/xpad-app.c:999
+#: src/xpad-app.c:1047
 msgid "Show all pads"
 msgstr ""
 
-#: src/xpad-app.c:1000
+#: src/xpad-app.c:1048
 msgid "Toggle between show and hide all pads"
 msgstr ""
 
-#: src/xpad-app.c:1001
+#: src/xpad-app.c:1049
 msgid "Create a new pad with the contents of a file"
 msgstr ""
 
-#: src/xpad-app.c:1001
+#: src/xpad-app.c:1049
 msgid "FILE"
 msgstr ""
 
-#: src/xpad-app.c:1002
+#: src/xpad-app.c:1050
 msgid "Close all pads"
 msgstr ""
 
-#: src/xpad-app.c:1033
+#: src/xpad-app.c:1081
 #, c-format
 msgid "Xpad %s"
 msgstr ""
@@ -147,7 +147,7 @@ msgstr ""
 "  Eugen Hoanca https://launchpad.net/~eugenhoanca\n"
 "  Michael Terry https://launchpad.net/~mterry"
 
-#: src/xpad-pad.c:1637 src/xpad-tray.c:70
+#: src/xpad-pad.c:1637 src/xpad-tray.c:73
 msgid "_New"
 msgstr ""
 
@@ -193,16 +193,16 @@ msgstr ""
 msgid "_Notes"
 msgstr ""
 
-#: src/xpad-pad.c:1669 src/xpad-tray.c:77
+#: src/xpad-pad.c:1669 src/xpad-tray.c:80
 msgid "_Show All"
 msgstr "Afiºare Toate(_Show All)"
 
-#: src/xpad-pad.c:1670 src/xpad-tray.c:82
+#: src/xpad-pad.c:1670 src/xpad-tray.c:85
 msgid "_Close All"
 msgstr ""
 
 #. Help submenu
-#: src/xpad-pad.c:1673 src/xpad-pad.c:1677 src/xpad-tray.c:99
+#: src/xpad-pad.c:1673 src/xpad-pad.c:1677 src/xpad-tray.c:102
 msgid "_Help"
 msgstr ""
 
@@ -210,7 +210,7 @@ msgstr ""
 msgid "_About"
 msgstr ""
 
-#: src/xpad-pad.c:1683 src/xpad-tray.c:95
+#: src/xpad-pad.c:1683 src/xpad-tray.c:98
 msgid "_Preferences"
 msgstr ""
 
@@ -615,7 +615,7 @@ msgstr ""
 msgid "Remo_ve Last Button"
 msgstr ""
 
-#: src/xpad-tray.c:103
+#: src/xpad-tray.c:106
 msgid "_Quit"
 msgstr ""
 
@@ -627,7 +627,7 @@ msgstr "Note Lipicioase(sticky)"
 msgid "Jot down notes for later"
 msgstr "Notiþe pentru mai târziu"
 
-#: data/xpad.desktop.in:20
+#: data/xpad.desktop.in:23
 msgid "notes;postit"
 msgstr ""
 

@@ -10,10 +10,13 @@ Exec=xpad
 Terminal=false
 Icon=xpad
 
-StartupNotify=true
+StartupNotify=false
 StartupWMClass=xpad
+SingleMainWindow=true
 
 Type=Application
 Categories=GTK;Utility;
-X-LXQt-Need-Tray=true
+X-LXQt-Need-Tray=false
+X-GNOME-Autostart-Delay=3
+X-GNOME-Autostart-enabled=true
 Keywords=notes;postit

@@ -31,6 +31,9 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 #include <libayatana-appindicator/app-indicator.h>
 #include <unistd.h>
 #include <sys/types.h>
+#include <sys/socket.h>
+#include <sys/un.h>
+#include <signal.h>
 
 #include "xpad-tray.h"
 #include "xpad-app.h"
@@ -132,8 +135,12 @@ static AppIndicator* xpad_tray_app_indicator_new (XpadSettings *settings)
 {
 	char const* icon_name = getIconName();
 	
+	g_debug("Creating app indicator with icon: %s", icon_name);
+	
 	/* Create a unique ID based on process ID to prevent conflicts */
 	gchar* unique_id = g_strdup_printf("%s-%d", ICON_NAME, getpid());
+	
+	g_debug("Creating AppIndicator with unique ID: %s", unique_id);
 	
 	AppIndicator* indicator = app_indicator_new(unique_id, icon_name, APP_INDICATOR_CATEGORY_SYSTEM_SERVICES);
 	
@@ -143,9 +150,11 @@ static AppIndicator* xpad_tray_app_indicator_new (XpadSettings *settings)
 		return NULL;
 	}
 	
+	g_debug("AppIndicator created successfully, setting status to ACTIVE");
 	app_indicator_set_status(indicator, APP_INDICATOR_STATUS_ACTIVE);
 	app_indicator_set_title(indicator, g_get_application_name());
 	
+	g_debug("AppIndicator setup completed");
 	g_free(unique_id);
 	return indicator;
 }
@@ -199,7 +208,10 @@ void xpad_tray_init (XpadSettings *settings) {
     gboolean tray_enabled;
     g_object_get (settings, "tray-enabled", &tray_enabled, NULL);
 
+    g_debug("Tray initialization called, tray_enabled = %s", tray_enabled ? "TRUE" : "FALSE");
+    
     if (!tray_enabled) {
+        g_debug("Tray is disabled in settings, not initializing");
         return;
     }
 
@@ -214,6 +226,14 @@ void xpad_tray_init (XpadSettings *settings) {
         g_debug("Tray indicator already exists, skipping initialization");
         return;
     }
+
+    /* Simple additional check: ensure we have a valid settings object */
+    if (settings == NULL) {
+        g_warning("Settings object is NULL, cannot initialize tray");
+        return;
+    }
+    
+    g_debug("Proceeding with tray indicator creation");
     
     app_indicator = xpad_tray_app_indicator_new(settings);
     
@@ -254,6 +274,8 @@ gboolean xpad_tray_has_indicator ()
 	else
 		return FALSE;
 }
+
+/* Removed complex process scanning function for simplicity */
 
 #else
 

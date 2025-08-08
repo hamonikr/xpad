@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xpad 1.10.1\n"
 "Report-Msgid-Bugs-To: xpad-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2025-08-08 11:00+0900\n"
+"POT-Creation-Date: 2025-08-08 11:39+0900\n"
 "PO-Revision-Date: 2021-06-06 06:14+0000\n"
 "Last-Translator: Andrey Novikov <cooking95@mail.ru>\n"
 "Language-Team: Russian Launchpad Translators <lp-l10n-ru@lists.launchpad."
@@ -45,26 +45,26 @@ msgstr "Закрыть"
 msgid "Help"
 msgstr "Помощь"
 
-#: src/xpad-app.c:153
+#: src/xpad-app.c:155
 msgid "Xpad is a graphical program.  Please run it from your desktop."
 msgstr ""
 "Xpad — это графическая программа. Пожалуйста, запускайте её с вашего "
 "рабочего стола."
 
-#: src/xpad-app.c:158 data/xpad.desktop.in:5 data/xpad.appdata.xml.in:5
+#: src/xpad-app.c:160 data/xpad.desktop.in:5 data/xpad.appdata.xml.in:5
 msgid "Xpad"
 msgstr "Xpad"
 
-#: src/xpad-app.c:298
+#: src/xpad-app.c:303
 msgid "_Ok"
 msgstr "_Ок"
 
-#: src/xpad-app.c:669
+#: src/xpad-app.c:691
 #, c-format
 msgid "Could not open directory %s."
 msgstr "Не удалось открыть каталог %s"
 
-#: src/xpad-app.c:672
+#: src/xpad-app.c:694
 msgid ""
 "This directory is needed to store preference and pad information.  Xpad will "
 "close now."
@@ -72,13 +72,13 @@ msgstr ""
 "Этот каталог необходим для сохранения настроек и содержимого заметок. Xpad "
 "сейчас будет закрыт."
 
-#: src/xpad-app.c:990
+#: src/xpad-app.c:1038
 msgid "Show version number and quit"
 msgstr "Показать версию и выйти"
 
 # ❗Используется в справке в терминале, поэтому часть текста перенесена
 # на новую строку, чтобы уместиться в 80 символов.
-#: src/xpad-app.c:991
+#: src/xpad-app.c:1039
 msgid "Don't create a new pad on startup if no previous pads exist"
 msgstr ""
 "Не создавать новую заметку при запуске,\n"
@@ -86,38 +86,38 @@ msgstr ""
 
 # ❗Используется в справке в терминале, поэтому часть текста перенесена
 # на новую строку, чтобы уместиться в 80 символов.
-#: src/xpad-app.c:997
+#: src/xpad-app.c:1045
 msgid "Create a new pad on startup even if pads already exist"
 msgstr ""
 "Создавать новую заметку при запуске,\n"
 "                                 даже если уже есть другие заметки"
 
 # ❗Используется в справке в терминале и в параметрах в графическом интерфейсе.
-#: src/xpad-app.c:998 src/xpad-preferences.c:469
+#: src/xpad-app.c:1046 src/xpad-preferences.c:469
 msgid "Hide all pads"
 msgstr "Скрыть все заметки"
 
-#: src/xpad-app.c:999
+#: src/xpad-app.c:1047
 msgid "Show all pads"
 msgstr "Показать все заметки"
 
-#: src/xpad-app.c:1000
+#: src/xpad-app.c:1048
 msgid "Toggle between show and hide all pads"
 msgstr "Показать или скрыть все заметки"
 
-#: src/xpad-app.c:1001
+#: src/xpad-app.c:1049
 msgid "Create a new pad with the contents of a file"
 msgstr "Создать новую заметку с содержимым файла"
 
-#: src/xpad-app.c:1001
+#: src/xpad-app.c:1049
 msgid "FILE"
 msgstr "ФАЙЛ"
 
-#: src/xpad-app.c:1002
+#: src/xpad-app.c:1050
 msgid "Close all pads"
 msgstr "Закрыть все заметки"
 
-#: src/xpad-app.c:1033
+#: src/xpad-app.c:1081
 #, c-format
 msgid "Xpad %s"
 msgstr "Xpad %s"
@@ -168,7 +168,7 @@ msgstr ""
 "  mastaiza https://launchpad.net/~mastaiza\n"
 "  vofka https://launchpad.net/~vofka"
 
-#: src/xpad-pad.c:1637 src/xpad-tray.c:70
+#: src/xpad-pad.c:1637 src/xpad-tray.c:73
 msgid "_New"
 msgstr "_Создать"
 
@@ -214,16 +214,16 @@ msgstr "_Только просмотр"
 msgid "_Notes"
 msgstr "_Заметки"
 
-#: src/xpad-pad.c:1669 src/xpad-tray.c:77
+#: src/xpad-pad.c:1669 src/xpad-tray.c:80
 msgid "_Show All"
 msgstr "_Показать все"
 
-#: src/xpad-pad.c:1670 src/xpad-tray.c:82
+#: src/xpad-pad.c:1670 src/xpad-tray.c:85
 msgid "_Close All"
 msgstr "За_крыть все"
 
 #. Help submenu
-#: src/xpad-pad.c:1673 src/xpad-pad.c:1677 src/xpad-tray.c:99
+#: src/xpad-pad.c:1673 src/xpad-pad.c:1677 src/xpad-tray.c:102
 msgid "_Help"
 msgstr "Спра_вка"
 
@@ -231,7 +231,7 @@ msgstr "Спра_вка"
 msgid "_About"
 msgstr "_О программе"
 
-#: src/xpad-pad.c:1683 src/xpad-tray.c:95
+#: src/xpad-pad.c:1683 src/xpad-tray.c:98
 msgid "_Preferences"
 msgstr "П_араметры"
 
@@ -659,7 +659,7 @@ msgstr "Удалить в_се кнопки"
 msgid "Remo_ve Last Button"
 msgstr "Удалить _последнюю кнопку"
 
-#: src/xpad-tray.c:103
+#: src/xpad-tray.c:106
 msgid "_Quit"
 msgstr "_Завершить"
 
@@ -671,7 +671,7 @@ msgstr "Липкие заметки"
 msgid "Jot down notes for later"
 msgstr "Сделать заметки на будущее"
 
-#: data/xpad.desktop.in:20
+#: data/xpad.desktop.in:23
 msgid "notes;postit"
 msgstr ""
 
