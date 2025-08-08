@@ -182,8 +182,22 @@ xpad_app_init (int argc, char **argv)
 	gchar *data_dir = NULL;
 	g_object_get(settings, "data-directory", &data_dir, NULL);
 	if (data_dir && g_strcmp0(data_dir, "") != 0) {
+		/* Update config_dir with the value from settings */
 		g_free(config_dir);
 		config_dir = data_dir;
+		
+		/* Sync this value back to the xpad.conf file to ensure consistency */
+		gchar *system_config_dir = g_build_filename (g_get_user_config_dir (), "xpad", NULL);
+		g_mkdir_with_parents(system_config_dir, 0700);
+		gchar *config_file_path = g_build_filename (system_config_dir, "xpad.conf", NULL);
+		g_free(system_config_dir);
+		
+		GKeyFile *key_file = g_key_file_new();
+		g_key_file_load_from_file(key_file, config_file_path, G_KEY_FILE_NONE, NULL);
+		g_key_file_set_string(key_file, "General", "data_directory", data_dir);
+		g_key_file_save_to_file(key_file, config_file_path, NULL);
+		g_key_file_free(key_file);
+		g_free(config_file_path);
 	} else {
 		g_free(data_dir);
 	}

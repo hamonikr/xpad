@@ -1,27 +1,26 @@
-# Portuguese translation for xpad
-# Copyright (c) 2009 Rosetta Contributors and Canonical Ltd 2009
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Michael Terry
 # This file is distributed under the same license as the xpad package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2009.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: xpad\n"
+"Project-Id-Version: xpad 5.8.5\n"
 "Report-Msgid-Bugs-To: xpad-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2025-08-08 10:25+0900\n"
-"PO-Revision-Date: 2016-04-28 14:16+0000\n"
-"Last-Translator: Arthur Borsboom <arthurborsboom@gmail.com>\n"
-"Language-Team: Portuguese <pt@li.org>\n"
-"Language: pt\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2022-05-17 07:42+0000\n"
-"X-Generator: Launchpad (build 611b427288ed4161ec0670b9f24cdc4f317059dc)\n"
 
 #: src/fio.c:146
 #, c-format
 msgid "Could not write to file %s: %s"
-msgstr "Impossível escrever no ficheiro %s: %s"
+msgstr ""
 
 #: src/help.c:63
 msgid "Error showing the help"
@@ -40,17 +39,15 @@ msgstr ""
 
 #: src/help.c:92
 msgid "Help"
-msgstr "Ajuda"
+msgstr ""
 
 #: src/xpad-app.c:153
 msgid "Xpad is a graphical program.  Please run it from your desktop."
 msgstr ""
-"O Xpad é um programa gráfico. Por favor execute-o do seu ambiente de "
-"trabalho."
 
 #: src/xpad-app.c:158 data/xpad.desktop.in:5 data/xpad.appdata.xml.in:5
 msgid "Xpad"
-msgstr "Xpad"
+msgstr ""
 
 #: src/xpad-app.c:295
 msgid "_Ok"
@@ -59,70 +56,67 @@ msgstr ""
 #: src/xpad-app.c:581
 #, c-format
 msgid "Could not open directory %s."
-msgstr "Impossível abrir a pasta %s."
+msgstr ""
 
 #: src/xpad-app.c:584
 msgid ""
 "This directory is needed to store preference and pad information.  Xpad will "
 "close now."
 msgstr ""
-"Esta pasta é necessária para armazenar preferências e informação de painel. "
-"O Xpad irá fechar agora."
 
 #: src/xpad-app.c:902
 msgid "Show version number and quit"
-msgstr "Mostrar numero da versão e sair."
+msgstr ""
 
 #: src/xpad-app.c:903
 msgid "Don't create a new pad on startup if no previous pads exist"
 msgstr ""
-"Não criar um novo painel no arranque se não existia nenhum painel anteior."
 
 #: src/xpad-app.c:909
 msgid "Create a new pad on startup even if pads already exist"
-msgstr "Criar um novo painel no arranque mesmo se já existiam paineis."
+msgstr ""
 
 #: src/xpad-app.c:910 src/xpad-preferences.c:469
 msgid "Hide all pads"
-msgstr "Ocultar todos os paineis"
+msgstr ""
 
 #: src/xpad-app.c:911
 msgid "Show all pads"
-msgstr "Mostrar todos os paineis."
+msgstr ""
 
 #: src/xpad-app.c:912
 msgid "Toggle between show and hide all pads"
-msgstr "Alternar entre mostrar/ocultar todos os paineis"
+msgstr ""
 
 #: src/xpad-app.c:913
 msgid "Create a new pad with the contents of a file"
-msgstr "Criar um novo painel com o conteudo de um ficheiro."
+msgstr ""
 
 #: src/xpad-app.c:913
 msgid "FILE"
-msgstr "FICHEIRO"
+msgstr ""
 
 #: src/xpad-app.c:914
 msgid "Close all pads"
-msgstr "Fechar todos os paineis."
+msgstr ""
 
 #: src/xpad-app.c:945
 #, c-format
 msgid "Xpad %s"
-msgstr "Xpad %s"
+msgstr ""
 
 #: src/xpad-pad.c:191
 #, c-format
 msgid "Could not read file %s."
-msgstr "Impossível ler o ficheiro %s"
+msgstr ""
 
 #: src/xpad-pad.c:921
 msgid "Delete this pad?"
-msgstr "Apagar este painel?"
+msgstr ""
 
 #: src/xpad-pad.c:921
 msgid "All text of this pad will be irrevocably lost."
-msgstr "Todo o texto neste painel será perdido irrevogavelmente."
+msgstr ""
 
 #: src/xpad-pad.c:926 src/xpad-pad.c:1609
 msgid "_Delete"
@@ -139,17 +133,13 @@ msgstr ""
 
 #: src/xpad-pad.c:1445 data/xpad.appdata.xml.in:6
 msgid "Sticky notes"
-msgstr "Notas colantes"
+msgstr ""
 
 #. Translators: please translate this as your own name and optionally email
 #. like so: "Your Name <your@email.com>"
 #: src/xpad-pad.c:1449
 msgid "translator-credits"
 msgstr ""
-"Launchpad Contributions:\n"
-"  Arthur Borsboom https://launchpad.net/~arthurborsboom\n"
-"  Luis Rascão https://launchpad.net/~lrascao\n"
-"  Pedro Albuquerque https://launchpad.net/~pmralbuquerque"
 
 #: src/xpad-pad.c:1608 src/xpad-tray.c:70
 msgid "_New"
@@ -166,7 +156,7 @@ msgstr ""
 #. Edit submenu
 #: src/xpad-pad.c:1614
 msgid "_Edit"
-msgstr "_Editar"
+msgstr ""
 
 #: src/xpad-pad.c:1618
 msgid "_Undo"
@@ -195,24 +185,24 @@ msgstr ""
 #. Notes submenu - The list of notes will get added in the prep function below
 #: src/xpad-pad.c:1635
 msgid "_Notes"
-msgstr "_Notas"
+msgstr ""
 
 #: src/xpad-pad.c:1640 src/xpad-tray.c:77
 msgid "_Show All"
-msgstr "_Mostrar Tudo"
+msgstr ""
 
 #: src/xpad-pad.c:1641 src/xpad-tray.c:82
 msgid "_Close All"
-msgstr "_Fechar Todos"
+msgstr ""
 
 #. Help submenu
 #: src/xpad-pad.c:1644 src/xpad-pad.c:1648 src/xpad-tray.c:99
 msgid "_Help"
-msgstr "_Ajuda"
+msgstr ""
 
 #: src/xpad-pad.c:1649
 msgid "_About"
-msgstr "_Sobre"
+msgstr ""
 
 #: src/xpad-pad.c:1654 src/xpad-tray.c:95
 msgid "_Preferences"
@@ -244,43 +234,43 @@ msgstr ""
 
 #: src/xpad-pad-properties.c:104
 msgid "Appearance"
-msgstr "Aparência"
+msgstr ""
 
 #: src/xpad-pad-properties.c:112
 msgid "Use font from xpad preferences"
-msgstr "Usar a letra definida nas preferências do xpad"
+msgstr ""
 
 #: src/xpad-pad-properties.c:113
 msgid "Use this font:"
-msgstr "Usar esta letra"
+msgstr ""
 
 #: src/xpad-pad-properties.c:114
 msgid "Use colors from xpad preferences"
-msgstr "Usar cores definidas nas preferências do xpad"
+msgstr ""
 
 #: src/xpad-pad-properties.c:115
 msgid "Use these colors:"
-msgstr "Usar estas cores:"
+msgstr ""
 
 #: src/xpad-pad-properties.c:125
 msgid "Foreground:"
-msgstr "Principal:"
+msgstr ""
 
 #: src/xpad-pad-properties.c:133
 msgid "Background:"
-msgstr "Fundo:"
+msgstr ""
 
 #: src/xpad-pad-properties.c:147 src/xpad-preferences.c:420
 msgid "Set Foreground Color"
-msgstr "Definir cor do texto"
+msgstr ""
 
 #: src/xpad-pad-properties.c:148 src/xpad-preferences.c:421
 msgid "Set Background Color"
-msgstr "Definir cor de fundo"
+msgstr ""
 
 #: src/xpad-pad-properties.c:149 src/xpad-preferences.c:422
 msgid "Set Font"
-msgstr "Definir o tipo de letra"
+msgstr ""
 
 #. View options
 #: src/xpad-preferences.c:255
@@ -323,7 +313,7 @@ msgstr ""
 
 #: src/xpad-preferences.c:314
 msgid "Use font from theme"
-msgstr "Usar letra de tema"
+msgstr ""
 
 #: src/xpad-preferences.c:315
 msgid "Use this font"
@@ -331,7 +321,7 @@ msgstr ""
 
 #: src/xpad-preferences.c:316
 msgid "Use colors from theme"
-msgstr "Usar cores de tema"
+msgstr ""
 
 #: src/xpad-preferences.c:317
 msgid "Use these colors"
@@ -402,19 +392,19 @@ msgstr ""
 
 #: src/xpad-preferences.c:494
 msgid "Do Nothing"
-msgstr "Não fazer nada"
+msgstr ""
 
 #: src/xpad-preferences.c:495
 msgid "Toggle Show All"
-msgstr "Alternar Mostrar todos"
+msgstr ""
 
 #: src/xpad-preferences.c:496
 msgid "List of Pads"
-msgstr "Lista de paineis"
+msgstr ""
 
 #: src/xpad-preferences.c:497
 msgid "New Pad"
-msgstr "Novo painel"
+msgstr ""
 
 #. Other options
 #: src/xpad-preferences.c:505
@@ -427,7 +417,7 @@ msgstr ""
 
 #: src/xpad-preferences.c:517
 msgid "_Confirm pad deletion"
-msgstr "_Confirmar remoção de painel"
+msgstr ""
 
 #: src/xpad-preferences.c:518
 msgid "Enable _line numbering"
@@ -444,7 +434,7 @@ msgstr ""
 
 #: src/xpad-preferences.c:543
 msgid "Xpad Preferences"
-msgstr "Preferências do Xpad"
+msgstr ""
 
 #: src/xpad-preferences.c:766
 #, c-format
@@ -469,10 +459,9 @@ msgid "Failed to create directory"
 msgstr ""
 
 #: src/xpad-preferences.c:941
-#, fuzzy, c-format
-#| msgid "Could not open directory %s."
+#, c-format
 msgid "Could not create directory: %s"
-msgstr "Impossível abrir a pasta %s."
+msgstr ""
 
 #: src/xpad-settings.c:381 src/xpad-settings.c:391
 msgid "Error enabling Xpad autostart"
@@ -505,7 +494,7 @@ msgstr ""
 
 #: src/xpad-toolbar.c:80
 msgid "Clear Pad Contents"
-msgstr "Limpar conteudo do painel"
+msgstr ""
 
 #: src/xpad-toolbar.c:80
 msgid "Add C_lear button"
@@ -513,7 +502,7 @@ msgstr ""
 
 #: src/xpad-toolbar.c:81
 msgid "Close and Save Pad"
-msgstr "Fechar e gravar painel"
+msgstr ""
 
 #: src/xpad-toolbar.c:81
 msgid "Add _Close button"
@@ -521,7 +510,7 @@ msgstr ""
 
 #: src/xpad-toolbar.c:82
 msgid "Copy to Clipboard"
-msgstr "Copiar para a área de transferência"
+msgstr ""
 
 #: src/xpad-toolbar.c:82
 msgid "Add C_opy button"
@@ -529,7 +518,7 @@ msgstr ""
 
 #: src/xpad-toolbar.c:83
 msgid "Cut to Clipboard"
-msgstr "Cortar para a área de transferência"
+msgstr ""
 
 #: src/xpad-toolbar.c:83
 msgid "Add C_ut button"
@@ -537,7 +526,7 @@ msgstr ""
 
 #: src/xpad-toolbar.c:84
 msgid "Delete Pad"
-msgstr "Apagar painel"
+msgstr ""
 
 #: src/xpad-toolbar.c:84
 msgid "Add _Delete button"
@@ -553,7 +542,7 @@ msgstr ""
 
 #: src/xpad-toolbar.c:86
 msgid "Open New Pad"
-msgstr "Abrir novo painel"
+msgstr ""
 
 #: src/xpad-toolbar.c:86
 msgid "Add _New button"
@@ -561,7 +550,7 @@ msgstr ""
 
 #: src/xpad-toolbar.c:87
 msgid "Paste from Clipboard"
-msgstr "Colar da área de transferência"
+msgstr ""
 
 #: src/xpad-toolbar.c:87
 msgid "Add Pa_ste button"
@@ -569,7 +558,7 @@ msgstr ""
 
 #: src/xpad-toolbar.c:88
 msgid "Edit Preferences"
-msgstr "Editar preferências"
+msgstr ""
 
 #: src/xpad-toolbar.c:88
 msgid "Add Pr_eferences button"
@@ -577,7 +566,7 @@ msgstr ""
 
 #: src/xpad-toolbar.c:89
 msgid "Edit Pad Properties"
-msgstr "Editar propriedades do painel"
+msgstr ""
 
 #: src/xpad-toolbar.c:89
 msgid "Add Proper_ties button"
@@ -585,7 +574,7 @@ msgstr ""
 
 #: src/xpad-toolbar.c:90
 msgid "Redo"
-msgstr "Refazer"
+msgstr ""
 
 #: src/xpad-toolbar.c:90
 msgid "Add _Redo button"
@@ -593,7 +582,7 @@ msgstr ""
 
 #: src/xpad-toolbar.c:91
 msgid "Close All Pads"
-msgstr "Fechar todos os paineis"
+msgstr ""
 
 #: src/xpad-toolbar.c:91
 msgid "Add Close _All button"
@@ -601,7 +590,7 @@ msgstr ""
 
 #: src/xpad-toolbar.c:92
 msgid "Undo"
-msgstr "Desfazer"
+msgstr ""
 
 #: src/xpad-toolbar.c:92
 msgid "Add _Undo button"
@@ -613,11 +602,11 @@ msgstr ""
 
 #: src/xpad-toolbar.c:528
 msgid "Remove All _Buttons"
-msgstr "Remover todos os botões"
+msgstr ""
 
 #: src/xpad-toolbar.c:535
 msgid "Remo_ve Last Button"
-msgstr "Remo_ver o último botão"
+msgstr ""
 
 #: src/xpad-tray.c:103
 msgid "_Quit"
@@ -625,11 +614,11 @@ msgstr ""
 
 #: data/xpad.desktop.in:6
 msgid "Sticky Notes"
-msgstr "Notas colantes"
+msgstr ""
 
 #: data/xpad.desktop.in:7
 msgid "Jot down notes for later"
-msgstr "Anotar para mais tarde"
+msgstr ""
 
 #: data/xpad.desktop.in:20
 msgid "notes;postit"
@@ -643,127 +632,9 @@ msgid ""
 msgstr ""
 
 #: data/xpad.appdata.xml.in:14
-#, fuzzy
-#| msgid "Xpad %s"
 msgid "Xpad logo"
-msgstr "Xpad %s"
+msgstr ""
 
 #: data/xpad.appdata.xml.in:18
-#, fuzzy
-#| msgid "Sticky notes"
 msgid "Xpad - a sticky note"
-msgstr "Notas colantes"
-
-#~ msgid ""
-#~ "Each xpad session consists of one or more open pads.  These pads are "
-#~ "basically sticky notes on your desktop in which you can write memos."
-#~ msgstr ""
-#~ "Cada sessão de xpad consiste de um ou mais paineis. Este paineis sao "
-#~ "basicamente notas na sua área de trabalho nas quais pode escrever "
-#~ "memorandos."
-
-#~ msgid ""
-#~ "Please send comments or bug reports to xpad-devel@lists.sourceforge.net"
-#~ msgstr ""
-#~ "Por favor envie comentários or relatórios de defeitos para xpad-"
-#~ "devel@lists.sourceforge.net"
-
-#~ msgid ""
-#~ "Most actions are available throught the popup menu that appears when you "
-#~ "right click on a pad.  Try it out and enjoy."
-#~ msgstr ""
-#~ "A maior parte das acções estão disponiveis através do menu de popup que "
-#~ "aparecer quando clica com o botão direito num painel. Experimente e "
-#~ "divirta-se."
-
-#~ msgid ""
-#~ "<b>To change color settings</b>, right click on a pad and choose Edit-"
-#~ ">Preferences."
-#~ msgstr ""
-#~ "<b>Para alterar a cor</b>, botão direito num painel e escolher Editar-"
-#~ ">Preferências"
-
-#, c-format
-#~ msgid "'%s' Properties"
-#~ msgstr "'%s' Propriedades"
-
-#~ msgid "_Pad"
-#~ msgstr "_Painel"
-
-#~ msgid "Show on _All Workspaces"
-#~ msgstr "Mostrar em _Todas as áreas de trabalho"
-
-#~ msgid "_Window Decorations"
-#~ msgstr "_Decorações de janela"
-
-#~ msgid "_Autohide Toolbar"
-#~ msgstr "_Esconder automaticamente barra de ferramentas"
-
-#~ msgid "_Toolbar"
-#~ msgstr "_Barra de Ferramentas"
-
-#~ msgid "_Contents"
-#~ msgstr "_Conteúdo"
-
-#~ msgid "_Scrollbar"
-#~ msgstr "_Barra de scroll"
-
-#~ msgid "_View"
-#~ msgstr "_Ver"
-
-#~ msgid "Options"
-#~ msgstr "Opções"
-
-#~ msgid "_Pads start on all workspaces"
-#~ msgstr "_Paineis são iniciados em todas as áreas de trabalho"
-
-#~ msgid "_Edit lock"
-#~ msgstr "_Editar lock"
-
-#~ msgid "Add C_lear to Toolbar"
-#~ msgstr "Adicionar C_lear a barra de ferramentas"
-
-#~ msgid "Add Pr_eferences to Toolbar"
-#~ msgstr "Adicionar Pr_eferências a barra de ferramentas"
-
-#~ msgid "Add _New to Toolbar"
-#~ msgstr "Adicionar _Novo a barra de ferramentas"
-
-#~ msgid "Add _Delete to Toolbar"
-#~ msgstr "Adicionar _Remover a barra de ferramentas"
-
-#~ msgid "Add _Close to Toolbar"
-#~ msgstr "Adicionar _Fechar a barra de ferramentas"
-
-#~ msgid "Add Proper_ties to Toolbar"
-#~ msgstr "Adicionar Proprie_dades a barra de ferramentas"
-
-#~ msgid "_Move"
-#~ msgstr "_Mover"
-
-#~ msgid "_Remove From Toolbar"
-#~ msgstr "_Remover da barra de ferramentas"
-
-#~ msgid "Add a Se_parator to Toolbar"
-#~ msgstr "Adicionar um Se_parador a barra de ferramentas"
-
-#~ msgid "Add Close _All to Toolbar"
-#~ msgstr "Adicionar Fechar _Tudo a barra de ferramentas"
-
-#~ msgid ""
-#~ "<b>To resize a pad</b>, left drag on the resizer or hold down CTRL while "
-#~ "right dragging anywhere on the pad."
-#~ msgstr ""
-#~ "<Para dimensionar um painel</b>, usar o botão esquero do rato no "
-#~ "dimensionador or carregar no CTRL enquanto usa o botão direito do rato e "
-#~ "arraste qualquer sitio no painel."
-
-#~ msgid ""
-#~ "<b>To move a pad</b>, left drag on the toolbar, right drag on the resizer "
-#~ "in the bottom right, or hold down CTRL while left dragging anywhere on "
-#~ "the pad."
-#~ msgstr ""
-#~ "<b>Para mover um painel</b>, usar o botão esquerdo do rato e arrastar a "
-#~ "barra de ferramentas, usar o botão direito do rato do dimensionador no "
-#~ "canto inferior direito or carregar em CTRL enquanto usa o botão esquerdo "
-#~ "do rato e arrasta qualquer sitio no painel."
+msgstr ""

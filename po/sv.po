@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xpad 2.11\n"
 "Report-Msgid-Bugs-To: xpad-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2025-08-07 09:29+0900\n"
+"POT-Creation-Date: 2025-08-08 10:25+0900\n"
 "PO-Revision-Date: 2013-10-12 08:23+0000\n"
 "Last-Translator: Daniel Nylander <yeager@ubuntu.com>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
@@ -51,16 +51,16 @@ msgstr ""
 msgid "Xpad"
 msgstr "Xpad"
 
-#: src/xpad-app.c:281
+#: src/xpad-app.c:295
 msgid "_Ok"
 msgstr ""
 
-#: src/xpad-app.c:567
+#: src/xpad-app.c:581
 #, c-format
 msgid "Could not open directory %s."
 msgstr "Kunde inte öppna katalog %s."
 
-#: src/xpad-app.c:570
+#: src/xpad-app.c:584
 msgid ""
 "This directory is needed to store preference and pad information.  Xpad will "
 "close now."
@@ -68,44 +68,44 @@ msgstr ""
 "Denna katalog behövs för att lagra inställningar och blockinformation. Xpad "
 "kommer stängas nu."
 
-#: src/xpad-app.c:888
+#: src/xpad-app.c:902
 msgid "Show version number and quit"
 msgstr "Visa versionsnummer och avsluta"
 
-#: src/xpad-app.c:889
+#: src/xpad-app.c:903
 msgid "Don't create a new pad on startup if no previous pads exist"
 msgstr ""
 "Skapa inte ett nytt block vid uppstart om inga tidigare block existerar"
 
-#: src/xpad-app.c:895
+#: src/xpad-app.c:909
 msgid "Create a new pad on startup even if pads already exist"
 msgstr "Skapa ett nytt block vid uppstart även om block redan existerar"
 
-#: src/xpad-app.c:896 src/xpad-preferences.c:469
+#: src/xpad-app.c:910 src/xpad-preferences.c:469
 msgid "Hide all pads"
 msgstr "Dölj alla block"
 
-#: src/xpad-app.c:897
+#: src/xpad-app.c:911
 msgid "Show all pads"
 msgstr "Visa alla block"
 
-#: src/xpad-app.c:898
+#: src/xpad-app.c:912
 msgid "Toggle between show and hide all pads"
 msgstr "Växla mella visa och göm alla block"
 
-#: src/xpad-app.c:899
+#: src/xpad-app.c:913
 msgid "Create a new pad with the contents of a file"
 msgstr "Skapa ett nytt block med innehållet från en fil"
 
-#: src/xpad-app.c:899
+#: src/xpad-app.c:913
 msgid "FILE"
 msgstr "FIL"
 
-#: src/xpad-app.c:900
+#: src/xpad-app.c:914
 msgid "Close all pads"
 msgstr "Stäng alla block"
 
-#: src/xpad-app.c:931
+#: src/xpad-app.c:945
 #, c-format
 msgid "Xpad %s"
 msgstr "Xpad %s"

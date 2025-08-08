@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GNU xpad 1.13\n"
 "Report-Msgid-Bugs-To: xpad-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2025-08-07 09:29+0900\n"
+"POT-Creation-Date: 2025-08-08 10:25+0900\n"
 "PO-Revision-Date: 2022-05-15 11:10+0000\n"
 "Last-Translator: Jean-Marc <Unknown>\n"
 "Language-Team: French <traduc@traduc.org>\n"
@@ -53,16 +53,16 @@ msgstr ""
 msgid "Xpad"
 msgstr "Xpad"
 
-#: src/xpad-app.c:281
+#: src/xpad-app.c:295
 msgid "_Ok"
 msgstr "_Valider"
 
-#: src/xpad-app.c:567
+#: src/xpad-app.c:581
 #, c-format
 msgid "Could not open directory %s."
 msgstr "Impossible d'ouvrir le répertoire %s."
 
-#: src/xpad-app.c:570
+#: src/xpad-app.c:584
 msgid ""
 "This directory is needed to store preference and pad information.  Xpad will "
 "close now."
@@ -70,43 +70,43 @@ msgstr ""
 "Ce répertoire est nécessaire pour stocker les préférences et les notes. Xpad "
 "va maintenant fermer."
 
-#: src/xpad-app.c:888
+#: src/xpad-app.c:902
 msgid "Show version number and quit"
 msgstr "Afficher le numéro de version et quitter"
 
-#: src/xpad-app.c:889
+#: src/xpad-app.c:903
 msgid "Don't create a new pad on startup if no previous pads exist"
 msgstr "Ne pas créer de nouvelle note au démarrage s'il n'en existe pas"
 
-#: src/xpad-app.c:895
+#: src/xpad-app.c:909
 msgid "Create a new pad on startup even if pads already exist"
 msgstr "Créer une nouvelle note au démarrage même s'il en existe déjà"
 
-#: src/xpad-app.c:896 src/xpad-preferences.c:469
+#: src/xpad-app.c:910 src/xpad-preferences.c:469
 msgid "Hide all pads"
 msgstr "Masquer toutes les notes"
 
-#: src/xpad-app.c:897
+#: src/xpad-app.c:911
 msgid "Show all pads"
 msgstr "Afficher toutes les notes"
 
-#: src/xpad-app.c:898
+#: src/xpad-app.c:912
 msgid "Toggle between show and hide all pads"
 msgstr "Basculer entre afficher ou masquer toutes les notes"
 
-#: src/xpad-app.c:899
+#: src/xpad-app.c:913
 msgid "Create a new pad with the contents of a file"
 msgstr "Utiliser le contenu d'un fichier texte pour créer une nouvelle note"
 
-#: src/xpad-app.c:899
+#: src/xpad-app.c:913
 msgid "FILE"
 msgstr "FICHIER"
 
-#: src/xpad-app.c:900
+#: src/xpad-app.c:914
 msgid "Close all pads"
 msgstr "Fermer toutes les notes"
 
-#: src/xpad-app.c:931
+#: src/xpad-app.c:945
 #, c-format
 msgid "Xpad %s"
 msgstr "Xpad %s"

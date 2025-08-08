@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xpad 2.0-b2\n"
 "Report-Msgid-Bugs-To: xpad-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2025-08-07 09:29+0900\n"
+"POT-Creation-Date: 2025-08-08 10:25+0900\n"
 "PO-Revision-Date: 2022-02-15 17:29+0000\n"
 "Last-Translator: Toni Estevez <toni.estevez@gmail.com>\n"
 "Language-Team: Spanish <es@li.org>\n"
@@ -52,16 +52,16 @@ msgstr "Xpad es un programa gráfico. Ejecútelo desde el escritorio."
 msgid "Xpad"
 msgstr "Xpad"
 
-#: src/xpad-app.c:281
+#: src/xpad-app.c:295
 msgid "_Ok"
 msgstr "_Aceptar"
 
-#: src/xpad-app.c:567
+#: src/xpad-app.c:581
 #, c-format
 msgid "Could not open directory %s."
 msgstr "No se ha podido abrir la carpeta %s."
 
-#: src/xpad-app.c:570
+#: src/xpad-app.c:584
 msgid ""
 "This directory is needed to store preference and pad information.  Xpad will "
 "close now."
@@ -69,47 +69,47 @@ msgstr ""
 "Esta carpeta es necesaria para almacenar las preferencias y la información "
 "de las notas. Ahora se cerrará Xpad."
 
-#: src/xpad-app.c:888
+#: src/xpad-app.c:902
 msgid "Show version number and quit"
 msgstr "Mostrar el número de versión y salir"
 
-#: src/xpad-app.c:889
+#: src/xpad-app.c:903
 msgid "Don't create a new pad on startup if no previous pads exist"
 msgstr ""
 "No crear una nota nueva al iniciar el programa aunque no existan notas "
 "anteriores"
 
-#: src/xpad-app.c:895
+#: src/xpad-app.c:909
 msgid "Create a new pad on startup even if pads already exist"
 msgstr ""
 "Crear una nota nueva al iniciar el programa aunque ya existan notas "
 "anteriores"
 
-#: src/xpad-app.c:896 src/xpad-preferences.c:469
+#: src/xpad-app.c:910 src/xpad-preferences.c:469
 msgid "Hide all pads"
 msgstr "Ocultar todas las notas"
 
-#: src/xpad-app.c:897
+#: src/xpad-app.c:911
 msgid "Show all pads"
 msgstr "Mostrar todas las notas"
 
-#: src/xpad-app.c:898
+#: src/xpad-app.c:912
 msgid "Toggle between show and hide all pads"
 msgstr "Conmutar entre mostrar y ocultar todas las notas"
 
-#: src/xpad-app.c:899
+#: src/xpad-app.c:913
 msgid "Create a new pad with the contents of a file"
 msgstr "Crear una nota nueva con el contenido de un archivo"
 
-#: src/xpad-app.c:899
+#: src/xpad-app.c:913
 msgid "FILE"
 msgstr "ARCHIVO"
 
-#: src/xpad-app.c:900
+#: src/xpad-app.c:914
 msgid "Close all pads"
 msgstr "Cerrar todas las notas"
 
-#: src/xpad-app.c:931
+#: src/xpad-app.c:945
 #, c-format
 msgid "Xpad %s"
 msgstr "Xpad %s"

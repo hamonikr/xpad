@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xpad 2.11\n"
 "Report-Msgid-Bugs-To: xpad-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2025-08-07 09:29+0900\n"
+"POT-Creation-Date: 2025-08-08 10:25+0900\n"
 "PO-Revision-Date: 2013-10-12 08:18+0000\n"
 "Last-Translator: Michael Terry <mike@mterry.name>\n"
 "Language-Team: Bulgarian <dict@fsa-bg.org>\n"
@@ -52,16 +52,16 @@ msgstr "Xpad е графична програма.  Стартирайте я о
 msgid "Xpad"
 msgstr "Xpad"
 
-#: src/xpad-app.c:281
+#: src/xpad-app.c:295
 msgid "_Ok"
 msgstr ""
 
-#: src/xpad-app.c:567
+#: src/xpad-app.c:581
 #, c-format
 msgid "Could not open directory %s."
 msgstr "Не може да бъде отворена папка %s."
 
-#: src/xpad-app.c:570
+#: src/xpad-app.c:584
 msgid ""
 "This directory is needed to store preference and pad information.  Xpad will "
 "close now."
@@ -69,44 +69,44 @@ msgstr ""
 "Тази папка е нужна, за да се запазят настройките и информацията за "
 "бележките.  Xpad ще се затвори."
 
-#: src/xpad-app.c:888
+#: src/xpad-app.c:902
 msgid "Show version number and quit"
 msgstr "Показване на версията и изход"
 
-#: src/xpad-app.c:889
+#: src/xpad-app.c:903
 msgid "Don't create a new pad on startup if no previous pads exist"
 msgstr ""
 "Да не се създава нова бележка при стартиране, ако няма съществуващи такива"
 
-#: src/xpad-app.c:895
+#: src/xpad-app.c:909
 msgid "Create a new pad on startup even if pads already exist"
 msgstr "Създаване на нова бележка при стартиране дори ако такива съществуват"
 
-#: src/xpad-app.c:896 src/xpad-preferences.c:469
+#: src/xpad-app.c:910 src/xpad-preferences.c:469
 msgid "Hide all pads"
 msgstr ""
 
-#: src/xpad-app.c:897
+#: src/xpad-app.c:911
 msgid "Show all pads"
 msgstr ""
 
-#: src/xpad-app.c:898
+#: src/xpad-app.c:912
 msgid "Toggle between show and hide all pads"
 msgstr ""
 
-#: src/xpad-app.c:899
+#: src/xpad-app.c:913
 msgid "Create a new pad with the contents of a file"
 msgstr "Създаване на нова бележка със съдържанието на файл"
 
-#: src/xpad-app.c:899
+#: src/xpad-app.c:913
 msgid "FILE"
 msgstr "ФАЙЛ"
 
-#: src/xpad-app.c:900
+#: src/xpad-app.c:914
 msgid "Close all pads"
 msgstr "Затваряне на всички бележки"
 
-#: src/xpad-app.c:931
+#: src/xpad-app.c:945
 #, c-format
 msgid "Xpad %s"
 msgstr "Xpad %s"
