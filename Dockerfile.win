@@ -1,0 +1,81 @@
+FROM ghcr.io/msys2/msys2-docker-experimental:latest AS builder
+
+ARG HOST=x86_64-w64-mingw32
+ARG MAKEFLAGS=-j$(nproc)
+
+ENV HOST=${HOST}
+
+# Update MSYS2 and install toolchains and dependencies
+RUN msys2 -c "pacman -Syu --noconfirm" && \
+    msys2 -c "pacman -Syu --noconfirm" && \
+    msys2 -c "pacman -S --noconfirm --needed \
+      autoconf automake libtool gettext-devel intltool make zip which file findutils sed grep pkg-config \
+      mingw-w64-x86_64-toolchain \
+      mingw-w64-x86_64-pkg-config \
+      mingw-w64-x86_64-gettext-tools \
+      mingw-w64-x86_64-glib2 \
+      mingw-w64-x86_64-gtk3 \
+      mingw-w64-x86_64-gtksourceview4 \
+      mingw-w64-x86_64-pango \
+      mingw-w64-x86_64-atk \
+      mingw-w64-x86_64-gdk-pixbuf2 \
+      mingw-w64-x86_64-nsis \
+      mingw-w64-x86_64-ntldd"
+
+WORKDIR /src
+COPY . /src
+
+# Build using mingw64 environment
+ENV PATH=/mingw64/bin:/usr/bin:$PATH
+ENV CC=${HOST}-gcc CXX=${HOST}-g++ AR=${HOST}-ar RANLIB=${HOST}-ranlib STRIP=${HOST}-strip
+
+RUN msys2 -c "export PATH=/mingw64/bin:/usr/bin:$PATH && \
+    export PKG_CONFIG_PATH=/mingw64/lib/pkgconfig:/mingw64/share/pkgconfig && \
+    export PKG_CONFIG=/mingw64/bin/pkg-config && \
+    chmod +x ./autogen.sh && \
+    ./autogen.sh && \
+    ./configure --host=${HOST} --disable-appindicator --prefix=/mingw64 && \
+    make ${MAKEFLAGS} && \
+    make DESTDIR=/tmp/stage install"
+
+# Collect runtime files into a self-contained directory
+RUN msys2 -c 'set -eux; \
+    mkdir -p /build/dist/bin /build/dist/share; \
+    # Locate and copy main executable
+    EXE_PATH=$(find /tmp/stage -path "*/mingw64/bin/xpad.exe" | head -n1); \
+    cp -v "$EXE_PATH" /build/dist/xpad.exe; \
+    # Copy data files (icons, help, locales) if present
+    if [ -d /tmp/stage/mingw64/share/xpad ]; then \
+      mkdir -p /build/dist/share/xpad; \
+      cp -a /tmp/stage/mingw64/share/xpad/. /build/dist/share/xpad/; \
+    fi; \
+    if [ -d /tmp/stage/mingw64/share/locale ]; then \
+      mkdir -p /build/dist/share/locale; \
+      cp -a /tmp/stage/mingw64/share/locale/. /build/dist/share/locale/; \
+    fi; \
+    # Resolve and copy required DLLs next to the exe
+    DLLS=$(ntldd -R /build/dist/xpad.exe | awk "{print \$3}" | grep -E "^/mingw64/bin/.+\\.dll$" || true); \
+    for d in $DLLS; do cp -v "$d" /build/dist/; done'
+
+# Build NSIS installer
+ARG PRODUCT_NAME="Xpad"
+ARG PRODUCT_VERSION="0.0.0"
+ARG COMPANY_NAME="Xpad Project"
+ARG INSTALL_SRC="/build/dist"
+
+COPY packaging/windows/xpad.nsi /src/packaging/windows/xpad.nsi
+
+RUN msys2 -c "mkdir -p /out && \
+    makensis -DPRODUCT_NAME=\"${PRODUCT_NAME}\" \
+             -DPRODUCT_VERSION=\"${PRODUCT_VERSION}\" \
+             -DCOMPANY_NAME=\"${COMPANY_NAME}\" \
+             -DINSTALL_SRC=\"${INSTALL_SRC}\" \
+             -DOUT_DIR=\"/out\" \
+             /src/packaging/windows/xpad.nsi && \
+    ls -al /out"
+
+FROM scratch AS artifact
+COPY --from=builder /out /out
+
+
+

@@ -5,6 +5,20 @@ AC_INIT([Xpad],[5.8.7],[xpad-hackers@lists.launchpad.net])
 AC_CONFIG_SRCDIR(src/xpad-app.c)
 AC_CONFIG_HEADERS([config.h:config.h.in])
 
+# Canonicalize host to detect target OS (e.g. mingw on Windows)
+AC_CANONICAL_HOST
+
+# Detect Windows (mingw/msys) and expose automake conditional
+case "$host_os" in
+  mingw*|msys*)
+    os_win32=yes
+    ;;
+  *)
+    os_win32=no
+    ;;
+esac
+AM_CONDITIONAL([OS_WIN32], [test "x$os_win32" = "xyes"])
+
 # Checks for programs.
 AC_USE_SYSTEM_EXTENSIONS
 AC_PROG_CC
@@ -15,7 +29,10 @@ AC_PROG_MAKE_SET
 AM_INIT_AUTOMAKE([1.9 gnu no-dist-gzip dist-bzip2])
 AM_BINRELOC
 
-AC_PATH_XTRA
+# Only check for X11 on non-Windows targets
+if test "x$os_win32" != "xyes"; then
+  AC_PATH_XTRA
+fi
 
 # Checks for GTK+ 3.0
 PKG_CHECK_MODULES(GTK, gtk+-3.0 >= 3.22 gio-2.0 >= 2.56)
@@ -68,6 +85,11 @@ AC_ARG_ENABLE(appindicator,
                         AS_HELP_STRING([--enable-appindicator[=@<:@no/auto/yes@:>@]],[Build support for application indicators ]),
                         [enable_appindicator=$enableval],
                         [enable_appindicator="auto"])
+
+# On Windows, disable AppIndicator by default (library not available)
+if test "x$os_win32" = "xyes"; then
+  enable_appindicator="no"
+fi
 
 if test x$enable_appindicator = xauto ; then
         PKG_CHECK_EXISTS([ayatana-appindicator3-0.1 >= $APPINDICATOR_REQUIRED],

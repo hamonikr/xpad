@@ -27,8 +27,10 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 #include "../config.h"
 
 #include <string.h>
+#ifndef G_OS_WIN32
 #include <sys/socket.h>
 #include <sys/un.h>
+#endif
 #include <stdio.h>
 #include <stdlib.h>
 #include <glib.h>
@@ -44,9 +46,10 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 #include "xpad-session-manager.h"
 #include "xpad-tray.h"
 
+/* Some systems require these defines; skip on Windows */
+#ifndef G_OS_WIN32
 /* Seems that some systems (sun-sparc-solaris2.8 at least), need the following three #defines.
-   These were provided by Alan Mizrahi <alan@cesma.usb.ve>.
-*/
+   These were provided by Alan Mizrahi <alan@cesma.usb.ve>. */
 #ifndef PF_LOCAL
 #define PF_LOCAL PF_UNIX
 #endif
@@ -57,6 +60,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 
 #ifndef SUN_LEN
 #define SUN_LEN(sunp) ((size_t)((struct sockaddr_un *)0)->sun_path + strlen((sunp)->sun_path))
+#endif
 #endif
 
 static gint xpad_argc;
@@ -94,7 +98,9 @@ static gboolean		xpad_app_open_proc_file     (void);
 static gboolean		xpad_app_cleanup_stale_resources (void);
 static gboolean		xpad_app_is_process_running (pid_t pid);
 static void enable_unix_signal_handlers();
+#ifndef G_OS_WIN32
 static void unix_signal_handler(int sig) __attribute__(( __noreturn__ ));
+#endif
 
 static void
 xpad_app_init (int argc, char **argv)
@@ -168,14 +174,16 @@ xpad_app_init (int argc, char **argv)
 
 	process_local_args (&xpad_argc, &xpad_argv);
 
-	/* Clean up stale resources from abnormal termination before checking for existing instance */
-	xpad_app_cleanup_stale_resources ();
+    /* Clean up stale resources from abnormal termination before checking for existing instance */
+#ifndef G_OS_WIN32
+    xpad_app_cleanup_stale_resources ();
 
-	if (xpad_app_pass_args ())
-		exit (0);
+    if (xpad_app_pass_args ())
+        exit (0);
 
-	/* Race condition here, between calls */
-	xpad_app_open_proc_file ();
+    /* Race condition here, between calls */
+    xpad_app_open_proc_file ();
+#endif
 
 	register_stock_icons ();
 	gtk_window_set_default_icon_name (PACKAGE);
@@ -214,8 +222,8 @@ xpad_app_init (int argc, char **argv)
 	guint autostart_delay;
 	g_object_get (settings, "autostart-delay", &autostart_delay, NULL);
 
-	if (autostart_delay)
-		sleep(autostart_delay);
+    if (autostart_delay)
+        g_usleep((gulong)autostart_delay * 1000000);
 
 	pad_group = xpad_pad_group_new();
 	process_remote_args (&xpad_argc, &xpad_argv, TRUE, settings);
@@ -260,31 +268,37 @@ xpad_app_init (int argc, char **argv)
 
 gint main (gint argc, gchar **argv)
 {
-	xpad_app_init (argc, argv);
-	enable_unix_signal_handlers();
-	gtk_main ();
+    xpad_app_init (argc, argv);
+    enable_unix_signal_handlers();
+    gtk_main ();
 
-	return 0;
+    return 0;
 }
 
 static void enable_unix_signal_handlers() {
-	signal(SIGINT, unix_signal_handler);
-	signal(SIGQUIT, unix_signal_handler);
-	signal(SIGTERM, unix_signal_handler);
+#ifndef G_OS_WIN32
+    signal(SIGINT, unix_signal_handler);
+    signal(SIGQUIT, unix_signal_handler);
+    signal(SIGTERM, unix_signal_handler);
+#else
+    /* no-op on Windows */
+#endif
 }
 
+#ifndef G_OS_WIN32
 static void unix_signal_handler(int sig)
 {
-	switch (sig) {
-		case SIGINT:
-		case SIGTERM:
-		case SIGQUIT:
-			xpad_app_quit();
-			break;
-	}
+    switch (sig) {
+        case SIGINT:
+        case SIGTERM:
+        case SIGQUIT:
+            xpad_app_quit();
+            break;
+    }
 
-	exit(EXIT_FAILURE);
+    exit(EXIT_FAILURE);
 }
+#endif
 
 /* parent and secondary may be NULL.
  * Returns when user dismisses error.
