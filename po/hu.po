@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xpad 2.11\n"
 "Report-Msgid-Bugs-To: xpad-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2025-08-08 11:39+0900\n"
+"POT-Creation-Date: 2025-08-13 14:47+0900\n"
 "PO-Revision-Date: 2015-02-28 16:30+0000\n"
 "Last-Translator: Gabor Kelemen <kelemeng@openscope.org>\n"
 "Language-Team: Hungarian <translation-team-hu@lists.sourceforge.net>\n"
@@ -41,24 +41,24 @@ msgstr ""
 msgid "Help"
 msgstr "Súgó"
 
-#: src/xpad-app.c:155
+#: src/xpad-app.c:161
 msgid "Xpad is a graphical program.  Please run it from your desktop."
 msgstr "Az Xpad egy grafikus program. Kérem futtassa az asztalról!"
 
-#: src/xpad-app.c:160 data/xpad.desktop.in:5 data/xpad.appdata.xml.in:5
+#: src/xpad-app.c:166 data/xpad.desktop.in:5 data/xpad.appdata.xml.in:5
 msgid "Xpad"
 msgstr "Xpad"
 
-#: src/xpad-app.c:303
+#: src/xpad-app.c:309
 msgid "_Ok"
 msgstr ""
 
-#: src/xpad-app.c:691
+#: src/xpad-app.c:701
 #, c-format
 msgid "Could not open directory %s."
 msgstr "Nem tudom megnyitni a %s könyvtárat."
 
-#: src/xpad-app.c:694
+#: src/xpad-app.c:704
 msgid ""
 "This directory is needed to store preference and pad information.  Xpad will "
 "close now."
@@ -66,43 +66,43 @@ msgstr ""
 "Ennek a könyvtárnak szüksége van arra, hogy eltárolja a tulajdonságokat és a "
 "jegyzet információit. Az Xpad most bezáródik."
 
-#: src/xpad-app.c:1038
+#: src/xpad-app.c:1048
 msgid "Show version number and quit"
 msgstr "Verziószám megjelenítése és kilépés"
 
-#: src/xpad-app.c:1039
+#: src/xpad-app.c:1049
 msgid "Don't create a new pad on startup if no previous pads exist"
 msgstr "Ne hozzon létre új jegyzetet indításkor ha az elõzõbõl nem léptünk ki"
 
-#: src/xpad-app.c:1045
+#: src/xpad-app.c:1055
 msgid "Create a new pad on startup even if pads already exist"
 msgstr "Indításkor hozzon létre új jegyzetet, akkor is, ha már van"
 
-#: src/xpad-app.c:1046 src/xpad-preferences.c:469
+#: src/xpad-app.c:1056 src/xpad-preferences.c:469
 msgid "Hide all pads"
 msgstr "Minden jegyzet rejtése"
 
-#: src/xpad-app.c:1047
+#: src/xpad-app.c:1057
 msgid "Show all pads"
 msgstr "Minden jegyzet mutatása"
 
-#: src/xpad-app.c:1048
+#: src/xpad-app.c:1058
 msgid "Toggle between show and hide all pads"
 msgstr "Váltás minden jegyzet mutatása és rejtése között"
 
-#: src/xpad-app.c:1049
+#: src/xpad-app.c:1059
 msgid "Create a new pad with the contents of a file"
 msgstr "Új jegyzet készítése a fájl tartalmával"
 
-#: src/xpad-app.c:1049
+#: src/xpad-app.c:1059
 msgid "FILE"
 msgstr "FÁJL"
 
-#: src/xpad-app.c:1050
+#: src/xpad-app.c:1060
 msgid "Close all pads"
 msgstr "Összes jegyzet bezárása"
 
-#: src/xpad-app.c:1081
+#: src/xpad-app.c:1091
 #, c-format
 msgid "Xpad %s"
 msgstr "Xpad %s"

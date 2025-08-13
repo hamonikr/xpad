@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xpad 2.11\n"
 "Report-Msgid-Bugs-To: xpad-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2025-08-08 11:39+0900\n"
+"POT-Creation-Date: 2025-08-13 14:47+0900\n"
 "PO-Revision-Date: 2013-10-12 08:23+0000\n"
 "Last-Translator: Clytie Siddall <clytie@riverland.net.au>\n"
 "Language-Team: Vietnamese <gnomevi-list@lists.sourceforge.net>\n"
@@ -42,66 +42,66 @@ msgstr ""
 msgid "Help"
 msgstr ""
 
-#: src/xpad-app.c:155
+#: src/xpad-app.c:161
 msgid "Xpad is a graphical program.  Please run it from your desktop."
 msgstr "Xpad là một chương trình đồ hoạ. Hãy chạy nó từ màn hình nền của bạn."
 
-#: src/xpad-app.c:160 data/xpad.desktop.in:5 data/xpad.appdata.xml.in:5
+#: src/xpad-app.c:166 data/xpad.desktop.in:5 data/xpad.appdata.xml.in:5
 msgid "Xpad"
 msgstr "Xpad"
 
-#: src/xpad-app.c:303
+#: src/xpad-app.c:309
 msgid "_Ok"
 msgstr ""
 
-#: src/xpad-app.c:691
+#: src/xpad-app.c:701
 #, c-format
 msgid "Could not open directory %s."
 msgstr "Không mở được thư mục %s"
 
-#: src/xpad-app.c:694
+#: src/xpad-app.c:704
 msgid ""
 "This directory is needed to store preference and pad information.  Xpad will "
 "close now."
 msgstr "Cần thư mục này để lưu tùy thích và dữ liệu. Xpad sẽ thoát bây giờ."
 
-#: src/xpad-app.c:1038
+#: src/xpad-app.c:1048
 msgid "Show version number and quit"
 msgstr "Hiển thị phiên bản rồi thoát"
 
-#: src/xpad-app.c:1039
+#: src/xpad-app.c:1049
 msgid "Don't create a new pad on startup if no previous pads exist"
 msgstr "Không tạo trang mới khi khởi động nếu chưa có trang nào."
 
-#: src/xpad-app.c:1045
+#: src/xpad-app.c:1055
 msgid "Create a new pad on startup even if pads already exist"
 msgstr "Tạo một trang mới khi khởi động, ngay cả khi đã có trang cũ."
 
-#: src/xpad-app.c:1046 src/xpad-preferences.c:469
+#: src/xpad-app.c:1056 src/xpad-preferences.c:469
 msgid "Hide all pads"
 msgstr ""
 
-#: src/xpad-app.c:1047
+#: src/xpad-app.c:1057
 msgid "Show all pads"
 msgstr ""
 
-#: src/xpad-app.c:1048
+#: src/xpad-app.c:1058
 msgid "Toggle between show and hide all pads"
 msgstr ""
 
-#: src/xpad-app.c:1049
+#: src/xpad-app.c:1059
 msgid "Create a new pad with the contents of a file"
 msgstr "Tạo một trang mới với nội dung của một tập tin"
 
-#: src/xpad-app.c:1049
+#: src/xpad-app.c:1059
 msgid "FILE"
 msgstr "TẬP TIN"
 
-#: src/xpad-app.c:1050
+#: src/xpad-app.c:1060
 msgid "Close all pads"
 msgstr "Đóng mọi trang"
 
-#: src/xpad-app.c:1081
+#: src/xpad-app.c:1091
 #, c-format
 msgid "Xpad %s"
 msgstr "Xpad %s"

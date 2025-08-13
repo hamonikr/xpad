@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xpad 1.13\n"
 "Report-Msgid-Bugs-To: xpad-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2025-08-08 11:39+0900\n"
+"POT-Creation-Date: 2025-08-13 14:47+0900\n"
 "PO-Revision-Date: 2021-05-11 14:46+0000\n"
 "Last-Translator: Arthur Borsboom <arthurborsboom@gmail.com>\n"
 "Language-Team: Afrikaans <i18n@af.org.za>\n"
@@ -44,25 +44,25 @@ msgstr "Toemaak"
 msgid "Help"
 msgstr "Hulp"
 
-#: src/xpad-app.c:155
+#: src/xpad-app.c:161
 msgid "Xpad is a graphical program.  Please run it from your desktop."
 msgstr ""
 "Xpad is 'n grafiese program. Hardloop dit asseblief vanaf jou werkskerm."
 
-#: src/xpad-app.c:160 data/xpad.desktop.in:5 data/xpad.appdata.xml.in:5
+#: src/xpad-app.c:166 data/xpad.desktop.in:5 data/xpad.appdata.xml.in:5
 msgid "Xpad"
 msgstr "Xpad"
 
-#: src/xpad-app.c:303
+#: src/xpad-app.c:309
 msgid "_Ok"
 msgstr "_Ok"
 
-#: src/xpad-app.c:691
+#: src/xpad-app.c:701
 #, c-format
 msgid "Could not open directory %s."
 msgstr "Kon nie gids %s oopmaak nie."
 
-#: src/xpad-app.c:694
+#: src/xpad-app.c:704
 msgid ""
 "This directory is needed to store preference and pad information.  Xpad will "
 "close now."
@@ -70,43 +70,43 @@ msgstr ""
 "Hierdie gids word benodig om voorkeure en boekie-inligting te stoor.  Xpad "
 "sal nou afsluit."
 
-#: src/xpad-app.c:1038
+#: src/xpad-app.c:1048
 msgid "Show version number and quit"
 msgstr "Wys weergawe nommer en quit"
 
-#: src/xpad-app.c:1039
+#: src/xpad-app.c:1049
 msgid "Don't create a new pad on startup if no previous pads exist"
 msgstr "Moenie 'n nuwe pad nie skep op opstart indien geen vorige pads bestaan"
 
-#: src/xpad-app.c:1045
+#: src/xpad-app.c:1055
 msgid "Create a new pad on startup even if pads already exist"
 msgstr "Skep 'n nuwe pad op opstart selfs al pads bestaan reeds"
 
-#: src/xpad-app.c:1046 src/xpad-preferences.c:469
+#: src/xpad-app.c:1056 src/xpad-preferences.c:469
 msgid "Hide all pads"
 msgstr "Steek alle pads"
 
-#: src/xpad-app.c:1047
+#: src/xpad-app.c:1057
 msgid "Show all pads"
 msgstr "Wys alle pads"
 
-#: src/xpad-app.c:1048
+#: src/xpad-app.c:1058
 msgid "Toggle between show and hide all pads"
 msgstr "Toggle tussen wys en versteek alle pads"
 
-#: src/xpad-app.c:1049
+#: src/xpad-app.c:1059
 msgid "Create a new pad with the contents of a file"
 msgstr "Skep 'n nuwe pad met die inhoud van 'n lêer"
 
-#: src/xpad-app.c:1049
+#: src/xpad-app.c:1059
 msgid "FILE"
 msgstr "LÊER"
 
-#: src/xpad-app.c:1050
+#: src/xpad-app.c:1060
 msgid "Close all pads"
 msgstr "Toemaak alle pads"
 
-#: src/xpad-app.c:1081
+#: src/xpad-app.c:1091
 #, c-format
 msgid "Xpad %s"
 msgstr "Xpad %s"

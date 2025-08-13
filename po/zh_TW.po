@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xpad 2.11\n"
 "Report-Msgid-Bugs-To: xpad-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2025-08-08 11:39+0900\n"
+"POT-Creation-Date: 2025-08-13 14:47+0900\n"
 "PO-Revision-Date: 2016-04-26 06:52+0000\n"
 "Last-Translator: zollac <kyle2160k@gmail.com>\n"
 "Language-Team: Chinese (traditional) <zh-l10n@linux.org.tw>\n"
@@ -41,66 +41,66 @@ msgstr ""
 msgid "Help"
 msgstr "幫助"
 
-#: src/xpad-app.c:155
+#: src/xpad-app.c:161
 msgid "Xpad is a graphical program.  Please run it from your desktop."
 msgstr "Xpad 是圖形介面程式。請從您的桌面來執行它。"
 
-#: src/xpad-app.c:160 data/xpad.desktop.in:5 data/xpad.appdata.xml.in:5
+#: src/xpad-app.c:166 data/xpad.desktop.in:5 data/xpad.appdata.xml.in:5
 msgid "Xpad"
 msgstr "Xpad"
 
-#: src/xpad-app.c:303
+#: src/xpad-app.c:309
 msgid "_Ok"
 msgstr ""
 
-#: src/xpad-app.c:691
+#: src/xpad-app.c:701
 #, c-format
 msgid "Could not open directory %s."
 msgstr "無法開啟字典 %s。"
 
-#: src/xpad-app.c:694
+#: src/xpad-app.c:704
 msgid ""
 "This directory is needed to store preference and pad information.  Xpad will "
 "close now."
 msgstr "需要此目錄以儲存偏好設定與便條資訊。Xpad 現在將會關閉。"
 
-#: src/xpad-app.c:1038
+#: src/xpad-app.c:1048
 msgid "Show version number and quit"
 msgstr "顯示版本號碼並離開"
 
-#: src/xpad-app.c:1039
+#: src/xpad-app.c:1049
 msgid "Don't create a new pad on startup if no previous pads exist"
 msgstr "如果不存在已有的便條，啟動時就不要建立新的便條"
 
-#: src/xpad-app.c:1045
+#: src/xpad-app.c:1055
 msgid "Create a new pad on startup even if pads already exist"
 msgstr "即使已經存在便條，啟動時也要建立新便條"
 
-#: src/xpad-app.c:1046 src/xpad-preferences.c:469
+#: src/xpad-app.c:1056 src/xpad-preferences.c:469
 msgid "Hide all pads"
 msgstr ""
 
-#: src/xpad-app.c:1047
+#: src/xpad-app.c:1057
 msgid "Show all pads"
 msgstr ""
 
-#: src/xpad-app.c:1048
+#: src/xpad-app.c:1058
 msgid "Toggle between show and hide all pads"
 msgstr ""
 
-#: src/xpad-app.c:1049
+#: src/xpad-app.c:1059
 msgid "Create a new pad with the contents of a file"
 msgstr "以某個檔案的內容來建立新便條"
 
-#: src/xpad-app.c:1049
+#: src/xpad-app.c:1059
 msgid "FILE"
 msgstr "檔案"
 
-#: src/xpad-app.c:1050
+#: src/xpad-app.c:1060
 msgid "Close all pads"
 msgstr "關閉所有便條"
 
-#: src/xpad-app.c:1081
+#: src/xpad-app.c:1091
 #, c-format
 msgid "Xpad %s"
 msgstr "Xpad %s"

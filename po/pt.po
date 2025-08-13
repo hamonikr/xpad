@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xpad\n"
 "Report-Msgid-Bugs-To: xpad-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2025-08-08 11:39+0900\n"
+"POT-Creation-Date: 2025-08-13 14:47+0900\n"
 "PO-Revision-Date: 2016-04-28 14:16+0000\n"
 "Last-Translator: Arthur Borsboom <arthurborsboom@gmail.com>\n"
 "Language-Team: Portuguese <pt@li.org>\n"
@@ -42,26 +42,26 @@ msgstr ""
 msgid "Help"
 msgstr "Ajuda"
 
-#: src/xpad-app.c:155
+#: src/xpad-app.c:161
 msgid "Xpad is a graphical program.  Please run it from your desktop."
 msgstr ""
 "O Xpad é um programa gráfico. Por favor execute-o do seu ambiente de "
 "trabalho."
 
-#: src/xpad-app.c:160 data/xpad.desktop.in:5 data/xpad.appdata.xml.in:5
+#: src/xpad-app.c:166 data/xpad.desktop.in:5 data/xpad.appdata.xml.in:5
 msgid "Xpad"
 msgstr "Xpad"
 
-#: src/xpad-app.c:303
+#: src/xpad-app.c:309
 msgid "_Ok"
 msgstr ""
 
-#: src/xpad-app.c:691
+#: src/xpad-app.c:701
 #, c-format
 msgid "Could not open directory %s."
 msgstr "Impossível abrir a pasta %s."
 
-#: src/xpad-app.c:694
+#: src/xpad-app.c:704
 msgid ""
 "This directory is needed to store preference and pad information.  Xpad will "
 "close now."
@@ -69,44 +69,44 @@ msgstr ""
 "Esta pasta é necessária para armazenar preferências e informação de painel. "
 "O Xpad irá fechar agora."
 
-#: src/xpad-app.c:1038
+#: src/xpad-app.c:1048
 msgid "Show version number and quit"
 msgstr "Mostrar numero da versão e sair."
 
-#: src/xpad-app.c:1039
+#: src/xpad-app.c:1049
 msgid "Don't create a new pad on startup if no previous pads exist"
 msgstr ""
 "Não criar um novo painel no arranque se não existia nenhum painel anteior."
 
-#: src/xpad-app.c:1045
+#: src/xpad-app.c:1055
 msgid "Create a new pad on startup even if pads already exist"
 msgstr "Criar um novo painel no arranque mesmo se já existiam paineis."
 
-#: src/xpad-app.c:1046 src/xpad-preferences.c:469
+#: src/xpad-app.c:1056 src/xpad-preferences.c:469
 msgid "Hide all pads"
 msgstr "Ocultar todos os paineis"
 
-#: src/xpad-app.c:1047
+#: src/xpad-app.c:1057
 msgid "Show all pads"
 msgstr "Mostrar todos os paineis."
 
-#: src/xpad-app.c:1048
+#: src/xpad-app.c:1058
 msgid "Toggle between show and hide all pads"
 msgstr "Alternar entre mostrar/ocultar todos os paineis"
 
-#: src/xpad-app.c:1049
+#: src/xpad-app.c:1059
 msgid "Create a new pad with the contents of a file"
 msgstr "Criar um novo painel com o conteudo de um ficheiro."
 
-#: src/xpad-app.c:1049
+#: src/xpad-app.c:1059
 msgid "FILE"
 msgstr "FICHEIRO"
 
-#: src/xpad-app.c:1050
+#: src/xpad-app.c:1060
 msgid "Close all pads"
 msgstr "Fechar todos os paineis."
 
-#: src/xpad-app.c:1081
+#: src/xpad-app.c:1091
 #, c-format
 msgid "Xpad %s"
 msgstr "Xpad %s"

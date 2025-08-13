@@ -34,6 +34,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 #include <glib.h>
 #include <glib/gi18n.h>
 #include <glib/gstdio.h>
+#include <unistd.h>
 
 #include "xpad-app.h"
 #include "fio.h"
@@ -95,6 +96,7 @@ static gboolean		xpad_app_cleanup_stale_resources (void);
 static gboolean		xpad_app_is_process_running (pid_t pid);
 static void enable_unix_signal_handlers();
 static void unix_signal_handler(int sig) __attribute__(( __noreturn__ ));
+static gchar *xpad_get_runtime_dir (void);
 
 static void
 xpad_app_init (int argc, char **argv)
@@ -140,8 +142,12 @@ xpad_app_init (int argc, char **argv)
 	}
 	g_free(config_file_path);
 
-	/* create master socket name */
-	server_filename = g_build_filename (xpad_app_get_config_dir (), "server", NULL);
+	/* create master socket name in local runtime directory (not synced) */
+	{
+		gchar *runtime_dir = xpad_get_runtime_dir ();
+		server_filename = g_build_filename (runtime_dir, "server", NULL);
+		g_free (runtime_dir);
+	}
 
 	if (!have_gtk)
 	{
@@ -331,9 +337,13 @@ xpad_app_set_config_dir (const gchar *new_dir)
 	/* Ensure the new directory exists */
 	g_mkdir_with_parents(config_dir, 0700);
 
-	/* Update server filename */
+	/* Update server filename to use local runtime directory (independent of data dir) */
 	g_free(server_filename);
-	server_filename = g_build_filename (xpad_app_get_config_dir (), "server", NULL);
+	{
+		gchar *runtime_dir = xpad_get_runtime_dir ();
+		server_filename = g_build_filename (runtime_dir, "server", NULL);
+		g_free (runtime_dir);
+	}
 
 	/* Close all existing pads */
 	xpad_pad_group_close_all(pad_group);
@@ -1257,4 +1267,26 @@ xpad_app_cleanup_stale_resources (void)
 	}
 	
 	return cleaned_up;
+}
+
+/* Determine a local, non-synced runtime directory for transient files */
+static gchar *
+xpad_get_runtime_dir (void)
+{
+	const gchar *xdg_runtime = g_get_user_runtime_dir ();
+	gchar *dir = NULL;
+
+	if (xdg_runtime && *xdg_runtime) {
+		dir = g_build_filename (xdg_runtime, PACKAGE, NULL);
+	} else {
+		/* Fallback to tmp with per-user subdir to avoid clashes */
+		const gchar *tmp = g_get_tmp_dir ();
+		gchar *user_subdir = g_strdup_printf ("%s-%u", PACKAGE, (unsigned) getuid());
+		dir = g_build_filename (tmp, user_subdir, NULL);
+		g_free (user_subdir);
+	}
+
+	/* Ensure directory exists with user-only permissions */
+	g_mkdir_with_parents (dir, 0700);
+	return dir;
 }
